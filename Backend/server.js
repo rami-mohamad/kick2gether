@@ -24,10 +24,10 @@ mongoose
   )
   .then(() => {
     console.log("Connection ok");
-  })
-  .catch((err) => {
-    console.log("connection failed", err);
   });
+// .catch((err) => {
+//   console.log("connection failed", err);
+// });
 
 // app.listen(process.env.DEV_SERVER_PORT, () => {
 //   console.log(`Server started at port ${process.env.DEV_SERVER_PORT}`);
