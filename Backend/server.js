@@ -32,9 +32,6 @@ mongoose
 app.listen(process.env.DEV_SERVER_PORT, () => {
   console.log(`Server started at port ${process.env.DEV_SERVER_PORT}`);
 });
-<<<<<<< HEAD
 
 console.log("reserved");
-=======
 console.log("rami");
->>>>>>> e10aa251e10cb24e6719991592cd3c71d2a86def
