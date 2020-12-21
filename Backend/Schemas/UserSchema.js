@@ -10,6 +10,10 @@ const UserSchema = new Schema({
     enum: ["user", "admin"],
     default: "user",
   },
+  confirmed: {
+    type: Boolean,
+    default: false,
+  },
 });
 
 module.exports = UserSchema;

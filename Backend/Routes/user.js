@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const User = require("../Models/UserModel");
 const bcrypt = require("bcrypt");
+const sendEmail = require("../Utils/SendEmailGrid");
 
 const jwtIssuer = require("../Utils/jwtIssuer");
 
@@ -32,6 +33,7 @@ router.post("/register", async (req, res) => {
       password: hashedPassword,
     });
     console.log(registerUser);
+    await sendEmail(req.body, "confirm");
     if (registerUser) {
       res
         .status(200)
@@ -41,5 +43,57 @@ router.post("/register", async (req, res) => {
     res.status(500).send({ success: false, message: error });
   }
 });
+/////Registration confirm
+router.get("/confirmation/:email/:password", async (req, res) => {
+  try {
+    const { email, password } = req.params;
+    const result = await bcrypt.compare(
+      process.env.CONFIRM_PASSWORD_SECRET,
+      password
+    );
+    console.log(result, email);
+
+    if (!result) {
+      throw "Wrong Confirmation Link";
+    }
+
+    const user = await User.findOneAndUpdate(
+      { email: email },
+      { confirmed: true }
+    );
+    if (!user) {
+      throw "With this email is no user registered";
+    }
+
+    res.send(`<h1>Registration confirmed, now you can login</h1>`);
+  } catch (error) {}
+});
+///Password Reset  //user/reset
+router.post("/reset", async (req, res) => {
+  try {
+    const email = req.body.email;
+    const user = await User.findOne({ email: email });
+    if (!user) {
+      throw "With this email is no user registered";
+    }
+    console.log(user);
+
+    await sendEmail(req.body, "reset");
+
+    ////
+
+    res.send(`<h1>Reset Link sendet, please check your email</h1>`);
+  } catch (error) {
+    res.status(500).send({ success: false, message: error });
+  }
+});
+
+/////Password reset End
+////Password reset confirm
+
+/////
+//////////Login
+
+/////////////Login End
 
 module.exports = router;
