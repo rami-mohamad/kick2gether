@@ -42,4 +42,24 @@ router.post("/register", async (req, res) => {
   }
 });
 
+// Login User
+router.post("/login", async (req, res) => {
+  try {
+    const { email, password } = req.body; // frontend data
+    let user = await User.findOne({ email });
+    if (!user) {
+      return res
+        .status(400)
+        .send({ success: false, message: "you have to Register at first" });
+    }
+    const matched = await bcrypt.compare(password, user.password); // proof if password is correct
+    if (!matched || !user.confirmed) {
+      return res.status(400).send({ message: "invalid email or password" });
+    }
+    res.status(200).send({ message: "user is login" });
+  } catch (error) {
+    res.status(500).send({ success: false, message: error });
+  }
+});
+
 module.exports = router;
