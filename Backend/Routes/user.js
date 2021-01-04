@@ -113,7 +113,4 @@ router.post("/login", async (req, res) => {
 });
 /////////////Login End
 
-
-
-
 module.exports = router;
