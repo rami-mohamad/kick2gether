@@ -108,9 +108,16 @@ router.post("/login", async (req, res) => {
         .status(400)
         .send({ success: false, message: "you have to Register at first" });
     }
+
     const matched = await bcrypt.compare(password, user.password); // proof if password is correct
     if (!matched || !user.confirmed) {
-      return res.status(400).send({ message: "invalid email or password" });
+      return res
+        .status(400)
+        .send(
+          !user.confirmed
+            ? { message: "not confirmed email" }
+            : { message: "invalid email or password" }
+        );
     }
     const token = jwtIssuer(user);
     res
