@@ -35,8 +35,14 @@ router.post("/register", async (req, res) => {
     console.log(registerUser);
     await sendEmail(req.body, "confirm");
     if (registerUser) {
+      const token = jwtIssuer(registerUser);
       res
         .status(200)
+        .cookie("jwt", token, {
+          httpOnly: true,
+          secure: false,
+          sameSite: "lax",
+        })
         .send({ success: true, message: "The User is Registered" });
     }
   } catch (error) {
@@ -106,7 +112,15 @@ router.post("/login", async (req, res) => {
     if (!matched || !user.confirmed) {
       return res.status(400).send({ message: "invalid email or password" });
     }
-    res.status(200).send({ message: "user is login" });
+    const token = jwtIssuer(user);
+    res
+      .status(200)
+      .cookie("jwt", token, {
+        httpOnly: true,
+        secure: false,
+        sameSite: "lax",
+      })
+      .send({ message: "user is login" });
   } catch (error) {
     res.status(500).send({ success: false, message: error });
   }
