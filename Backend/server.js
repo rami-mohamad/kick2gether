@@ -8,6 +8,9 @@ const mongoose = require("mongoose");
 
 const userRouter = require("./Routes/user");
 
+const Order = require("./Models/OrderModel");
+const Field = require("./Models/FieldModel");
+
 ////Middleware
 
 ///Use Section
@@ -34,3 +37,19 @@ mongoose
 app.listen(process.env.DEV_SERVER_PORT, () => {
   console.log(`Server started at port ${process.env.DEV_SERVER_PORT}`);
 });
+
+void (async function testOrder() {
+  await Order.create({
+    userId: mongoose.Types.ObjectId("5ff592ee78780653aceea83c"),
+    date: new Date().getTime(),
+    bookedHours: 3,
+    numberOfPersons: 2,
+    tshirt: ["M", "M"],
+    shoes: [40, 42],
+    towels: 2,
+  });
+
+  await Field.create({
+    name: "asdsad",
+  });
+})();
