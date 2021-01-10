@@ -5,7 +5,9 @@ const bcrypt = require("bcrypt");
 const sendEmail = require("../Utils/SendEmailGrid");
 
 const jwtIssuer = require("../Utils/jwtIssuer");
-
+const passport = require("passport");
+const configurePassport = require("../Utils/passport-config.js");
+configurePassport(passport);
 router.get("/", (req, res) => {
   res.send("Inside user route");
 });
@@ -102,7 +104,7 @@ router.post("/reset", async (req, res) => {
 router.post("/login", async (req, res) => {
   try {
     const { email, password } = req.body; // frontend data
-    let user = await User.findOne({ email });
+    const user = await User.findOne({ email });
     if (!user) {
       return res
         .status(400)
@@ -113,6 +115,7 @@ router.post("/login", async (req, res) => {
       return res.status(400).send({ message: "invalid email or password" });
     }
     const token = jwtIssuer(user);
+    console.log(token);
     res
       .status(200)
       .cookie("jwt", token, {
@@ -120,11 +123,23 @@ router.post("/login", async (req, res) => {
         secure: false,
         sameSite: "lax",
       })
-      .send({ message: "user is login" });
+      .send({ message: "user is login", user });
   } catch (error) {
     res.status(500).send({ success: false, message: error });
   }
 });
 /////////////Login End
+/////////// Dashboard
+router.get(
+  "/dashboard",
+  passport.authenticate("jwt", {
+    session: false,
+    failureRedirect: "login", // this is to redirect to login if no loggedin user
+  }),
+  (req, res) => {
+    res.send(req.user);
+  }
+);
+////////// Dashboard End
 // Hi Everyone!12345
 module.exports = router;

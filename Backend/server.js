@@ -1,18 +1,22 @@
 const express = require("express");
 const app = express();
 const cors = require("cors");
+const cookieParser = require("cookie-parser");
 require("dotenv").config(); //Have to be before route import
 
 const mongoose = require("mongoose");
 
 const userRouter = require("./Routes/user");
+const passport = require("passport");
 
 ////Middleware
 
 ///Use Section
 app.use(express.json());
 app.use(cors());
+app.use(cookieParser());
 app.use("/user", userRouter);
+app.use(passport.initialize());
 
 //Mongoose Connection
 
