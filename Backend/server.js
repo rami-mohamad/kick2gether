@@ -7,9 +7,9 @@ require("dotenv").config(); //Have to be before route import
 const mongoose = require("mongoose");
 
 const userRouter = require("./Routes/user");
-
+const bookingRouter = require("./Routes/booking");
 const Order = require("./Models/OrderModel");
-const Field = require("./Models/FieldModel");
+const Fields = require("./Models/FieldsModel");
 
 ////Middleware
 
@@ -17,6 +17,7 @@ const Field = require("./Models/FieldModel");
 app.use(express.json());
 app.use(cors());
 app.use("/user", userRouter);
+app.use("/booking", bookingRouter);
 
 //Mongoose Connection
 
@@ -38,18 +39,65 @@ app.listen(process.env.DEV_SERVER_PORT, () => {
   console.log(`Server started at port ${process.env.DEV_SERVER_PORT}`);
 });
 
-void (async function testOrder() {
-  await Order.create({
-    userId: mongoose.Types.ObjectId("5ff592ee78780653aceea83c"),
-    date: new Date().getTime(),
-    bookedHours: 3,
-    numberOfPersons: 2,
-    tshirt: ["M", "M"],
-    shoes: [40, 42],
-    towels: 2,
-  });
+console.log(typeof date);
 
-  await Field.create({
-    name: "asdsad",
-  });
-})();
+// void (async function createFields() {
+//   const date = new Date();
+
+//   // add a day
+//   date.setDate(date.getDate() + 4);
+//   const day = +date.toISOString().slice(8, 10);
+//   const month = +date.toISOString().slice(5, 7);
+//   console.log(day);
+//   console.log(month);
+
+//   await Fields.create({
+//     date: { day: day, month: month },
+//     fields: {
+//       1: [
+//         [[], [], [], [], [], [], [], [], [], []],
+//         [[], [], [], [], [], [], [], [], [], []],
+//         [[], [], [], [], [], [], [], [], [], []],
+//         [[], [], [], [], [], [], [], [], [], []],
+//         [[], [], [], [], [], [], [], [], [], []],
+//         [[], [], [], [], [], [], [], [], [], []],
+//         [[], [], [], [], [], [], [], [], [], []],
+//         [[], [], [], [], [], [], [], [], [], []],
+//         [[], [], [], [], [], [], [], [], [], []],
+//       ],
+//       2: [
+//         [[], [], [], [], [], [], [], [], [], []],
+//         [[], [], [], [], [], [], [], [], [], []],
+//         [[], [], [], [], [], [], [], [], [], []],
+//         [[], [], [], [], [], [], [], [], [], []],
+//         [[], [], [], [], [], [], [], [], [], []],
+//         [[], [], [], [], [], [], [], [], [], []],
+//         [[], [], [], [], [], [], [], [], [], []],
+//         [[], [], [], [], [], [], [], [], [], []],
+//         [[], [], [], [], [], [], [], [], [], []],
+//       ],
+//       3: [
+//         [[], [], [], [], [], [], [], [], [], []],
+//         [[], [], [], [], [], [], [], [], [], []],
+//         [[], [], [], [], [], [], [], [], [], []],
+//         [[], [], [], [], [], [], [], [], [], []],
+//         [[], [], [], [], [], [], [], [], [], []],
+//         [[], [], [], [], [], [], [], [], [], []],
+//         [[], [], [], [], [], [], [], [], [], []],
+//         [[], [], [], [], [], [], [], [], [], []],
+//         [[], [], [], [], [], [], [], [], [], []],
+//       ],
+//       4: [
+//         [[], [], [], [], [], [], [], [], [], []],
+//         [[], [], [], [], [], [], [], [], [], []],
+//         [[], [], [], [], [], [], [], [], [], []],
+//         [[], [], [], [], [], [], [], [], [], []],
+//         [[], [], [], [], [], [], [], [], [], []],
+//         [[], [], [], [], [], [], [], [], [], []],
+//         [[], [], [], [], [], [], [], [], [], []],
+//         [[], [], [], [], [], [], [], [], [], []],
+//         [[], [], [], [], [], [], [], [], [], []],
+//       ],
+//     },
+//   });
+//})();
