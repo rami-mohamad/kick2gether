@@ -5,8 +5,8 @@ const isSameOrBefore = require("dayjs/plugin/isSameOrBefore");
 const { Schema } = mongoose;
 
 const BookingSchema = new Schema({
-  field: { type: mongoose.Types.ObjectId, ref: "field" },
-  user: { type: mongoose.Types.ObjectId, ref: "user" },
+  field: { type: mongoose.Types.ObjectId, ref: "fields" },
+  user: { type: mongoose.Types.ObjectId, ref: "users" },
   startTime: {
     type: Date,
     validate: {

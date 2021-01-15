@@ -1,6 +1,6 @@
-const mongoose = require("mongoose");
-const FieldsSchema = require("../Schemas/FieldsSchema");
+// const mongoose = require("mongoose");
+// const FieldsSchema = require("../Schemas/FieldsSchema");
 
-const FieldsModel = mongoose.model("field", FieldsSchema);
+// const FieldsModel = mongoose.model("field", FieldsSchema);
 
-module.exports = FieldsModel;
+// module.exports = FieldsModel;

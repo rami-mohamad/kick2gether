@@ -7,7 +7,7 @@ require("dotenv").config(); //Have to be before route import
 const mongoose = require("mongoose");
 
 const userRouter = require("./Routes/user");
-const bookingRouter = require("./Routes/booking");
+const bookingRouter = require("./Routes/bookingF");
 const Order = require("./Models/OrderModel");
 const Fields = require("./Models/FieldsModel");
 
@@ -45,7 +45,7 @@ console.log(typeof date);
 //   const date = new Date();
 
 //   // add a day
-//   date.setDate(date.getDate() + 4);
+//   date.setDate(date.getDate() + 6);
 //   const day = +date.toISOString().slice(8, 10);
 //   const month = +date.toISOString().slice(5, 7);
 //   console.log(day);
@@ -100,4 +100,4 @@ console.log(typeof date);
 //       ],
 //     },
 //   });
-//})();
+// })();
