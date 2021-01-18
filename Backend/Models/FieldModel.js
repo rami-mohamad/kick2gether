@@ -1,8 +1,5 @@
 const mongoose = require("mongoose");
-
-const FieldSchema = new mongoose.Schema({
-  name: String,
-});
+const FieldSchema = require("../Schemas/FieldsSchema");
 
 const FieldModel = mongoose.model("fields", FieldSchema);
 
