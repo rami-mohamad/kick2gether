@@ -12,7 +12,9 @@ function configurePassport(passport) {
         secretOrKey: process.env.SECRET,
       },
       async (payload, done) => {
-        const findUser = await User.findById(payload.sub).select("-password");
+        const findUser = await User.findById(payload.sub)
+          .select("-password")
+          .select("-confirmed");
 
         if (findUser) {
           console.log("findUser=", findUser);
