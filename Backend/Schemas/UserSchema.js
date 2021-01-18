@@ -3,8 +3,13 @@ const { Schema } = mongoose;
 
 const UserSchema = new Schema({
   name: String,
-  email: { type: String, required: true },
+  email: { type: String, required: true, unique: true }, //unique is make warning
   password: { type: String, required: true },
+  nickname: {
+    type: String,
+    required: false,
+    default: `Player${Math.floor(Math.random() * 100) + 1}`,
+  },
   role: {
     type: String,
     enum: ["user", "admin"],
