@@ -1,7 +1,7 @@
 const dayjs = require("dayjs");
-const Field = require("../Models/FieldModelF");
+const Field = require("../Models/FieldModel");
 const User = require("../Models/UserModel");
-const Booking = require("../Models/BookingModelF");
+const Booking = require("../Models/BookingModel");
 const isSameOrBefore = require("dayjs/plugin/isSameOrBefore");
 
 module.exports = {

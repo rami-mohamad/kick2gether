@@ -8,8 +8,6 @@ const mongoose = require("mongoose");
 
 const userRouter = require("./Routes/user");
 const bookingRouter = require("./Routes/bookingF");
-const Order = require("./Models/OrderModel");
-const Fields = require("./Models/FieldsModel");
 
 ////Middleware
 

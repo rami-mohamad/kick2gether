@@ -4,8 +4,8 @@ const mongoose = require("mongoose");
 const router = express.Router();
 
 const User = require("../Models/UserModel");
-const Field = require("../Models/FieldModelF");
-const Booking = require("../Models/BookingModelF");
+const Field = require("../Models/FieldModel");
+const Booking = require("../Models/BookingModel");
 const { findFreeSlots, findFreeSlotsRange } = require("../Utils/fieldLogic");
 const dayjs = require("dayjs");
 const isSameOrBefore = require("dayjs/plugin/isSameOrBefore");
