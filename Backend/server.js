@@ -8,6 +8,7 @@ require("dotenv").config(); //Have to be before route import
 const mongoose = require("mongoose");
 
 const userRouter = require("./Routes/user");
+const bookingRouter = require("./Routes/bookingF");
 const passport = require("passport");
 
 const Order = require("./Models/OrderModel");
@@ -20,6 +21,7 @@ app.use(express.json());
 app.use(cors());
 app.use(cookieParser());
 app.use("/user", userRouter);
+app.use("/booking", bookingRouter);
 app.use(passport.initialize());
 
 //Mongoose Connection

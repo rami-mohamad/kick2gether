@@ -1,6 +1,9 @@
 const mongoose = require("mongoose");
-const FieldSchema = require("../Schemas/FieldSchema");
 
-const FieldModel = mongoose.model("field", FieldSchema);
+const FieldSchema = new mongoose.Schema({
+  name: String,
+});
+
+const FieldModel = mongoose.model("fields", FieldSchema);
 
 module.exports = FieldModel;
