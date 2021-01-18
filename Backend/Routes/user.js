@@ -204,6 +204,7 @@ router.post("/login", async (req, res) => {
   }
 });
 /////////////Login End
+
 /////////// Dashboard
 router.get(
   "/dashboard",
@@ -310,6 +311,7 @@ router.get("/logout", (req, res) => {
   res.clearCookie("jwt").redirect("/login");
 });
 //// logout end
-// Hi Everyone!12345
+
+
 
 module.exports = router;
