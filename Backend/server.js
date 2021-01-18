@@ -11,9 +11,6 @@ const userRouter = require("./Routes/user");
 const bookingRouter = require("./Routes/bookingF");
 const passport = require("passport");
 
-const Order = require("./Models/OrderModel");
-const Field = require("./Models/FieldModel");
-
 ////Middleware
 
 ///Use Section
