@@ -1,11 +1,82 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Container, Row, Col } from "reactstrap";
 import "./Fields.scss";
+import axios from "axios";
+import Field from "../Field";
 
 function Fields() {
+  const [choosed, setChoosed] = useState("");
+  const [date, setDate] = useState("2021-02-19");
+  const [daySlots, setDaySlots] = useState({});
+  useEffect(() => {
+    try {
+      console.log("date changed");
+
+      getSlots();
+    } catch (error) {}
+  }, [date]);
+
+  ///////////
+  const getSlots = async () => {
+    const dateWrapper = { date: date };
+
+    const daySlots = await axios.post(
+      "http://localhost:4000/booking/search",
+      dateWrapper
+    );
+    console.log(daySlots.data);
+    setDaySlots(daySlots.data);
+  };
+  const registerSubmitHandler = async (e) => {
+    e.preventDefault();
+    const myFormData = new FormData(e.target);
+    const formData = myFormData.entries();
+    const data = {};
+
+    for (const pair of formData) {
+      const [key, value] = pair;
+      data[key] = value;
+    }
+
+    console.log(data);
+
+    // await axios
+    //   .post(
+    //     "http://localhost:3002/user/register",
+    //     data /* , { withCredentials: true } */
+    //   )
+    //   .then((res) => {
+    //     console.log(res.data.message);
+
+    //     /* saveJwt(res.data.body.token);
+    //     console.log(res.data.body.token); */
+    //     history.push("/login");
+    //   })
+  };
+  ////////////
+  const dataHandler = (e) => {
+    console.log(e.target.value);
+    const date = e.target.value;
+    setDate(date);
+  };
+  ////
+  const inputChangeHandler = (e) => {
+    e.preventDefault();
+    const myFormData = new FormData(e.target);
+    const formData = myFormData.entries();
+    const data = {};
+
+    for (const pair of formData) {
+      const [key, value] = pair;
+      data[key] = value;
+    }
+
+    console.log(data);
+  };
+  ///
   return (
     <div className="booking">
-      <form action="/action_page.php">
+      <form onSubmit={registerSubmitHandler} action="/action_page.php">
         <label className="label" htmlFor="users">
           Number of persons
         </label>
@@ -21,17 +92,19 @@ function Fields() {
           Date
         </label>
         <input
+          onChange={dataHandler}
           id="date"
           type="date"
           className="calender"
           placeholder="Choose date"
           min="2021-01-22"
           max="2021-04-25"
+          name="date"
         ></input>
         <label className="label" htmlFor="startHour">
           Start Hour
         </label>
-        <select id="startHour" className="users" name="users">
+        <select id="startHour" className="users" name="startHour">
           <option value="14:00">14:00</option>
           <option value="15:00">15:00</option>
           <option value="16:00">16:00</option>
@@ -40,7 +113,7 @@ function Fields() {
         <label className="label" htmlFor="hoursQuantity">
           Hours Quantity
         </label>
-        <select id="hoursQuantity" className="users" name="users">
+        <select id="hoursQuantity" className="users" name="hoursQuantity">
           <option value="1">1</option>
           <option value="2">2</option>
           <option value="3">3</option>
@@ -60,7 +133,9 @@ function Fields() {
           type="submit"
           value="book here"
         ></input>
+        <div className="users">{date}</div>
       </form>
+      <Field blocked={8} field={2}></Field>
     </div>
   );
 }

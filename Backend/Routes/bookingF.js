@@ -13,7 +13,7 @@ dayjs.extend(isSameOrBefore);
 
 //response for all day
 
-router.get("/search/", async function (req, res) {
+router.post("/search/", async function (req, res) {
   console.log(req.body);
   const startTime = new Date(req.body.date);
 
