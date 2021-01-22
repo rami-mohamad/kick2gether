@@ -27,7 +27,7 @@ function Fields() {
     console.log(daySlots.data);
     setDaySlots(daySlots.data);
   };
-  const registerSubmitHandler = async (e) => {
+  const bookingSubmitHandler = async (e) => {
     e.preventDefault();
     const myFormData = new FormData(e.target);
     const formData = myFormData.entries();
@@ -39,19 +39,6 @@ function Fields() {
     }
 
     console.log(data);
-
-    // await axios
-    //   .post(
-    //     "http://localhost:3002/user/register",
-    //     data /* , { withCredentials: true } */
-    //   )
-    //   .then((res) => {
-    //     console.log(res.data.message);
-
-    //     /* saveJwt(res.data.body.token);
-    //     console.log(res.data.body.token); */
-    //     history.push("/login");
-    //   })
   };
   ////////////
   const dataHandler = (e) => {
@@ -76,7 +63,7 @@ function Fields() {
   ///
   return (
     <div className="booking">
-      <form onSubmit={registerSubmitHandler} action="/action_page.php">
+      <form onSubmit={bookingSubmitHandler} action="/action_page.php">
         <label className="label" htmlFor="users">
           Number of persons
         </label>
@@ -135,7 +122,11 @@ function Fields() {
         ></input>
         <div className="users">{date}</div>
       </form>
+
+      <Field blocked={2} field={1}></Field>
       <Field blocked={8} field={2}></Field>
+      <Field blocked={3} field={3}></Field>
+      <Field blocked={10} field={4}></Field>
     </div>
   );
 }

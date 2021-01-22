@@ -16,6 +16,38 @@
     background: url("../../Media/Images/Booking/Filed_4.png");
   }
 }
+.bookedOut {
+  opacity: 50%;
+}
+.bookedPlayers {
+  display: flex;
+  width: 172px;
+  height: 48px;
+  background: #c4c4c4;
+  border-radius: 10px;
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 35px;
+  line-height: 36px;
+
+  //display: flex;
+  justify-content: center;
+  align-items: center;
+  letter-spacing: 0.25px;
+  color: #000000;
+  margin: 16px;
+  &_full {
+    color: #f81111;
+  }
+}
+.flexCenter {
+  width: 470px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 .userCircle {
   display: block;
   position: absolute;
