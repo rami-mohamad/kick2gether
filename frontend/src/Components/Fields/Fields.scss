@@ -38,6 +38,9 @@ top: 340px; */
     font-size: 16px;
     line-height: 19px;
   }
+  &:focus {
+    background: #dadada;
+  }
 }
 .bookingButton {
   height: 90px;
@@ -92,4 +95,31 @@ top: 340px; */
   background-position: center;
   background-repeat: no-repeat;
   margin: 0 auto;
+  margin-top: 70px;
+}
+
+.userInfo {
+  display: flex;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  margin-left: 60px;
+
+  color: #000000;
+
+  &_circle {
+    display: block;
+    height: 16px;
+    width: 16px;
+    margin-right: 25px;
+
+    background-color: white;
+    border-radius: 50%;
+    border: 2px solid #858585;
+    &_red {
+      background-color: #f81111;
+    }
+  }
 }

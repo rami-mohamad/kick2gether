@@ -72,60 +72,123 @@ function Fields() {
   ///
   return (
     <div className="booking">
-      <div className="progressBar0"></div>
-      <form onSubmit={bookingSubmitHandler} action="/action_page.php">
-        <select id="users" className="users" name="users">
-          <option className="users" value="1">
-            User_Name
-          </option>
-          <option value="2">User_Name + 1</option>
-          <option value="3">User_Name + 2</option>
-          <option value="4">User_Name + 3</option>
-        </select>
+      <Container>
+        <Row>
+          <Col>
+            <div className="progressBar0"></div>
+          </Col>
+        </Row>
+        <form onSubmit={bookingSubmitHandler} action="/action_page.php">
+          <Row style={{ marginTop: "90px" }}>
+            <Col style={{ alignItems: "center", display: "flex" }}>
+              <select id="users" className="users" name="users">
+                <option className="users" value="1">
+                  User_Name
+                </option>
+                <option value="2">User_Name + 1</option>
+                <option value="3">User_Name + 2</option>
+                <option value="4">User_Name + 3</option>
+              </select>
+            </Col>
 
-        <input
-          onChange={dataHandler}
-          id="date"
-          type="date"
-          className="calender"
-          placeholder="Choose date"
-          min={minDate}
-          max={maxDate}
-          name="date"
-        ></input>
+            <Col style={{ alignItems: "center", display: "flex" }}>
+              <input
+                onChange={dataHandler}
+                id="date"
+                type="date"
+                className="calender"
+                placeholder="Choose date"
+                min={minDate}
+                max={maxDate}
+                name="date"
+                defaultValue={minDate}
+              ></input>
+            </Col>
 
-        <select id="startHour" className="users" name="startHour">
-          <option value="14:00">14:00</option>
-          <option value="15:00">15:00</option>
-          <option value="16:00">16:00</option>
-          <option value="17:00">17:00</option>
-        </select>
+            <Col style={{ alignItems: "center", display: "flex" }}>
+              <select id="startHour" className="users" name="startHour">
+                <option value="14:00">14:00</option>
+                <option value="15:00">15:00</option>
+                <option value="16:00">16:00</option>
+                <option value="17:00">17:00</option>
+              </select>
+            </Col>
+            <Col style={{ alignItems: "center", display: "flex" }}>
+              <input
+                className="bookingButton"
+                type="submit"
+                value="book here"
+              ></input>
+            </Col>
+          </Row>
 
-        <select id="hoursQuantity" className="users" name="hoursQuantity">
-          <option value="1">Book for 1 Hour</option>
-          <option value="2">Book for 2 Hour</option>
-          <option value="3">Book for 3 Hour</option>
-          <option value="4">Book for 4 Hour</option>
-        </select>
+          <Row>
+            {/* <Col style={{ width: "170px" }}></Col>
+            <Col style={{ width: "396px" }}></Col> */}
+            <Col sm={{ size: "auto", offset: 7 }}>
+              <select id="hoursQuantity" className="users" name="hoursQuantity">
+                <option value="1">Book for 1 Hour</option>
+                <option value="2">Book for 2 Hour</option>
+                <option value="3">Book for 3 Hour</option>
+                <option value="4">Book for 4 Hour</option>
+              </select>
+            </Col>
 
-        <select id="field" className="users" name="field">
-          <option value="1">Field 1</option>
-          <option value="2">Field 2</option>
-          <option value="3">Field 3</option>
-          <option value="4">Field 4</option>
-        </select>
-        <input
-          className="bookingButton"
-          type="submit"
-          value="book here"
-        ></input>
-        <div className="users">{date}</div>
-      </form>
+            <Col
+              style={{
+                alignItems: "center",
+                display: "flex",
+                marginLeft: "60px",
+              }}
+            ></Col>
+          </Row>
 
-      <Field blocked={2} field={1}></Field>
-      <Field blocked={8} field={2}></Field>
-      <Field blocked={3} field={3}></Field>
-      <Field blocked={10} field={4}></Field>
+          <Row>
+            <Col sm={{ size: "auto", offset: 7 }} style={{ marginTop: "16px" }}>
+              <select id="field" className="users" name="field">
+                <option value="1">Field 1</option>
+                <option value="2">Field 2</option>
+                <option value="3">Field 3</option>
+                <option value="4">Field 4</option>
+              </select>
+            </Col>
+
+            <Col style={{ alignItems: "center", display: "flex" }}>
+              <div>
+                <div className="userInfo">
+                  <div className="userInfo_circle"></div>
+                  <div>Empty</div>
+                </div>
+                <div className="userInfo" style={{ marginTop: "13px" }}>
+                  <div className="userInfo_circle userInfo_circle_red"></div>
+                  <div>Booked</div>
+                </div>
+                <div className="userInfo" style={{ marginTop: "13px" }}>
+                  <div>* Randomly picked positions for the players</div>
+                </div>
+              </div>
+            </Col>
+          </Row>
+
+          <div className="users">{date}</div>
+        </form>
+        <Row>
+          <Col>
+            <Field blocked={2} field={1}></Field>
+          </Col>
+          <Col style={{ justifyContent: "flex-end", display: "flex" }}>
+            <Field blocked={8} field={2}></Field>
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <Field blocked={3} field={3}></Field>
+          </Col>
+          <Col style={{ justifyContent: "flex-end", display: "flex" }}>
+            <Field blocked={10} field={4}></Field>
+          </Col>
+        </Row>
+      </Container>
     </div>
   );
 }
