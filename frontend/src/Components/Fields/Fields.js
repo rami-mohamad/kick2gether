@@ -8,6 +8,15 @@ function Fields() {
   const [choosed, setChoosed] = useState("");
   const [date, setDate] = useState("2021-02-19");
   const [daySlots, setDaySlots] = useState({});
+
+  //Booking only for 90 Days logic
+  const today = new Date();
+  const minDate = today.toISOString().slice(0, 10);
+  const add90Days = new Date(today.setDate(today.getDate() + 90));
+  const maxDate = add90Days.toISOString().slice(0, 10);
+  console.log(minDate, maxDate);
+  //// 90 Days booking end
+
   useEffect(() => {
     try {
       console.log("date changed");
@@ -63,10 +72,8 @@ function Fields() {
   ///
   return (
     <div className="booking">
+      <div className="progressBar0"></div>
       <form onSubmit={bookingSubmitHandler} action="/action_page.php">
-        <label className="label" htmlFor="users">
-          Number of persons
-        </label>
         <select id="users" className="users" name="users">
           <option className="users" value="1">
             User_Name
@@ -75,45 +82,37 @@ function Fields() {
           <option value="3">User_Name + 2</option>
           <option value="4">User_Name + 3</option>
         </select>
-        <label className="label" htmlFor="date">
-          Date
-        </label>
+
         <input
           onChange={dataHandler}
           id="date"
           type="date"
           className="calender"
           placeholder="Choose date"
-          min="2021-01-22"
-          max="2021-04-25"
+          min={minDate}
+          max={maxDate}
           name="date"
         ></input>
-        <label className="label" htmlFor="startHour">
-          Start Hour
-        </label>
+
         <select id="startHour" className="users" name="startHour">
           <option value="14:00">14:00</option>
           <option value="15:00">15:00</option>
           <option value="16:00">16:00</option>
           <option value="17:00">17:00</option>
         </select>
-        <label className="label" htmlFor="hoursQuantity">
-          Hours Quantity
-        </label>
+
         <select id="hoursQuantity" className="users" name="hoursQuantity">
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
+          <option value="1">Book for 1 Hour</option>
+          <option value="2">Book for 2 Hour</option>
+          <option value="3">Book for 3 Hour</option>
+          <option value="4">Book for 4 Hour</option>
         </select>
-        <label className="label" htmlFor="field">
-          Field
-        </label>
+
         <select id="field" className="users" name="field">
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
+          <option value="1">Field 1</option>
+          <option value="2">Field 2</option>
+          <option value="3">Field 3</option>
+          <option value="4">Field 4</option>
         </select>
         <input
           className="bookingButton"
