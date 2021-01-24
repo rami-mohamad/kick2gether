@@ -5,10 +5,6 @@ import axios from "axios";
 import Field from "../Field";
 
 function Fields() {
-  const [choosed, setChoosed] = useState("");
-  const [date, setDate] = useState("2021-02-19");
-  const [daySlots, setDaySlots] = useState({});
-
   //Booking only for 90 Days logic
   const today = new Date();
   const minDate = today.toISOString().slice(0, 10);
@@ -17,6 +13,14 @@ function Fields() {
   console.log(minDate, maxDate);
   //// 90 Days booking end
 
+  //My states
+  const [choosed, setChoosed] = useState({});
+  const [date, setDate] = useState(minDate);
+  const [daySlots, setDaySlots] = useState({});
+  const [fieldInfo, setFieldInfo] = useState({ 1: 10, 2: 10, 3: 10, 4: 10 });
+
+  ///End States
+
   useEffect(() => {
     try {
       console.log("date changed");
@@ -24,6 +28,13 @@ function Fields() {
       getSlots();
     } catch (error) {}
   }, [date]);
+  useEffect(() => {
+    try {
+      console.log("choosed changed");
+
+      toshowFields();
+    } catch (error) {}
+  }, [choosed]);
 
   ///////////
   const getSlots = async () => {
@@ -48,6 +59,10 @@ function Fields() {
     }
 
     console.log(data);
+    setChoosed(data);
+    //remove after test
+
+    //remove after test
   };
   ////////////
   const dataHandler = (e) => {
@@ -56,20 +71,48 @@ function Fields() {
     setDate(date);
   };
   ////
-  const inputChangeHandler = (e) => {
-    e.preventDefault();
-    const myFormData = new FormData(e.target);
-    const formData = myFormData.entries();
-    const data = {};
 
-    for (const pair of formData) {
-      const [key, value] = pair;
-      data[key] = value;
-    }
-
-    console.log(data);
-  };
   ///
+  ///Prepare data to show fields
+  const toshowFields = async () => {
+    try {
+      const start = choosed.startHour;
+      const end = `${+choosed.startHour + +choosed.hoursQuantity}`;
+      console.log(start, end);
+
+      const checkFields = async () => {
+        let newFieldInfo = {
+          1: 0,
+          2: 0,
+          3: 0,
+          4: 0,
+        };
+        for (let i = start; i < end; i++) {
+          console.log(daySlots[i]);
+
+          if (daySlots[i] !== null && daySlots[i].field_1 > newFieldInfo[1]) {
+            newFieldInfo[1] = daySlots[i].field_1;
+          }
+          if (daySlots[i] !== null && daySlots[i].field_2 > newFieldInfo[2]) {
+            newFieldInfo[2] = daySlots[i].field_2;
+          }
+          if (daySlots[i] !== null && daySlots[i].field_3 > newFieldInfo[3]) {
+            newFieldInfo[3] = daySlots[i].field_3;
+          }
+          if (daySlots[i] !== null && daySlots[i].field_4 > newFieldInfo[4]) {
+            newFieldInfo[4] = daySlots[i].field_4;
+          }
+        }
+        return newFieldInfo;
+      };
+      const newFieldInfo = await checkFields();
+      console.log(newFieldInfo);
+      setFieldInfo(newFieldInfo);
+    } catch (error) {
+      throw error;
+    }
+  };
+  ///End of prepare date for show fields
   return (
     <div className="booking">
       <Container>
@@ -107,10 +150,14 @@ function Fields() {
 
             <Col style={{ alignItems: "center", display: "flex" }}>
               <select id="startHour" className="users" name="startHour">
-                <option value="14:00">14:00</option>
-                <option value="15:00">15:00</option>
-                <option value="16:00">16:00</option>
-                <option value="17:00">17:00</option>
+                <option value="14">14:00</option>
+                <option value="15">15:00</option>
+                <option value="16">16:00</option>
+                <option value="17">17:00</option>
+                <option value="18">18:00</option>
+                <option value="19">19:00</option>
+                <option value="20">20:00</option>
+                <option value="21">21:00</option>
               </select>
             </Col>
             <Col style={{ alignItems: "center", display: "flex" }}>
@@ -174,18 +221,18 @@ function Fields() {
         </form>
         <Row>
           <Col>
-            <Field blocked={2} field={1}></Field>
+            <Field blocked={fieldInfo[1]} field={1}></Field>
           </Col>
           <Col style={{ justifyContent: "flex-end", display: "flex" }}>
-            <Field blocked={8} field={2}></Field>
+            <Field blocked={fieldInfo[2]} field={2}></Field>
           </Col>
         </Row>
         <Row>
           <Col>
-            <Field blocked={3} field={3}></Field>
+            <Field blocked={fieldInfo[3]} field={3}></Field>
           </Col>
           <Col style={{ justifyContent: "flex-end", display: "flex" }}>
-            <Field blocked={10} field={4}></Field>
+            <Field blocked={fieldInfo[4]} field={4}></Field>
           </Col>
         </Row>
       </Container>
