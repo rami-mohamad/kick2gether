@@ -66,6 +66,9 @@ top: 340px; */
 
   color: #000000;
   text-align: center;
+  &_disabled {
+    opacity: 0.5;
+  }
 }
 .label {
   background-color: white;

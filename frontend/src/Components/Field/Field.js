@@ -1,5 +1,6 @@
 import React from "react";
 import "./Field.scss";
+import { v4 as uuidv4 } from "uuid";
 
 function Field(props) {
   const { blocked, field } = props;
@@ -8,9 +9,16 @@ function Field(props) {
 
   for (let i = 1; i < 11; i++) {
     if (i <= blocked) {
-      points.push(<div className={`userCircle userCircle_${i} blocked`}></div>);
+      points.push(
+        <div
+          className={`userCircle userCircle_${i} blocked`}
+          key={uuidv4()}
+        ></div>
+      );
     } else {
-      points.push(<div className={`userCircle userCircle_${i}`}></div>);
+      points.push(
+        <div className={`userCircle userCircle_${i}`} key={uuidv4()}></div>
+      );
     }
   }
   //console.log(points);

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Container, Row, Col } from "reactstrap";
 import "./Fields.scss";
 import axios from "axios";
@@ -18,8 +18,21 @@ function Fields() {
   const [date, setDate] = useState(minDate);
   const [daySlots, setDaySlots] = useState({});
   const [fieldInfo, setFieldInfo] = useState({ 1: 10, 2: 10, 3: 10, 4: 10 });
+  const [bookingPossibility, setBookingPossibility] = useState(false);
 
   ///End States
+
+  ///References
+  const myForm = useRef();
+  ///End References
+
+  //Triger submit on  change
+
+  const submitTrigger = (e) => {
+    myForm.current.click();
+  };
+
+  ////
 
   useEffect(() => {
     try {
@@ -36,6 +49,24 @@ function Fields() {
     } catch (error) {}
   }, [choosed]);
 
+  //////////
+
+  useEffect(() => {
+    //console.log(choosed);
+    //console.log(fieldInfo);
+    console.log(fieldInfo[choosed.field], 10 - fieldInfo[choosed.field]);
+
+    if (fieldInfo[choosed.field] <= 10 - fieldInfo[choosed.users]) {
+      setBookingPossibility(true);
+    } else {
+      setBookingPossibility(false);
+    }
+  }, [fieldInfo]);
+
+  const checkPossibility = () => {};
+
+  ////////////
+
   ///////////
   const getSlots = async () => {
     const dateWrapper = { date: date };
@@ -46,8 +77,11 @@ function Fields() {
     );
     console.log(daySlots.data);
     setDaySlots(daySlots.data);
+    submitTrigger();
   };
   const bookingSubmitHandler = async (e) => {
+    //console.log(myForm.current);
+
     e.preventDefault();
     const myFormData = new FormData(e.target);
     const formData = myFormData.entries();
@@ -124,7 +158,12 @@ function Fields() {
         <form onSubmit={bookingSubmitHandler} action="/action_page.php">
           <Row style={{ marginTop: "90px" }}>
             <Col style={{ alignItems: "center", display: "flex" }}>
-              <select id="users" className="users" name="users">
+              <select
+                id="users"
+                className="users"
+                name="users"
+                onChange={submitTrigger}
+              >
                 <option className="users" value="1">
                   User_Name
                 </option>
@@ -149,7 +188,12 @@ function Fields() {
             </Col>
 
             <Col style={{ alignItems: "center", display: "flex" }}>
-              <select id="startHour" className="users" name="startHour">
+              <select
+                id="startHour"
+                className="users"
+                name="startHour"
+                onChange={submitTrigger}
+              >
                 <option value="14">14:00</option>
                 <option value="15">15:00</option>
                 <option value="16">16:00</option>
@@ -165,7 +209,25 @@ function Fields() {
                 className="bookingButton"
                 type="submit"
                 value="book here"
+                ref={myForm}
+                style={{ display: "none" }}
               ></input>
+              <button
+                className={
+                  bookingPossibility
+                    ? "bookingButton"
+                    : "bookingButton bookingButton_disabled"
+                }
+                value="book here"
+                disabled={!bookingPossibility}
+                onClick={(e) => {
+                  e.preventDefault();
+                  console.log("Go to next progress ");
+                  console.log(choosed);
+                }}
+              >
+                book here
+              </button>
             </Col>
           </Row>
 
@@ -173,7 +235,12 @@ function Fields() {
             {/* <Col style={{ width: "170px" }}></Col>
             <Col style={{ width: "396px" }}></Col> */}
             <Col sm={{ size: "auto", offset: 7 }}>
-              <select id="hoursQuantity" className="users" name="hoursQuantity">
+              <select
+                id="hoursQuantity"
+                className="users"
+                name="hoursQuantity"
+                onChange={submitTrigger}
+              >
                 <option value="1">Book for 1 Hour</option>
                 <option value="2">Book for 2 Hour</option>
                 <option value="3">Book for 3 Hour</option>
@@ -192,7 +259,12 @@ function Fields() {
 
           <Row>
             <Col sm={{ size: "auto", offset: 7 }} style={{ marginTop: "16px" }}>
-              <select id="field" className="users" name="field">
+              <select
+                id="field"
+                className="users"
+                name="field"
+                onChange={submitTrigger}
+              >
                 <option value="1">Field 1</option>
                 <option value="2">Field 2</option>
                 <option value="3">Field 3</option>
