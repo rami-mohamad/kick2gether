@@ -54,9 +54,13 @@ function Fields() {
   useEffect(() => {
     //console.log(choosed);
     //console.log(fieldInfo);
-    console.log(fieldInfo[choosed.field], 10 - fieldInfo[choosed.field]);
+    console.log(
+      choosed.field,
+      fieldInfo[choosed.field],
+      10 - fieldInfo[choosed.field]
+    );
 
-    if (fieldInfo[choosed.field] <= 10 - fieldInfo[choosed.users]) {
+    if (choosed.users <= 10 - fieldInfo[choosed.field]) {
       setBookingPossibility(true);
     } else {
       setBookingPossibility(false);
