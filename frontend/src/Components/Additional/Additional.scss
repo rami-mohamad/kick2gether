@@ -1,0 +1,157 @@
+.removeLeft {
+  border-left: none;
+}
+.removeRight {
+  border-right: none;
+}
+
+.removeTop {
+  border-top: none;
+}
+.removeBottom {
+  border-bottom: none;
+}
+.additional {
+  width: 100vw;
+  height: 1196px; //remove later
+  background: url("../../Media/Images/Additional/AdditionalBg.png");
+
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: Michroma;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 56px;
+  color: #000000;
+  text-transform: uppercase;
+  &_heading2 {
+    font-family: Michroma;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 40px;
+    line-height: 56px;
+    margin-top: 75px;
+    text-align: center;
+    color: #000000;
+  }
+  &_heading3 {
+    font-size: 24px;
+    line-height: 56px;
+    margin-top: 10px;
+  }
+  &_icons {
+    width: 309px;
+    height: 500px;
+    background: url("../../Media/Images/Additional/items.png");
+  }
+  &_choose_addons {
+    background: #eac66f;
+    border-radius: 10px;
+    margin-top: 30px;
+    text-align: center;
+    ////
+    font-family: Michroma;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 56px;
+    color: #000000;
+
+    .oneBlock {
+      height: 139px;
+      border: 0.1px solid white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .oneBlockSmall {
+      height: 56px;
+      border: 0.1px solid white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .removeLeft {
+      border-left: none;
+    }
+    .removeRight {
+      border-right: none;
+    }
+
+    .removeTop {
+      border-top: none;
+    }
+    .removeBottom {
+      border-bottom: none;
+    }
+  }
+  &_info {
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 19px;
+    overflow: auto;
+    line-height: 35px;
+  }
+}
+.progressBar1 {
+  display: block;
+  width: 1000px;
+  height: 80px;
+  background: url("../../Media/Images/Additional/step\ 2.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  margin: 0 auto;
+  margin-top: 70px;
+}
+.prebook_information {
+  /*  width: 1200px; */
+  height: 125px;
+  background: #eac66f;
+  border-radius: 10px;
+  &_label {
+    border-right: 0.5px solid white;
+    border-bottom: 0.5px solid white;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  &_remove_bottom {
+    border-bottom: none;
+  }
+}
+.itemQuantity {
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+}
+.chooseList {
+  position: relative;
+}
+.shoeList ul {
+  position: absolute;
+  left: -25px;
+  top: 60px;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  background-color: #e2a517;
+  width: 200%;
+  border-radius: 10px;
+  z-index: 1;
+  li:hover {
+    background-color: #dac699;
+  }
+}
+.checkoutButton {
+  width: 250px;
+  height: 80px;
+  background: linear-gradient(180deg, #eac66f 0%, rgba(255, 255, 255, 0) 100%),
+    linear-gradient(180deg, #858585 0%, #ffeaa7 100%);
+  background-blend-mode: color-burn, normal;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 50px;
+  outline: none;
+}

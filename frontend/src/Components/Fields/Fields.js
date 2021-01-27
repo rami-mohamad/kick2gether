@@ -168,7 +168,22 @@ function Fields() {
                 name="users"
                 onChange={submitTrigger}
               >
-                <option className="users" value="1">
+                <option
+                  className="users"
+                  value="1"
+                  style={{
+                    backGround: "#ffffff",
+                    border: "1px solid #5c5c5c",
+                    boxSizing: "border-box",
+                    boxShadow: "inset 0px 4px 4px rgba(0, 0, 0, 0.25)",
+                    borderRadius: "20px",
+                    fontFamily: "Roboto",
+                    fontStyle: "normal",
+                    fontWeight: "normal",
+                    fontSize: "16px",
+                    lineHeight: "19px",
+                  }}
+                >
                   User_Name
                 </option>
                 <option value="2">User_Name + 1</option>
