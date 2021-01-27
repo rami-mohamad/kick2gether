@@ -4,7 +4,10 @@ import "./Fields.scss";
 import axios from "axios";
 import Field from "../Field";
 
-function Fields() {
+function Fields(props) {
+  const setBooking = props.setBooking;
+  // console.log(props.booking);
+
   //Booking only for 90 Days logic
   const today = new Date();
   const minDate = today.toISOString().slice(0, 10);
@@ -243,6 +246,7 @@ function Fields() {
                   e.preventDefault();
                   console.log("Go to next progress ");
                   console.log(choosed);
+                  setBooking(choosed);
                 }}
               >
                 book here

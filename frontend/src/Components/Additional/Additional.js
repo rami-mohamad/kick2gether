@@ -7,7 +7,11 @@ import { faAngleUp, faAngleDown } from "@fortawesome/free-solid-svg-icons";
 import { faCaretDown } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 
-function Additional() {
+function Additional(props) {
+  const booking = { ...props.booking };
+  console.log(booking);
+
+  ///States
   const [shoesQuantity, setshoesQuantity] = useState(0);
   const [tshirtsQuantity, setTshirtsQuantity] = useState(0);
   const [towelsQuantity, setTowelsQuantity] = useState(0);
@@ -17,12 +21,40 @@ function Additional() {
   const [showShoes, setShowShoes] = useState(false);
   const [showTshirts, setShowTshirts] = useState(false);
 
-  /////////////
-
+  /////////////End States
+  ///////////Sizes
   const shoesSizes = [36, 37, 38, 39, 40, 41, 42, 43, 44];
   const shirtSizes = ["S", "M", "L", "XL", "XXL"];
 
-  /////////////
+  /////////////End Sizes
+  ///Prepare booking object vefore payment
+  const getClothes = (checkQuantity, size) => {
+    if (checkQuantity === 0) {
+      return [];
+    } else {
+      if (size > 0) {
+        return [+size];
+      } else {
+        return [`${size}`];
+      }
+    }
+  };
+  const preparedBooking = {
+    field: +booking.field,
+    startTime: `${booking.date}T${booking.startHour}:00`,
+    endTime: `${booking.date}T${
+      +booking.startHour + +booking.hoursQuantity
+    }:00`,
+    numberOfPersons: +booking.users,
+    tshirt: getClothes(tshirtsQuantity, tshirtSize),
+    shoes: getClothes(shoesQuantity, shoeSize),
+    towels: towelsQuantity,
+  };
+  console.log(preparedBooking);
+  console.log(typeof tshirtsQuantity);
+
+  ///end of prepare booking
+  ///////////
   return (
     <div className="additional">
       <Container>
@@ -62,19 +94,22 @@ function Additional() {
               </Row>
               <Row style={{ margin: "0px", height: "50%" }}>
                 <Col className=" prebook_information_label prebook_information_remove_bottom ">
-                  USER_NAME +2
+                  {booking.users === "1"
+                    ? `USER_NAME`
+                    : `USER_NAME +  ${booking.users - 1}`}
                 </Col>
                 <Col className="prebook_information_label prebook_information_remove_bottom ">
-                  3
+                  {booking.field}
                 </Col>
                 <Col className="prebook_information_label prebook_information_remove_bottom ">
-                  21.12.2020 at 16:00 h
+                  {/*  21.12.2020 at 16:00 h */}
+                  {`${booking.date} at ${booking.startHour}:00 `}
                 </Col>
                 <Col
                   className="prebook_information_label prebook_information_remove_bottom "
                   style={{ borderRight: "none" }}
                 >
-                  15 €
+                  {`${5 * +booking.hoursQuantity} €`}
                 </Col>
               </Row>
             </div>
