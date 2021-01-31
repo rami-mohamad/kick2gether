@@ -1,0 +1,118 @@
+.payment {
+  width: 100vw;
+
+  background: url("../../Media/Images/Payment/PaymentBg.png");
+
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: Michroma;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 56px;
+  color: #000000;
+  h3 {
+    font-family: Michroma;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 30px;
+    line-height: 30px;
+    margin-top: 60px;
+    text-align: center;
+    span {
+      color: #f811e0;
+    }
+  }
+  .attention {
+    display: flex;
+    height: 60px;
+    background: rgba(252, 87, 87, 0.3);
+    margin: 5px 0px;
+    justify-content: center;
+    align-items: center;
+    ///
+
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 25px;
+    line-height: 30px;
+
+    color: #f81111;
+
+    //
+    &_icon {
+      width: 30px;
+      height: 30px;
+      background: url("../../Media/Images/Payment/Attention.png");
+      margin-right: 20px;
+      background-repeat: no-repeat;
+    }
+  }
+  &_methods {
+    margin-top: 20px;
+  }
+  &_option {
+    margin: 0 auto;
+    max-width: 800px;
+    display: flex;
+    justify-content: space-between;
+    height: 70px;
+    align-items: center;
+    background: #dcdbdb;
+  }
+  &_circle {
+    width: 30px;
+    height: 30px;
+    background: #858585;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 23px;
+    margin-left: 5px;
+  }
+  &_active {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #000000;
+    filter: blur(4px);
+  }
+  &_item {
+    width: 80px;
+    height: 60px;
+    &_klarna {
+      background-image: url("../../Media/Images/Payment/klarna-sofort-alt\ 1.png");
+    }
+    &_paypal {
+      background-image: url("../../Media/Images/Payment/paypal.png");
+    }
+    &_apple {
+      background-image: url("../../Media/Images/Payment/applepay\ 1.png");
+    }
+    &_google {
+      background-image: url("../../Media/Images/Payment/googlepay\ 1.png");
+    }
+    &_visa {
+      background-image: url("../../Media/Images/Payment/visa-electron\ 1.png");
+    }
+    &_mastercard {
+      background-image: url("../../Media/Images/Payment/mastercard\ 1.png");
+    }
+    &_paydirekt {
+      background-image: url("../../Media/Images/Payment/paydirekt\ 1.png");
+    }
+  }
+}
+
+.progressBar2 {
+  display: block;
+  width: 1000px;
+  height: 80px;
+  background: url("../../Media/Images/Payment/step\ 3.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  margin: 0 auto;
+  margin-top: 70px;
+}

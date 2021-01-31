@@ -243,7 +243,7 @@ function Additional(props) {
                   </div>
                 </Col>
                 <Col className="oneBlock removeRight removeLeft removeTop">
-                  123
+                  5 €
                 </Col>
               </Row>
               <Row style={{ marginLeft: "0px", marginRight: "0px" }}>
@@ -267,10 +267,10 @@ function Additional(props) {
                   </div>
                 </Col>
                 <Col className="oneBlock removeLeft removeTop removeBottom">
-                  123
+                  M
                 </Col>
                 <Col className="oneBlock removeRight removeLeft removeTop removeBottom">
-                  123
+                  5 €
                 </Col>
               </Row>
             </div>
