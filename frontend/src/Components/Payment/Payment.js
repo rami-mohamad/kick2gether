@@ -4,6 +4,8 @@ import "./Payment.scss";
 
 function Payment(props) {
   const [choosedMethod, setChoosedMethod] = useState("Paypal");
+  console.log(props.booking);
+
   return (
     <div className="payment">
       <Container>
@@ -183,33 +185,77 @@ function Payment(props) {
         <Row style={{ textAlign: "end", marginTop: "20px" }}>
           <Col className="payment_total_text">Booked Field</Col>
           <Col className="payment_total_text">
-            <span>Field:</span> 3
+            <span>Field:</span> {props.booking.field}
           </Col>
           <Col
             className="payment_total_text"
             style={{ borderRight: "1px solid" }}
           ></Col>
           <Col className="payment_total_text" style={{ textAlign: "center" }}>
-            15 €
+            {+props.booking.hoursQuantity * 5} €
           </Col>
           <Col></Col>
         </Row>
-        <Row style={{ textAlign: "end", marginTop: "0px" }}>
-          <Col className="payment_total_text">Shoes</Col>
-          <Col className="payment_total_text">
-            <span>Quantity:</span> 1
-          </Col>
-          <Col
-            className="payment_total_text"
-            style={{ borderRight: "1px solid", textAlign: "start" }}
-          >
-            <span>Size:</span> 43
-          </Col>
-          <Col className="payment_total_text" style={{ textAlign: "center" }}>
-            15 €
-          </Col>
-          <Col></Col>
-        </Row>
+        {props.booking.shoes.length ? (
+          <Row style={{ textAlign: "end", marginTop: "0px" }}>
+            <Col className="payment_total_text">Shoes</Col>
+            <Col className="payment_total_text">
+              <span>Quantity:</span> {props.booking.shoes.length}
+            </Col>
+            <Col
+              className="payment_total_text"
+              style={{ borderRight: "1px solid", textAlign: "start" }}
+            >
+              <span>Size:</span> {props.booking.shoes[0]}
+            </Col>
+            <Col className="payment_total_text" style={{ textAlign: "center" }}>
+              {props.booking.shoes.length * 5} €
+            </Col>
+            <Col></Col>
+          </Row>
+        ) : (
+          ""
+        )}
+        {props.booking.tshirt.length ? (
+          <Row style={{ textAlign: "end", marginTop: "0px" }}>
+            <Col className="payment_total_text">Tshirt</Col>
+            <Col className="payment_total_text">
+              <span>Quantity:</span> {props.booking.tshirt.length}
+            </Col>
+            <Col
+              className="payment_total_text"
+              style={{ borderRight: "1px solid", textAlign: "start" }}
+            >
+              <span>Size:</span> {props.booking.tshirt[0]}
+            </Col>
+            <Col className="payment_total_text" style={{ textAlign: "center" }}>
+              {props.booking.tshirt.length * 5} €
+            </Col>
+            <Col></Col>
+          </Row>
+        ) : (
+          ""
+        )}
+        {props.booking.towels > 0 ? (
+          <Row style={{ textAlign: "end", marginTop: "0px" }}>
+            <Col className="payment_total_text">Towels</Col>
+            <Col className="payment_total_text">
+              <span>Quantity:</span> {props.booking.towels}
+            </Col>
+            <Col
+              className="payment_total_text"
+              style={{ borderRight: "1px solid", textAlign: "start" }}
+            >
+              <span>Size:</span> {props.booking.towels}
+            </Col>
+            <Col className="payment_total_text" style={{ textAlign: "center" }}>
+              {props.booking.towels * 5} €
+            </Col>
+            <Col></Col>
+          </Row>
+        ) : (
+          ""
+        )}
         <Row style={{ textAlign: "end", marginTop: "75px" }}>
           <Col className="payment_total_text">Total</Col>
           <Col className="payment_total_text">
@@ -222,7 +268,14 @@ function Payment(props) {
               >
                 confirm payment
               </button>
-              <div className="payment_confirm_price">20 €</div>
+              <div className="payment_confirm_price">
+                {(props.booking.shoes.length +
+                  props.booking.tshirt.length +
+                  +props.booking.hoursQuantity +
+                  props.booking.towels) *
+                  5}{" "}
+                €
+              </div>
             </div>
           </Col>
 

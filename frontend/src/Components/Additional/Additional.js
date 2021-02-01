@@ -5,7 +5,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronUp, faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import { faAngleUp, faAngleDown } from "@fortawesome/free-solid-svg-icons";
 import { faCaretDown } from "@fortawesome/free-solid-svg-icons";
-import axios from "axios";
 
 function Additional(props) {
   const booking = { ...props.booking };
@@ -33,9 +32,19 @@ function Additional(props) {
       return [];
     } else {
       if (size > 0) {
-        return [+size];
+        const pack = [];
+        for (let i = 0; i < checkQuantity; i++) {
+          pack.push(+size);
+        }
+
+        return pack;
       } else {
-        return [`${size}`];
+        const pack = [];
+        for (let i = 0; i < checkQuantity; i++) {
+          pack.push(`${size}`);
+        }
+
+        return pack;
       }
     }
   };
@@ -49,6 +58,7 @@ function Additional(props) {
     tshirt: getClothes(tshirtsQuantity, tshirtSize),
     shoes: getClothes(shoesQuantity, shoeSize),
     towels: towelsQuantity,
+    hoursQuantity: booking.hoursQuantity,
   };
   console.log(preparedBooking);
   console.log(typeof tshirtsQuantity);
@@ -296,6 +306,10 @@ function Additional(props) {
                   type="submit"
                   value="checkout"
                   className="checkoutButton"
+                  onClick={() => {
+                    props.setBooking(preparedBooking);
+                    props.setShowPayment(true);
+                  }}
                 ></input>
               </div>
             </div>

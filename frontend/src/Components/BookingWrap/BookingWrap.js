@@ -6,17 +6,39 @@ import Payment from "../Payment";
 
 function BookingWrap() {
   const [booking, setBooking] = useState(false);
+  const [showPayment, setShowPayment] = useState(false);
 
   console.log(booking);
 
+  const showLogic = () => {
+    if (!booking && !showPayment) {
+      return <Fields booking={booking} setBooking={setBooking}></Fields>;
+    } else if (booking && !showPayment) {
+      return (
+        <Additional
+          booking={booking}
+          setBooking={setBooking}
+          setShowPayment={setShowPayment}
+        ></Additional>
+      );
+    } else if (showPayment) {
+      return <Payment booking={booking}></Payment>;
+    }
+  };
+
   return (
     <div>
-      {/* {!booking ? (
+      {/*  {!booking && !showPayment ? (
         <Fields booking={booking} setBooking={setBooking}></Fields>
       ) : (
-        <Additional booking={booking} setBooking={setBooking}></Additional>
-      )} */}
-      <Payment></Payment>
+        <Additional
+          booking={booking}
+          setBooking={setBooking}
+          setShowPayment={setShowPayment}
+        ></Additional>
+      )}
+      <Payment booking={booking}></Payment> */}
+      {showLogic()}
     </div>
   );
 }
