@@ -104,15 +104,105 @@
       background-image: url("../../Media/Images/Payment/paydirekt\ 1.png");
     }
   }
+  &_total_header {
+    font-family: Michroma;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 30px;
+    line-height: 30px;
+    padding: 0;
+    margin: 35px 15px 0px;
+    color: #000000;
+    border-bottom: 3px solid #000000;
+  }
+  &_total_text {
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 56px;
+
+    color: #000000;
+    span {
+      opacity: 0.5;
+    }
+  }
+  &_confirm {
+    margin-bottom: 150px;
+    width: 368px;
+    height: 100px;
+    display: flex;
+    position: relative;
+    &_button {
+      position: absolute;
+      left: 0px; //110px for animation
+      z-index: 1;
+
+      background: linear-gradient(
+          180deg,
+          #eac66f 0%,
+          rgba(255, 255, 255, 0) 100%
+        ),
+        linear-gradient(180deg, #858585 0%, #ffeaa7 100%);
+      background-blend-mode: color-burn, normal;
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+      border-radius: 50px;
+      font-family: Inter;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 24px;
+      line-height: 36px;
+      height: 70px;
+      width: 260px;
+      /* or 150% */
+
+      letter-spacing: 0.25px;
+
+      color: #000000;
+      &:focus {
+        outline: none;
+      }
+    }
+    &_price {
+      position: absolute;
+      right: 0px;
+      display: flex;
+      height: 70px;
+      width: 160px;
+      background-color: white;
+      border-radius: 50px;
+      justify-content: center;
+      align-items: center;
+    }
+  }
 }
 
 .progressBar2 {
   display: block;
-  width: 1000px;
+  width: 80vw;
+  max-width: 1000px;
   height: 80px;
   background: url("../../Media/Images/Payment/step\ 3.png");
+  background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
   margin: 0 auto;
   margin-top: 70px;
+}
+
+//Animation
+@keyframes pseudoSwipe {
+  0% {
+    left: 0px;
+  }
+  100% {
+    left: 110px;
+  }
+}
+
+.swipeMe {
+  animation-name: pseudoSwipe;
+  animation-duration: 1s;
+  transition-timing-function: ease-in;
+  animation-fill-mode: forwards;
 }

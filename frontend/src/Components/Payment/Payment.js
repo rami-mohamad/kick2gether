@@ -177,6 +177,57 @@ function Payment(props) {
             </div>
           </Col>
         </Row>
+        <Row>
+          <Col className="payment_total_header">Your Payment Chart</Col>
+        </Row>
+        <Row style={{ textAlign: "end", marginTop: "20px" }}>
+          <Col className="payment_total_text">Booked Field</Col>
+          <Col className="payment_total_text">
+            <span>Field:</span> 3
+          </Col>
+          <Col
+            className="payment_total_text"
+            style={{ borderRight: "1px solid" }}
+          ></Col>
+          <Col className="payment_total_text" style={{ textAlign: "center" }}>
+            15 €
+          </Col>
+          <Col></Col>
+        </Row>
+        <Row style={{ textAlign: "end", marginTop: "0px" }}>
+          <Col className="payment_total_text">Shoes</Col>
+          <Col className="payment_total_text">
+            <span>Quantity:</span> 1
+          </Col>
+          <Col
+            className="payment_total_text"
+            style={{ borderRight: "1px solid", textAlign: "start" }}
+          >
+            <span>Size:</span> 43
+          </Col>
+          <Col className="payment_total_text" style={{ textAlign: "center" }}>
+            15 €
+          </Col>
+          <Col></Col>
+        </Row>
+        <Row style={{ textAlign: "end", marginTop: "75px" }}>
+          <Col className="payment_total_text">Total</Col>
+          <Col className="payment_total_text">
+            <div className="payment_confirm">
+              <button
+                onClick={(e) => {
+                  e.target.classList.add("swipeMe");
+                }}
+                className="payment_confirm_button"
+              >
+                confirm payment
+              </button>
+              <div className="payment_confirm_price">20 €</div>
+            </div>
+          </Col>
+
+          <Col></Col>
+        </Row>
       </Container>
     </div>
   );
