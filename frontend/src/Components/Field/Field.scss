@@ -47,6 +47,15 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  //transform: scale(0.65);
+}
+.flexCenter_mobile {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transform: scale(0.65);
 }
 .userCircle {
   display: block;

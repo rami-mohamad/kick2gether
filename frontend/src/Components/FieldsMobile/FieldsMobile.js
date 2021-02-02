@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Container, Row, Col } from "reactstrap";
-import "./Fields.scss";
+import "./FieldsMobile.scss";
 import axios from "axios";
 import Field from "../Field";
 
-function Fields(props) {
+function FieldsMobile(props) {
   const setBooking = props.setBooking;
   // console.log(props.booking);
 
@@ -165,9 +165,8 @@ function Fields(props) {
         <form onSubmit={bookingSubmitHandler} action="/action_page.php">
           <Row style={{ marginTop: "90px" }}>
             <Col
-              sm={{ size: "2" }}
-              md={{ size: "2" }}
-              lg={{ size: "2" }}
+              sm={{ size: "3" }}
+              xs={{ size: "3" }}
               style={{ alignItems: "center", display: "flex" }}
             >
               <select
@@ -199,12 +198,10 @@ function Fields(props) {
                 <option value="4">User_Name + 3</option>
               </select>
             </Col>
-
             <Col
-              sm={{ size: "5" }}
-              md={{ size: "5" }}
-              lg={{ size: "5" }}
-              style={{ alignItems: "center", display: "flex" }}
+              sm={{ size: "8", offset: 1 }}
+              xs={{ size: "8", offset: 0 }}
+              /*  style={{ alignItems: "center", display: "flex" }} */
             >
               <input
                 onChange={dataHandler}
@@ -218,12 +215,17 @@ function Fields(props) {
                 defaultValue={minDate}
               ></input>
             </Col>
+          </Row>
 
+          <Row>
             <Col
-              sm={{ size: "2" }}
-              md={{ size: "2" }}
-              lg={{ size: "2" }}
-              style={{ alignItems: "center", display: "flex" }}
+              sm={{ size: "3" }}
+              xs={{ size: "3" }}
+              style={{
+                alignItems: "center",
+                display: "flex",
+                marginTop: "26px",
+              }}
             >
               <select
                 id="startHour"
@@ -241,11 +243,88 @@ function Fields(props) {
                 <option value="21">21:00</option>
               </select>
             </Col>
+
+            {/* <Col style={{ width: "170px" }}></Col>
+            <Col style={{ width: "396px" }}></Col> */}
             <Col
-              sm={{ size: "3" }}
-              md={{ size: "3" }}
-              lg={{ size: "3" }}
-              style={{ alignItems: "center", display: "flex" }}
+              sm={{ size: "4", offset: "1" }}
+              xs={{ size: "4" }}
+              style={{ marginTop: "26px" }}
+            >
+              <select
+                id="hoursQuantity"
+                className="users"
+                name="hoursQuantity"
+                onChange={submitTrigger}
+              >
+                <option value="1">Book for 1 Hour</option>
+                <option value="2">Book for 2 Hour</option>
+                <option value="3">Book for 3 Hour</option>
+                <option value="4">Book for 4 Hour</option>
+              </select>
+            </Col>
+            <Col
+              sm={{ size: "4" }}
+              xs={{ size: "4" }}
+              style={{ marginTop: "26px" }}
+            >
+              <select
+                id="field"
+                className="users"
+                name="field"
+                onChange={submitTrigger}
+              >
+                <option value="1">Field 1</option>
+                <option value="2">Field 2</option>
+                <option value="3">Field 3</option>
+                <option value="4">Field 4</option>
+              </select>
+            </Col>
+
+            {/*  <Col
+              style={{
+                alignItems: "center",
+                display: "flex",
+                marginLeft: "60px",
+              }}
+            ></Col> */}
+          </Row>
+
+          <Row>
+            <Col
+              sm={{ size: "12" }}
+              xs={{ size: "12" }}
+              style={{
+                alignItems: "center",
+                display: "flex",
+                marginTop: "36px",
+              }}
+            >
+              <div>
+                <div className="userInfoMobile">
+                  <div className="userInfo_circle"></div>
+                  <div>Empty</div>
+                </div>
+                <div className="userInfoMobile" style={{ marginTop: "13px" }}>
+                  <div className="userInfo_circle userInfo_circle_red"></div>
+                  <div>Booked</div>
+                </div>
+                <div className="userInfoMobile" style={{ marginTop: "13px" }}>
+                  <div>* Randomly picked positions for the players</div>
+                </div>
+              </div>
+            </Col>
+          </Row>
+          <Row>
+            <Col
+              sm={{ size: "12" }}
+              xs={{ size: "12" }}
+              style={{
+                alignItems: "center",
+                display: "flex",
+                marginTop: "40px",
+                justifyContent: "center",
+              }}
             >
               <input
                 className="bookingButton"
@@ -273,89 +352,34 @@ function Fields(props) {
               </button>
             </Col>
           </Row>
-
-          <Row>
-            {/* <Col style={{ width: "170px" }}></Col>
-            <Col style={{ width: "396px" }}></Col> */}
-            <Col
-              sm={{ size: "2", offset: "7" }}
-              md={{ size: "2", offset: "7" }}
-              lg={{ size: "2", offset: "7" }}
-            >
-              <select
-                id="hoursQuantity"
-                className="users"
-                name="hoursQuantity"
-                onChange={submitTrigger}
-              >
-                <option value="1">Book for 1 Hour</option>
-                <option value="2">Book for 2 Hour</option>
-                <option value="3">Book for 3 Hour</option>
-                <option value="4">Book for 4 Hour</option>
-              </select>
-            </Col>
-
-            <Col
-              style={{
-                alignItems: "center",
-                display: "flex",
-                marginLeft: "60px",
-              }}
-            ></Col>
-          </Row>
-
-          <Row>
-            <Col
-              sm={{ size: "2", offset: "7" }}
-              md={{ size: "2", offset: "7" }}
-              lg={{ size: "2", offset: "7" }}
-              style={{ marginTop: "16px" }}
-            >
-              <select
-                id="field"
-                className="users"
-                name="field"
-                onChange={submitTrigger}
-              >
-                <option value="1">Field 1</option>
-                <option value="2">Field 2</option>
-                <option value="3">Field 3</option>
-                <option value="4">Field 4</option>
-              </select>
-            </Col>
-
-            <Col style={{ alignItems: "center", display: "flex" }}>
-              <div>
-                <div className="userInfo">
-                  <div className="userInfo_circle"></div>
-                  <div>Empty</div>
-                </div>
-                <div className="userInfo" style={{ marginTop: "13px" }}>
-                  <div className="userInfo_circle userInfo_circle_red"></div>
-                  <div>Booked</div>
-                </div>
-                <div className="userInfo" style={{ marginTop: "13px" }}>
-                  <div>* Randomly picked positions for the players</div>
-                </div>
-              </div>
-            </Col>
-          </Row>
-
-          {/*  <div className="users">{date}</div> */}
         </form>
         <Row>
-          <Col>
+          <Col
+            style={{
+              justifyContent: "center",
+              display: "flex",
+              marginTop: "30px",
+            }}
+          >
             <Field blocked={fieldInfo[1]} field={1}></Field>
-          </Col>
-          <Col style={{ justifyContent: "flex-end", display: "flex" }}>
-            <Field blocked={fieldInfo[2]} field={2}></Field>
           </Col>
         </Row>
         <Row>
-          <Col>
+          <Col style={{ justifyContent: "center", display: "flex" }}>
+            <Field
+              blocked={fieldInfo[2]}
+              field={2}
+              style={{ transform: "scale(0.65)" }}
+            ></Field>
+          </Col>
+        </Row>
+        <Row>
+          <Col style={{ justifyContent: "center", display: "flex" }}>
             <Field blocked={fieldInfo[3]} field={3}></Field>
           </Col>
-          <Col style={{ justifyContent: "flex-end", display: "flex" }}>
+        </Row>
+        <Row>
+          <Col style={{ justifyContent: "center", display: "flex" }}>
             <Field blocked={fieldInfo[4]} field={4}></Field>
           </Col>
         </Row>
@@ -364,4 +388,4 @@ function Fields(props) {
   );
 }
 
-export default Fields;
+export default FieldsMobile;

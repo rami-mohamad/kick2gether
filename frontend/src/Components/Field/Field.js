@@ -5,6 +5,9 @@ import { v4 as uuidv4 } from "uuid";
 function Field(props) {
   const { blocked, field } = props;
   //console.log(blocked, field);
+  const mql = window.matchMedia("(max-width: 500px)");
+  const mobileView = mql.matches;
+
   let points = [];
 
   for (let i = 1; i < 11; i++) {
@@ -24,7 +27,7 @@ function Field(props) {
   //console.log(points);
 
   return (
-    <div className="flexCenter">
+    <div className={mobileView ? "flexCenter_mobile" : "flexCenter"}>
       <div
         className={
           blocked === 10 ? "bookedPlayers bookedPlayers_full" : "bookedPlayers"

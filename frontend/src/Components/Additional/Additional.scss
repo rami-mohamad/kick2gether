@@ -13,7 +13,7 @@
 }
 .additional {
   width: 100vw;
-  height: 1196px; //remove later
+  /* height: 1196px; */ //remove later
   background: url("../../Media/Images/Additional/AdditionalBg.png");
 
   background-repeat: no-repeat;
@@ -97,9 +97,11 @@
 }
 .progressBar1 {
   display: block;
-  width: 1000px;
+  width: 80vw;
+  max-width: 1000px;
   height: 80px;
   background: url("../../Media/Images/Additional/step\ 2.png");
+  background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
   margin: 0 auto;
