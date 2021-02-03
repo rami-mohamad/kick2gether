@@ -1,10 +1,29 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Container, Row, Col } from "reactstrap";
+import { useHistory } from "react-router-dom";
 import "./Payment.scss";
+import axios from "axios";
 
 function Payment(props) {
   const [choosedMethod, setChoosedMethod] = useState("Paypal");
   console.log(props.booking);
+  const history = useHistory();
+
+  const finishBook = async (e) => {
+    e.target.classList.add("swipeMe");
+    try {
+      const result = await axios.post(
+        "http://localhost:4000/booking/book",
+        props.booking
+      );
+      console.log(result.data);
+      setTimeout(function () {
+        history.push("/booking/confirm");
+      }, 2000);
+    } catch (error) {
+      console.log(error); //later to notification
+    }
+  };
 
   return (
     <div className="payment">
@@ -34,19 +53,7 @@ function Payment(props) {
             <div className="payment_methods">
               <Row>
                 <Col>
-                  <div
-                    style={{
-                      background: " #EAC66F",
-                      textAlign: "center",
-                      fontFamily: "Inter",
-                      fontStyle: "normal",
-                      fontWeight: "600",
-                      fontSize: "25px",
-                      lineHeight: "30px",
-                    }}
-                  >
-                    PAYMENT METHOD
-                  </div>
+                  <div className="payment_methods_heading">PAYMENT METHOD</div>
                 </Col>
               </Row>
               <Row>
@@ -257,15 +264,10 @@ function Payment(props) {
           ""
         )}
         <Row style={{ textAlign: "end", marginTop: "75px" }}>
-          <Col className="payment_total_text">Total</Col>
+          <Col className="payment_total_text display">Total</Col>
           <Col className="payment_total_text">
             <div className="payment_confirm">
-              <button
-                onClick={(e) => {
-                  e.target.classList.add("swipeMe");
-                }}
-                className="payment_confirm_button"
-              >
+              <button onClick={finishBook} className="payment_confirm_button">
                 confirm payment
               </button>
               <div className="payment_confirm_price">

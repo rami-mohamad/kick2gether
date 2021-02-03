@@ -1,0 +1,192 @@
+.login {
+  display: flex;
+  width: 100%;
+  min-height: 800px;
+  background: linear-gradient(180deg, #000000 0%, rgba(255, 255, 255, 0) 100%),
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.5) 0%,
+      rgba(255, 255, 255, 0) 100%
+    ),
+    #a1a1a1;
+}
+.left {
+  &_side {
+    width: 50%;
+    background: url("../../Media/Images/Login/Leftside_big.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    background-attachment: fixed;
+    background-position: center top;
+    &_wrapper {
+      display: block;
+      position: absolute;
+      width: 413px;
+      height: 595px;
+      margin-top: 100px;
+      right: 10vw;
+
+      background: url("../../Media/Images/Login/BG_Left.png");
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+    &_form_wrapper {
+      width: 320px;
+      height: 595px;
+    }
+    &_form_heading {
+      font-family: Michroma;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 40px;
+      line-height: 104px;
+      text-align: center;
+      margin-top: 107px;
+
+      color: #5c5c5c;
+    }
+    &_username {
+      display: block;
+      width: 181px;
+      height: 29px;
+      margin: 0 auto;
+      background: #ffffff;
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+      border: none;
+      border-radius: 50px;
+
+      ///
+      font-family: Michroma;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 16px;
+      line-height: 104px;
+      color: #5c5c5c;
+    }
+    &_password {
+      margin-top: 23px;
+    }
+    &_button {
+      display: block;
+      width: 181px;
+      height: 29px;
+      background: #ffeaa7;
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+      border-radius: 50px;
+      font-family: Inter;
+      font-style: normal;
+      font-weight: 800;
+      font-size: 10px;
+      border: none;
+      text-align: center;
+      color: #5c5c5c;
+      margin: 0 auto;
+      margin-top: 31px;
+    }
+    &_text_only {
+      background: none;
+      text-align: center;
+      box-shadow: none;
+      font-family: Inter;
+      font-style: normal;
+      font-weight: 800;
+      font-size: 10px;
+      border: none;
+      text-align: center;
+      ///
+
+      color: #5c5c5c;
+      margin-top: 20px;
+    }
+  }
+}
+
+.right {
+  &_side {
+    width: 50%;
+  }
+}
+.google {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  width: 181px;
+  height: 29px;
+  background: #ffffff;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 50px;
+  margin: 0 auto;
+  margin-top: 20px;
+
+  &_icon {
+    width: 14px;
+    height: 14px;
+    background: url("../../Media/Images/Login/512px-Google__G__Logo\ 1.png");
+    margin: 0 15px;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+  &_text {
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 8px;
+    margin-left: 15px;
+
+    /* or 1300% */
+
+    color: #5c5c5c;
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .left_side_wrapper {
+    width: 80%;
+    background-size: contain;
+  }
+  .left_side_form_wrapper {
+    width: 80%;
+    background-size: contain;
+  }
+  .login_form {
+    // transform: scale(0.5);
+  }
+  .left_side_form_heading {
+    margin-top: 3vw;
+    font-size: 3vw;
+    line-height: 5vw;
+  }
+  .left_side_username {
+    width: 20vw;
+    font-size: 2vw;
+    height: 4vw;
+    margin-top: 10px;
+  }
+  .left_side_button {
+    width: 20vw;
+    font-size: 2vw;
+    height: 4vw;
+    margin-top: 4vw;
+  }
+  .left_side_text_only {
+    margin-top: 2vw;
+    font-size: 2vw;
+  }
+  .login_form .goolge {
+    width: 10vw;
+  }
+  .google_icon {
+    margin: 0 1vw;
+    width: 2vw;
+    height: 2vw;
+  }
+  .google {
+    width: 20vw;
+    height: 2vw;
+    margin-top: 3vw;
+  }
+  .google_text {
+    font-size: 1vw;
+  }
+}

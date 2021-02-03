@@ -126,10 +126,10 @@ function Additional(props) {
           </Col>
         </Row>
         <Row style={{ marginTop: "55px" }}>
-          <Col>
+          <Col xs="6" sm="6">
             <div className="additional_icons"></div>
           </Col>
-          <Col>
+          <Col xs={{ size: "6", offset: 0 }} sm={{ size: "5", offset: 1 }}>
             <div className="additional_choose_addons">
               <Row style={{ marginLeft: "0px", marginRight: "0px" }}>
                 <Col className="oneBlockSmall removeLeft removeTop">QTY</Col>
@@ -286,8 +286,8 @@ function Additional(props) {
             </div>
           </Col>
           <Col>
-            <div style={{ marginTop: "30px", height: "335px" }}>
-              <h4>Important Information</h4>
+            <div style={{ marginTop: "30px" }}>
+              <h4 className="display">Important Information</h4>
               <div className="additional_info">
                 After booking You wil get your personal pin code for this
                 booking. This PIN CODE you have to use for getting in and using

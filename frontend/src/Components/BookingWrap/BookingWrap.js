@@ -1,4 +1,5 @@
 import React, { useState, Children } from "react";
+import { useHistory } from "react-router-dom";
 import Fields from "../Fields";
 import Additional from "../Additional";
 import { Route } from "react-router-dom";
@@ -43,7 +44,7 @@ function BookingWrap() {
   return (
     <div>
       {showLogic()}
-      {/*  <BookingConfirmation></BookingConfirmation> */}
+
       {/* <FieldsMobile></FieldsMobile> */}
     </div>
   );

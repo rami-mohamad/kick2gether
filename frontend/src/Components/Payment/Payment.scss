@@ -51,6 +51,14 @@
   }
   &_methods {
     margin-top: 20px;
+    &_heading {
+      background: #eac66f;
+      text-align: center;
+      font-family: Inter;
+      font-style: normal;
+      font-size: 25px;
+      line-height: 30px;
+    }
   }
   &_option {
     margin: 0 auto;
@@ -205,4 +213,37 @@
   animation-duration: 1s;
   transition-timing-function: ease-in;
   animation-fill-mode: forwards;
+}
+
+@media only screen and (max-width: 550px) {
+  .payment {
+    &_item {
+      width: 48px;
+      height: 40px;
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+    &_h3 {
+      font-size: 21px;
+    }
+    .attention {
+      font-size: 16px;
+    }
+    &_methods {
+      font-size: 16px;
+      &_heading {
+        font-size: 20px;
+      }
+    }
+    &_total_header {
+      font-size: 25px;
+    }
+    &_total_text {
+      font-size: 20px;
+      width: 100%;
+    }
+  }
+  &_confirm {
+    width: 320px;
+  }
 }

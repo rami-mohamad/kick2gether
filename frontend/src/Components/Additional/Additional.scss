@@ -109,7 +109,7 @@
 }
 .prebook_information {
   /*  width: 1200px; */
-  height: 125px;
+  /* height: 125px; */
   background: #eac66f;
   border-radius: 10px;
   &_label {
@@ -156,4 +156,79 @@
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 50px;
   outline: none;
+  margin-bottom: 30px;
+}
+
+@media only screen and (max-width: 1200px) {
+  .additional {
+    font-size: 2.7vw;
+    &_heading2 {
+      font-family: Michroma;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 3vw;
+      line-height: 56px;
+      margin-top: 75px;
+      text-align: center;
+      color: #000000;
+    }
+    &_heading3 {
+      font-size: 2vw;
+      line-height: 56px;
+      margin-top: 10px;
+    }
+    &_icons {
+      /*  margin-top: 2vw; */
+      /*  width: 40vw; */
+      height: 60vw;
+      background: url("../../Media/Images/Additional/items.png");
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+    &_choose_addons {
+      background: #eac66f;
+      border-radius: 10px;
+      margin-top: 30px;
+      text-align: center;
+      font-size: 2.7vw;
+      .oneBlock {
+        height: 15vw;
+        border: 0.1px solid white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        line-height: 20px;
+      }
+      .oneBlockSmall {
+        height: 7.5vw;
+        border: 0.1px solid white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+    &_info {
+      display: none;
+    }
+  }
+  .display {
+    display: none;
+  }
+  .checkoutButton {
+    font-size: 24px;
+    margin: 0 auto;
+    margin-bottom: 40px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .additional {
+  }
+  .checkoutButton {
+    font-size: 24px;
+    width: 200px;
+    height: 70px;
+    margin: 0 auto;
+    margin-bottom: 40px;
+  }
 }
