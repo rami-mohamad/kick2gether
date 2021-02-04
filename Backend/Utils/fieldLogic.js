@@ -31,9 +31,18 @@ module.exports = {
     const slots = bookings.reduce(
       (acc, booking) => {
         const hour = dayjs(booking.startTime).hour();
-        const endHour = dayjs(booking.endTime).hour();
+        let endHour = 24;
+        if (dayjs(booking.endTime).hour() === 0) {
+          endHour = dayjs(booking.endTime).hour() + 1;
+        } else {
+          endHour = dayjs(booking.endTime).hour();
+        }
+        // if (endHour === 0) {
+        //   endHour = 24;
+        // }
+        // console.log("Starttime ", hour, "endtime ", endHour);
 
-        for (let i = hour - 1; i < endHour; i++) {
+        for (let i = hour - 1; i < endHour - 1; i++) {
           if (acc[i] === null) {
             acc[i] = {
               booking: [booking],
