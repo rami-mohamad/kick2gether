@@ -1,23 +1,33 @@
-function App() {
-  const send = () => {
-    const date = new Date("2021-03-30").getTime();
+import React, { Fragment } from "react";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import registration from "./registration/registration";
+import AuthState from "../src/auth/AuthState";
+import AlertState from "./alert/AlertState";
+import Alerts from "./alerts component/Alerts";
+import Home from "./Home/Home";
 
-    console.log(date);
-  };
-
+const App = () => {
   return (
-    <div className="App">
-      <input type="date" id="date" min="2021-01-01" max="2021-03-30"></input>
-      <button
-        onClick={() => {
-          const date = document.querySelector("input").value;
-          console.log(typeof date, date);
-        }}
-      >
-        Show date
-      </button>
-    </div>
+    <AuthState>
+      <AlertState>
+        <BrowserRouter>
+          <Fragment>
+            <div>
+              <Alerts className="alerts" />
+              <Switch>
+                <Route
+                  path="/registration"
+                  exact
+                  component={registration}
+                ></Route>
+                <Route path="/Home" component={Home} exact />
+              </Switch>
+            </div>
+          </Fragment>
+        </BrowserRouter>
+      </AlertState>
+    </AuthState>
   );
-}
+};
 
 export default App;

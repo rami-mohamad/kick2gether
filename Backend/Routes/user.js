@@ -172,8 +172,10 @@ router.post("/reset", async (req, res) => {
 router.post("/login", async (req, res) => {
   try {
     const { email, password } = req.body; // frontend data
+    console.log(req.body);
     const user = await User.findOne({ email });
     if (!user) {
+      console.log("you have to Register at first");
       return res
         .status(400)
         .send({ success: false, message: ["you have to Register at first"] });
@@ -183,7 +185,7 @@ router.post("/login", async (req, res) => {
     if (!matched || !user.confirmed) {
       return res
         .status(400)
-        .send(
+        .json(
           !user.confirmed
             ? { message: ["not confirmed email"] }
             : { message: ["invalid email or password"] }
@@ -198,8 +200,9 @@ router.post("/login", async (req, res) => {
         secure: false,
         sameSite: "lax",
       })
-      .send({ message: ["user is login"] });
+      .send({ success: true, message: ["user is login"] });
   } catch (error) {
+    console.log("error 123 ", error);
     res.status(500).send({ success: false, message: [error] });
   }
 });
@@ -311,7 +314,5 @@ router.get("/logout", (req, res) => {
   res.clearCookie("jwt").redirect("/login");
 });
 //// logout end
-
-
 
 module.exports = router;
