@@ -60,6 +60,7 @@ const AuthState = (props) => {
         "content-type": "application/json",
       },
       withCredentials: true,
+      crossdomain: true,
     };
     try {
       console.log(formData);
@@ -79,7 +80,7 @@ const AuthState = (props) => {
       });
       loadUser();
     } catch (error) {
-      // console.log(error.response.data.message);
+      console.log(error.response.data.message);
       dispatch({
         type: "LOGIN_FAIL",
         payload: error.response.data.message,

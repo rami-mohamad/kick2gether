@@ -213,7 +213,7 @@ router.get(
   "/dashboard",
   passport.authenticate("jwt", {
     session: false,
-    failureRedirect: "/login", // this is to redirect to login if no loggedin user
+    failureRedirect: "/registration", // this is to redirect to login if no loggedin user
   }),
   (req, res) => {
     console.log(req.user);

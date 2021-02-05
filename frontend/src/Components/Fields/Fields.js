@@ -3,7 +3,7 @@ import { Container, Row, Col } from "reactstrap";
 import "./Fields.scss";
 import axios from "axios";
 import Field from "../Field";
-
+axios.defaults.withCredentials = false; //!!!  when this is true, then cors blocking!!!!
 function Fields(props) {
   const setBooking = props.setBooking;
   // console.log(props.booking);
@@ -72,8 +72,13 @@ function Fields(props) {
 
   const checkPossibility = () => {};
 
-  ////////////
-
+  ////////////for axios setup
+  const config = {
+    headers: {
+      "content-type": "application/json",
+    },
+    withCredentials: true,
+  };
   ///////////
   const getSlots = async () => {
     const dateWrapper = { date: date };

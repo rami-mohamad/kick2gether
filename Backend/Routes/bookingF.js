@@ -25,6 +25,8 @@ router.post("/search/", async function (req, res) {
 });
 router.post("/book", async function (req, res) {
   try {
+    console.log(req.user);
+
     const userId = "5ffecbaeb09b1042094243b3"; //thats will be from jwt token later
     console.log(req.body);
     const {

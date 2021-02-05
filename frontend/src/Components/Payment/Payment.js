@@ -199,7 +199,7 @@ function Payment(props) {
             style={{ borderRight: "1px solid" }}
           ></Col>
           <Col className="payment_total_text" style={{ textAlign: "center" }}>
-            {+props.booking.hoursQuantity * 5} €
+            {+props.booking.hoursQuantity * props.booking.numberOfPersons * 5} €
           </Col>
           <Col></Col>
         </Row>
@@ -273,7 +273,9 @@ function Payment(props) {
               <div className="payment_confirm_price">
                 {(props.booking.shoes.length +
                   props.booking.tshirt.length +
-                  +props.booking.hoursQuantity +
+                  +(
+                    props.booking.hoursQuantity * props.booking.numberOfPersons
+                  ) +
                   props.booking.towels) *
                   5}{" "}
                 €
