@@ -3,6 +3,7 @@ import { Container, Row, Col } from "reactstrap";
 import { useHistory } from "react-router-dom";
 import "./Payment.scss";
 import axios from "axios";
+axios.defaults.withCredentials = true;
 
 function Payment(props) {
   const [choosedMethod, setChoosedMethod] = useState("Paypal");

@@ -313,6 +313,20 @@ router.get("/logout", (req, res) => {
   // req.logout(); in frontend should write the function logout
   res.clearCookie("jwt").redirect("/login");
 });
-//// logout end
+
+////Access Public
+///
+router.post("/contact", async (req, res) => {
+  try {
+    const contact = await sendEmail(req.body, "contact");
+    res.send({ success: true, message: ["contact request sendet"] });
+  } catch (error) {
+    res.status(500).send({
+      success: false,
+      message: ["contact request is not sendet due to server error"],
+    });
+  }
+});
+////End of Contact request
 
 module.exports = router;
