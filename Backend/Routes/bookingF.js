@@ -141,6 +141,7 @@ router.post(
           message: [
             `The field is booked, booking number is ${bookingResult.id}`,
           ],
+          email: user.email,
         });
         SendEmail(user, "booked", pin);
       } else {

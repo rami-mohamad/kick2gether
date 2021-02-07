@@ -7,6 +7,7 @@ axios.defaults.withCredentials = true;
 
 function Payment(props) {
   const [choosedMethod, setChoosedMethod] = useState("Paypal");
+
   console.log(props.booking);
   const history = useHistory();
 
@@ -19,7 +20,8 @@ function Payment(props) {
       );
       console.log(result.data);
       setTimeout(function () {
-        history.push("/booking/confirm");
+        //history.push("/booking/confirm");
+        props.setEmail(result.data.email);
       }, 2000);
     } catch (error) {
       console.log(error); //later to notification

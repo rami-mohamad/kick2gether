@@ -2,7 +2,7 @@ import React from "react";
 import "./BookingConfirmation.scss";
 import { Container, Row, Col } from "reactstrap";
 
-function BookingConfirmation() {
+function BookingConfirmation(props) {
   return (
     <div style={{ backgroundColor: "rgb(224 223 223)" }}>
       <Container>
@@ -27,7 +27,7 @@ function BookingConfirmation() {
         <Row>
           <Col>
             <div className="confirmation_text ">
-              <span>user_name@gmail.com</span>
+              <span>{`${props.email}`}</span>
             </div>
           </Col>
         </Row>
