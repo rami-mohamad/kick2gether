@@ -3,18 +3,52 @@ const router = express.Router();
 const User = require("../Models/UserModel");
 const bcrypt = require("bcrypt");
 const sendEmail = require("../Utils/SendEmailGrid");
-
+const { body, validationResult } = require("express-validator");
 const jwtIssuer = require("../Utils/jwtIssuer");
 
 router.get("/", (req, res) => {
   res.send("Inside user route");
 });
 
+////Validator Start
+const expressValidatorSettings = [
+  body("email").normalizeEmail(),
+  body(["password", "nickName", "email"]).trim(),
+  //body("nickName").isAlphanumeric(),
+  body("password")
+    .isLength({ min: 8 })
+    .withMessage("The password must be at least 8 characters long"),
+  body("email").isEmail().withMessage("Please write correct email address"),
+];
+
+////Validator End
+
 ////Register
 /// Access Public
 /// Email and password required minimum
-router.post("/register", async (req, res) => {
+router.post("/register", expressValidatorSettings, async (req, res) => {
   console.log(req.body);
+
+  //Validaion Result
+
+  const result = validationResult(req);
+  console.log(result);
+
+  if (result.errors.length > 0) {
+    const response = result.errors.map((item) => {
+      return `${item.msg}`;
+    });
+
+    console.log(response);
+    const response2 = {
+      success: false,
+      message: response,
+    };
+    res.status(400).send(response2);
+    return;
+  }
+
+  ///Validation Result End
 
   const { name, password, email, nickName } = req.body; //That what we need from frontend
   try {
@@ -31,22 +65,24 @@ router.post("/register", async (req, res) => {
       name: name,
       email: email,
       password: hashedPassword,
+      nickName: nickName,
     });
     console.log(registerUser);
     await sendEmail(req.body, "confirm");
+
     if (registerUser) {
       const token = jwtIssuer(registerUser);
       res
         .status(200)
-        .cookie("jwt", token, {
-          httpOnly: true,
-          secure: false,
-          sameSite: "lax",
-        })
-        .send({ success: true, message: "The User is Registered" });
+        // .cookie("jwt", token, {
+        //   httpOnly: true,
+        //   secure: false,
+        //   sameSite: "lax",
+        // })
+        .send({ success: true, message: ["The User is Registered"] });
     }
   } catch (error) {
-    res.status(500).send({ success: false, message: error });
+    res.status(500).send({ success: false, message: [error] });
   }
 });
 /////Registration confirm
@@ -90,7 +126,7 @@ router.post("/reset", async (req, res) => {
 
     res.send(`<h1>Reset Link sendet, please check your email</h1>`);
   } catch (error) {
-    res.status(500).send({ success: false, message: error });
+    res.status(500).send({ success: false, message: [error] });
   }
 });
 
@@ -106,7 +142,7 @@ router.post("/login", async (req, res) => {
     if (!user) {
       return res
         .status(400)
-        .send({ success: false, message: "you have to Register at first" });
+        .send({ success: false, message: ["you have to Register at first"] });
     }
 
     const matched = await bcrypt.compare(password, user.password); // proof if password is correct
@@ -115,8 +151,8 @@ router.post("/login", async (req, res) => {
         .status(400)
         .send(
           !user.confirmed
-            ? { message: "not confirmed email" }
-            : { message: "invalid email or password" }
+            ? { message: ["not confirmed email"] }
+            : { message: ["invalid email or password"] }
         );
     }
     const token = jwtIssuer(user);
@@ -127,11 +163,11 @@ router.post("/login", async (req, res) => {
         secure: false,
         sameSite: "lax",
       })
-      .send({ message: "user is login" });
+      .send({ message: ["user is login"] });
   } catch (error) {
-    res.status(500).send({ success: false, message: error });
+    res.status(500).send({ success: false, message: [error] });
   }
 });
 /////////////Login End
-// Hi Everyone!12345
+
 module.exports = router;

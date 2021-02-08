@@ -3,31 +3,32 @@ const bcrypt = require("bcrypt");
 const sendgrid = require("nodemailer-sendgrid-transport");
 
 const sendEmail = async (reqBody, type) => {
-  console.log(process.env.CONFIRM_PASSWORD_SECRET);
-  const { name, email } = reqBody; //???
-  if (type === "confirm") {
-    //in future type will be confirm, reset, booked ...
-    // const hashedConfirmPassword = await bcrypt.hash(
-    //   process.env.CONFIRM_PASSWORD_SECRET,
-    //   10
-    // );
-    const handlePasswordHashing = (plainPassword, salt) => {
-      let hashed = bcrypt.hashSync(plainPassword, salt);
+  try {
+    console.log(process.env.CONFIRM_PASSWORD_SECRET);
+    const { name, email } = reqBody; //???
+    if (type === "confirm") {
+      //in future type will be confirm, reset, booked ...
+      // const hashedConfirmPassword = await bcrypt.hash(
+      //   process.env.CONFIRM_PASSWORD_SECRET,
+      //   10
+      // );
+      const handlePasswordHashing = (plainPassword, salt) => {
+        let hashed = bcrypt.hashSync(plainPassword, salt);
 
-      if (hashed.includes("/")) {
-        hashed = this.handlePasswordHashing(plainPassword, salt);
-      }
+        if (hashed.includes("/")) {
+          hashed = handlePasswordHashing(plainPassword, salt);
+        }
 
-      return hashed;
-    };
-    const hashedConfirmPassword = handlePasswordHashing(
-      process.env.CONFIRM_PASSWORD_SECRET,
-      10
-    );
+        return hashed;
+      };
+      const hashedConfirmPassword = await handlePasswordHashing(
+        process.env.CONFIRM_PASSWORD_SECRET,
+        10
+      );
 
-    const confirmLink = `http://localhost:4000/user/confirmation/${email}/${hashedConfirmPassword}`;
+      const confirmLink = `http://localhost:4000/user/confirmation/${email}/${hashedConfirmPassword}`;
 
-    const output = `
+      const output = `
          <p> Please confirm your email </p>
          <ul>
             <li> Name : ${name} </li>
@@ -38,52 +39,55 @@ const sendEmail = async (reqBody, type) => {
          <div><a href="${confirmLink}">Confirm</a>  </div>
          <h3>If you didnot registered yourself, please ignore these Email</h3>
          `;
-    console.log(output);
+      console.log(output);
 
-    // creating the transporter
-    let transporter = nodemailer.createTransport(
-      sendgrid({
-        auth: { api_key: process.env.SENDGRID_API_KEY },
-      })
-    );
-    // createing the mail options
-    const mailOptions = {
-      from: "mn27305@gmail.com", // the sender email address have to be the same as user in transporter
-      to: email, // the receiver
-      subject: "Confirm Your Registration",
-      text: "Hello",
-      html: output,
-    };
-    // sending the email
-    await transporter.sendMail(mailOptions, (err, info) => {
-      if (err) throw err;
-      console.log("Message sent ", info.messageId);
-      /* res.send({ msg: "Email has been sent " }); */
-    });
-  }
-  if (type === "reset") {
-    //in future type will be confirm, reset, booked ...
-    // const hashedConfirmPassword = await bcrypt.hash(
-    //   process.env.CONFIRM_PASSWORD_SECRET,
-    //   10
-    // );
-    const handlePasswordHashing = (plainPassword, salt) => {
-      let hashed = bcrypt.hashSync(plainPassword, salt);
+      // creating the transporter
+      let transporter = nodemailer.createTransport(
+        sendgrid({
+          auth: { api_key: process.env.SENDGRID_API_KEY },
+        })
+      );
+      // createing the mail options
+      const mailOptions = {
+        from: "mn27305@gmail.com", // the sender email address have to be the same as user in transporter
+        to: email, // the receiver
+        subject: "Confirm Your Registration",
+        text: "Hello",
+        html: output,
+      };
+      // sending the email
+      console.log(`58`);
 
-      if (hashed.includes("/")) {
-        hashed = this.handlePasswordHashing(plainPassword, salt);
+      let info = await transporter.sendMail(mailOptions);
+      console.log("Message sent ", info);
+      if (info.message !== "success") {
+        throw `Email not sendet`;
       }
+    }
+    //////Reset Password
+    if (type === "reset") {
+      //in future type will be confirm, reset, booked ...
+      // const hashedConfirmPassword = await bcrypt.hash(
+      //   process.env.CONFIRM_PASSWORD_SECRET,
+      //   10
+      // );
+      const handlePasswordHashing = (plainPassword, salt) => {
+        let hashed = bcrypt.hashSync(plainPassword, salt);
 
-      return hashed;
-    };
-    const hashedConfirmPassword = handlePasswordHashing(
-      process.env.RESET_PASSWORD_SECRET,
-      10
-    );
+        if (hashed.includes("/")) {
+          hashed = handlePasswordHashing(plainPassword, salt);
+        }
 
-    const resetLink = `http://localhost:4000/user/resetconfirm/${email}/${hashedConfirmPassword}`;
+        return hashed;
+      };
+      const hashedConfirmPassword = handlePasswordHashing(
+        process.env.RESET_PASSWORD_SECRET,
+        10
+      );
 
-    const output = `
+      const resetLink = `http://localhost:4000/user/resetconfirm/${email}/${hashedConfirmPassword}`;
+
+      const output = `
          <p> With this link you can reset your password </p>
          <ul>
            
@@ -94,28 +98,33 @@ const sendEmail = async (reqBody, type) => {
          <div><a href="${resetLink}">Reset Password</a>  </div>
          <h3>If you didnot registered yourself, please ignore these Email</h3>
          `;
-    console.log(output);
+      console.log(output);
 
-    // creating the transporter
-    let transporter = nodemailer.createTransport(
-      sendgrid({
-        auth: { api_key: process.env.SENDGRID_API_KEY },
-      })
-    );
-    // createing the mail options
-    const mailOptions = {
-      from: "mn27305@gmail.com", // the sender email address have to be the same as user in transporter
-      to: email, // the receiver
-      subject: "Password reset",
-      text: "Hello",
-      html: output,
-    };
-    // sending the email
-    await transporter.sendMail(mailOptions, (err, info) => {
-      if (err) throw err;
-      console.log("Message sent ", info.messageId);
-      /* res.send({ msg: "Email has been sent " }); */
-    });
+      // creating the transporter
+      let transporter = nodemailer.createTransport(
+        sendgrid({
+          auth: { api_key: process.env.SENDGRID_API_KEY },
+        })
+      );
+      // createing the mail options
+      const mailOptions = {
+        from: "mn27305@gmail.com", // the sender email address have to be the same as user in transporter
+        to: email, // the receiver
+        subject: "Password reset",
+        text: "Hello",
+        html: output,
+      };
+      // sending the email
+      let info = await transporter.sendMail(mailOptions);
+      console.log("Message sent ", info);
+      if (info.message !== "success") {
+        throw `Email not sendet`;
+      }
+    }
+  } catch (error) {
+    console.log(error);
+
+    throw "Email sending is not success";
   }
 };
 
