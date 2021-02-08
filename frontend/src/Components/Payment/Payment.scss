@@ -1,0 +1,249 @@
+.payment {
+  width: 100vw;
+
+  background: url("../../Media/Images/Payment/PaymentBg.png");
+
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: Michroma;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 56px;
+  color: #000000;
+  h3 {
+    font-family: Michroma;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 30px;
+    line-height: 30px;
+    margin-top: 60px;
+    text-align: center;
+    span {
+      color: #f811e0;
+    }
+  }
+  .attention {
+    display: flex;
+    height: 60px;
+    background: rgba(252, 87, 87, 0.3);
+    margin: 5px 0px;
+    justify-content: center;
+    align-items: center;
+    ///
+
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 25px;
+    line-height: 30px;
+
+    color: #f81111;
+
+    //
+    &_icon {
+      width: 30px;
+      height: 30px;
+      background: url("../../Media/Images/Payment/Attention.png");
+      margin-right: 20px;
+      background-repeat: no-repeat;
+    }
+  }
+  &_methods {
+    margin-top: 20px;
+    &_heading {
+      background: #eac66f;
+      text-align: center;
+      font-family: Inter;
+      font-style: normal;
+      font-size: 25px;
+      line-height: 30px;
+    }
+  }
+  &_option {
+    margin: 0 auto;
+    max-width: 800px;
+    display: flex;
+    justify-content: space-between;
+    height: 70px;
+    align-items: center;
+    background: #dcdbdb;
+  }
+  &_circle {
+    width: 30px;
+    height: 30px;
+    background: #858585;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 23px;
+    margin-left: 5px;
+  }
+  &_active {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #000000;
+    filter: blur(4px);
+  }
+  &_item {
+    width: 80px;
+    height: 60px;
+    &_klarna {
+      background-image: url("../../Media/Images/Payment/klarna-sofort-alt\ 1.png");
+    }
+    &_paypal {
+      background-image: url("../../Media/Images/Payment/paypal.png");
+    }
+    &_apple {
+      background-image: url("../../Media/Images/Payment/applepay\ 1.png");
+    }
+    &_google {
+      background-image: url("../../Media/Images/Payment/googlepay\ 1.png");
+    }
+    &_visa {
+      background-image: url("../../Media/Images/Payment/visa-electron\ 1.png");
+    }
+    &_mastercard {
+      background-image: url("../../Media/Images/Payment/mastercard\ 1.png");
+    }
+    &_paydirekt {
+      background-image: url("../../Media/Images/Payment/paydirekt\ 1.png");
+    }
+  }
+  &_total_header {
+    font-family: Michroma;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 30px;
+    line-height: 30px;
+    padding: 0;
+    margin: 35px 15px 0px;
+    color: #000000;
+    border-bottom: 3px solid #000000;
+  }
+  &_total_text {
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 56px;
+
+    color: #000000;
+    span {
+      opacity: 0.5;
+    }
+  }
+  &_confirm {
+    margin-bottom: 150px;
+    width: 368px;
+    height: 100px;
+    display: flex;
+    position: relative;
+    &_button {
+      position: absolute;
+      left: 0px; //110px for animation
+      z-index: 1;
+
+      background: linear-gradient(
+          180deg,
+          #eac66f 0%,
+          rgba(255, 255, 255, 0) 100%
+        ),
+        linear-gradient(180deg, #858585 0%, #ffeaa7 100%);
+      background-blend-mode: color-burn, normal;
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+      border-radius: 50px;
+      font-family: Inter;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 24px;
+      line-height: 36px;
+      height: 70px;
+      width: 260px;
+      /* or 150% */
+
+      letter-spacing: 0.25px;
+
+      color: #000000;
+      &:focus {
+        outline: none;
+      }
+    }
+    &_price {
+      position: absolute;
+      right: 0px;
+      display: flex;
+      height: 70px;
+      width: 160px;
+      background-color: white;
+      border-radius: 50px;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}
+
+.progressBar2 {
+  display: block;
+  width: 80vw;
+  max-width: 1000px;
+  height: 80px;
+  background: url("../../Media/Images/Payment/step\ 3.png");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin: 0 auto;
+  margin-top: 70px;
+}
+
+//Animation
+@keyframes pseudoSwipe {
+  0% {
+    left: 0px;
+  }
+  100% {
+    left: 110px;
+  }
+}
+
+.swipeMe {
+  animation-name: pseudoSwipe;
+  animation-duration: 1s;
+  transition-timing-function: ease-in;
+  animation-fill-mode: forwards;
+}
+
+@media only screen and (max-width: 550px) {
+  .payment {
+    &_item {
+      width: 48px;
+      height: 40px;
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+    &_h3 {
+      font-size: 21px;
+    }
+    .attention {
+      font-size: 16px;
+    }
+    &_methods {
+      font-size: 16px;
+      &_heading {
+        font-size: 20px;
+      }
+    }
+    &_total_header {
+      font-size: 25px;
+    }
+    &_total_text {
+      font-size: 20px;
+      width: 100%;
+    }
+  }
+  &_confirm {
+    width: 320px;
+  }
+}

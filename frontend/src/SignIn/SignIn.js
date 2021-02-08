@@ -40,6 +40,7 @@ function SignIn() {
         <div className="signIn-H">
           <h1>SIGN IN</h1>
         </div>
+        {/* NotificationComponent */}
         <input
           type="email"
           placeholder="User Email"

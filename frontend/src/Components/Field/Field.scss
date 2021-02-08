@@ -1,0 +1,111 @@
+.field {
+  display: block;
+  width: 460px;
+  height: 240px;
+  position: relative;
+  &_1 {
+    background: url("../../Media/Images/Booking/Filed_1.png");
+  }
+  &_2 {
+    background: url("../../Media/Images/Booking/Filed_2.png");
+  }
+  &_3 {
+    background: url("../../Media/Images/Booking/Filed_3.png");
+  }
+  &_4 {
+    background: url("../../Media/Images/Booking/Filed_4.png");
+  }
+}
+.bookedOut {
+  opacity: 50%;
+}
+.bookedPlayers {
+  display: flex;
+  width: 172px;
+  height: 48px;
+  background: #c4c4c4;
+  border-radius: 10px;
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 35px;
+  line-height: 36px;
+
+  //display: flex;
+  justify-content: center;
+  align-items: center;
+  letter-spacing: 0.25px;
+  color: #000000;
+  margin: 16px;
+  &_full {
+    color: #f81111;
+  }
+}
+.flexCenter {
+  width: 470px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  //transform: scale(0.65);
+}
+.flexCenter_mobile {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transform: scale(0.65);
+}
+.userCircle {
+  display: block;
+  position: absolute;
+  height: 16px;
+  width: 16px;
+  background-color: white;
+  border-radius: 50%;
+  border: 2px solid #858585;
+  &_1 {
+    left: 48px;
+    top: 112px;
+  }
+  &_2 {
+    left: 95px;
+    top: 69px;
+  }
+  &_3 {
+    left: 95px;
+    bottom: 65px;
+  }
+  &_4 {
+    left: 155px;
+    top: 69px;
+  }
+  &_5 {
+    left: 155px;
+    bottom: 65px;
+  }
+  &_6 {
+    right: 50px;
+    top: 112px;
+  }
+  &_7 {
+    right: 97px;
+    top: 69px;
+  }
+  &_8 {
+    right: 97px;
+    bottom: 65px;
+  }
+  &_9 {
+    right: 157px;
+    top: 69px;
+  }
+  &_10 {
+    right: 157px;
+    bottom: 65px;
+  }
+  &.blocked {
+    background-color: #f81111;
+  }
+}

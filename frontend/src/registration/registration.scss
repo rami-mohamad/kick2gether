@@ -143,16 +143,18 @@
   }
   .signUpForm {
     left: 44vw;
+    top: 20vw;
   }
-  .signInForm {
+  .background .signInForm {
     left: 30vw;
+    top: 20vw;
   }
   .background .SocialDiv {
     left: 44vw;
     background: url("../image/Subtract\ 2\ \(1\).png") no-repeat;
     background-size: contain;
     height: 13vw;
-    top: 55vw;
+    top: 60vw;
     .socialMedia {
       left: 11vw;
     }
@@ -162,7 +164,7 @@
     background: url("../image/Subtract\ \(2\).png") no-repeat;
     background-size: contain;
     height: 13vw;
-    top: 55vw;
+    top: 60vw;
     .mobile {
       left: 3vw;
     }
@@ -190,5 +192,9 @@
   .signUp-H h1 {
     padding: 0;
     line-height: 25px;
+  }
+  .background .alerts {
+    line-height: 1px;
+    top: 15vw;
   }
 }

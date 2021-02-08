@@ -15,12 +15,19 @@ function SignUp() {
   });
   const { name, nickName, email, password } = user;
 
+  // create state for notification
+
+  // inside notification component
+
   const onChange = (e) => setUser({ ...user, [e.target.name]: e.target.value });
   const onSubmit = (e) => {
     e.preventDefault();
     if (name === "" || email === "" || password === "") {
       console.log("there is something missing!!!");
       addAlert("there is something missing!!!");
+
+      // set the notification state
+      // setTimeout to remove that notification state
     } else {
       console.log("register user");
       register({ name, nickName, email, password });
@@ -34,6 +41,7 @@ function SignUp() {
         <div className="signUp-H">
           <h1>SIGN UP</h1>
         </div>
+        {/* NotificationComponent error={} */}
         <div>
           <input
             type="text"

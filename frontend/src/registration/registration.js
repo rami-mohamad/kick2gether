@@ -2,6 +2,7 @@ import React from "react";
 import SignIn from "../SignIn/SignIn";
 import SignUp from "../SignUp/SignUp";
 import "./registration.scss";
+import Alerts from "../alerts component/Alerts";
 
 function registration() {
   return (
@@ -14,6 +15,7 @@ function registration() {
           <div className="socialMedia"></div>
         </div>
         <div className="Logo"></div>
+        <Alerts />
         <div className="LeftDiv">
           <div className="KontaktDiv">
             <div className="mobile"></div>

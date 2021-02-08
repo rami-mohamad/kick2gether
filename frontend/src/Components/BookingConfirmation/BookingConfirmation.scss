@@ -1,0 +1,37 @@
+.confirmation {
+  &_heading {
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 56px;
+    text-align: center;
+    color: #000000;
+    margin-top: 210px;
+  }
+  &_circle {
+    display: block;
+    width: 30vw;
+    height: 30vw;
+    background-size: 75% 75%;
+    background: url("../../Media/Images/PaymentConfirmation/checkmark-circle\ 1.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin: 20px auto;
+    max-width: 1000px;
+  }
+  &_text {
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 56px;
+    text-align: center;
+    color: #000000;
+    span {
+      font-weight: 600;
+      margin-bottom: 10vh;
+    }
+  }
+}
