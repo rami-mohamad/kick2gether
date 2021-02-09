@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import registration from "./registration/registration";
 import AuthState from "../src/auth/AuthState";
 import AlertState from "./alert/AlertState";
-// import Alerts from "./alerts component/Alerts";
+import Alerts from "./alerts component/Alerts";
 // import Home from "./Home/Home";
 import Fields from "./Components/Fields";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -12,6 +12,7 @@ import Additional from "./Components/Additional";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 import BookingWrap from "./Components/BookingWrap";
 import BookingConfirmation from "./Components/BookingConfirmation";
+import Dashboard from "./dashboard/dashboard";
 import "./App.scss";
 
 const App = () => {
@@ -35,7 +36,7 @@ const App = () => {
                   component={BookingConfirmation}
                   exact
                 ></Route>
-                {/* <BookingWrap></BookingWrap> */}
+                <Route path="/dashboard" component="Dashboard" exact></Route>
               </Switch>
             </div>
           </Fragment>

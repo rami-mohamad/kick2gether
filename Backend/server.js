@@ -1,8 +1,9 @@
 const express = require("express");
 const app = express();
-require("dotenv").config(); //Have to be before route import
+
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
+require("dotenv").config(); //Have to be before route import
 
 const mongoose = require("mongoose");
 
@@ -14,8 +15,12 @@ const passport = require("passport");
 
 ///Use Section
 app.use(express.json());
-app.use(cors({ origin: "http://localhost:3000", credentials: true }));
-
+app.use(
+  cors({
+    credentials: true,
+    origin: ["http://localhost:3000"], // this what what make problems with cors
+  })
+);
 app.use(cookieParser());
 app.use("/user", userRouter);
 app.use("/booking", bookingRouter);

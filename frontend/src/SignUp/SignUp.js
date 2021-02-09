@@ -24,7 +24,7 @@ function SignUp() {
     e.preventDefault();
     if (name === "" || email === "" || password === "") {
       console.log("there is something missing!!!");
-      addAlert("there is something missing!!!");
+      addAlert("there is something missing!!!", "danger");
 
       // set the notification state
       // setTimeout to remove that notification state

@@ -22,6 +22,7 @@ const BookingSchema = new Schema({
   tshirt: [String],
   shoes: [Number],
   towels: Number,
+  pin: Number,
 });
 
 const BookingModel = mongoose.model("booking", BookingSchema);

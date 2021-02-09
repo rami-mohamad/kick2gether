@@ -6,6 +6,7 @@ const configurePassport = require("../Utils/passport-config.js");
 configurePassport(passport);
 
 const router = express.Router();
+const SendEmail = require("../Utils/SendEmailGrid");
 
 const User = require("../Models/UserModel");
 const Field = require("../Models/FieldModel");
@@ -35,8 +36,14 @@ router.post(
   }),
   async function (req, res) {
     try {
-      const userId = req.user.id;
-      // const userId = "5ffecbaeb09b1042094243b3"; //thats will be from jwt token later
+      console.log(req.user.id);
+
+      const userId = req.user.id; //thats will be from jwt token later
+      ///const userId = "5ffecbaeb09b1042094243b3";
+      const user = await User.findById(userId);
+      console.log(user);
+      const pin = Math.floor(100000 + Math.random() * 900000);
+
       console.log(req.body);
       const {
         field,
@@ -83,6 +90,7 @@ router.post(
         tshirt,
         shoes,
         towels,
+        pin,
       };
 
       console.log(booking);
@@ -132,7 +140,9 @@ router.post(
           message: [
             `The field is booked, booking number is ${bookingResult.id}`,
           ],
+          email: user.email,
         });
+        SendEmail(user, "booked", pin);
       } else {
         throw Error("Server error by booking");
       }

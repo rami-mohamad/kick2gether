@@ -119,7 +119,11 @@ function Additional(props) {
                   className="prebook_information_label prebook_information_remove_bottom "
                   style={{ borderRight: "none" }}
                 >
-                  {`${5 * +booking.hoursQuantity} €`}
+                  {`${
+                    preparedBooking.numberOfPersons *
+                    +preparedBooking.hoursQuantity *
+                    5
+                  } €`}
                 </Col>
               </Row>
             </div>
