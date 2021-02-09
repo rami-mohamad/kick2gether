@@ -6,7 +6,7 @@ import Logo from "./Logo/NavbarLogo.svg";
 export const TopNav = styled.nav`
   background: #000;
   height: 40px;
-  margin-top:0px;
+  margin-top: 0px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -49,10 +49,15 @@ export const TopNavItem = styled.li`
 
 export const Nav = styled.nav`
   background: -prefix-linear-gradient(top, black, grey 100%, white);
-
   background: linear-gradient(to bottom, black, #424242 70%, black);
+ 
+  /* background: ${({ scrollNav }) =>
+    scrollNav
+      ? "-prefix-linear-gradient(top, black, grey 100%, white)"
+      : "linear-gradient(to bottom, black, #424242 70%, black)"}; */
+  
   height: 80px;
-  margin-top:0px;
+  margin-top: 0px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -139,43 +144,34 @@ export const NavItem = styled.li`
 `;
 
 export const NavLinks = styled(LinkScroll)`
-  color: #fff;
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-  padding: 0 0.6rem;
-  height: 100%;
-  cursor: pointer;
+         color: #fff;
+         display: flex;
+         align-items: center;
+         text-decoration: none;
+         padding: 0 0.6rem;
+         height: 100%;
+         cursor: pointer;
 
-  &.active {
-    border-bottom: 3px solid #01bf71;
-  }
-  @media screen and (max-width: 768px) {
-    display: none;
-  }
+         &.active {
+           border-bottom: 3px solid #ffde4c;
+         }
+         @media screen and (max-width: 768px) {
+           display: none;
+         }
 
-  &:hover {
-    color: #ffde4c;
-  }
-`;
+         &:hover {
+           color: #ffde4c;
+         }
+       `;
 
-export const NavBtnIN = styled.nav`
-  display: flex;
-  align-items: center;
-  padding: 10px 24px;
-`;
-
-export const NavBtnLinkINUP = styled(LinkRouter)`
-  color: #ffde4c;
+export const NavBtnLinkINUP = styled.nav`
   border-radius: 50px;
   background: linear-gradient(to bottom, #ffe79e 13%, #897129 38%, #504630 98%);
   white-space: nowrap;
-  font-size: 16px;
   outline: none;
   border: none;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
-  text-decoration: none;
   padding: 0 8px;
   margin-right: 10px;
 
@@ -191,4 +187,15 @@ export const NavBtnLinkINUP = styled(LinkRouter)`
   }
 `;
 
+export const NavBtnIN = styled(LinkRouter)`
+  display: flex;
+  align-items: center;
+  padding: 10px 24px;
+  color: #ffde4c;
+  text-decoration: none;
+  font-size: 16px;
 
+  &:hover {
+    color: #000000;
+  }
+`;

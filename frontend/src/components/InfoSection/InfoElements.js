@@ -8,30 +8,28 @@ import Dots from "./InfoImages/3Dots.png";
 export const InfoContainer = styled.div`
   color: #fff;
   background: ${({ lightBg }) => (lightBg ? "#f9f9f9" : "#010606")};
-  height: 1050px;
-  padding: 40px 0;
+  height: 1000px;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 40px 20px;
+  max-width: 1400px;
 
   /* border: 1px solid red; */
 
   @media screen and (max-width: 768px) {
-    height: 1250px;
+    height: 1200px;
   }
 `;
 
 export const InfoWrapper = styled.div`
-  /* display: grid; */
   z-index: 1;
-  height: 950px;
   width: 100%;
-  max-width: 1100px;
-  margin-right: auto;
-  margin-left: auto;
-  padding: 0px 20px;
   justify-content: center;
+  align-items: center;
   position: relative;
 
   @media screen and (max-width: 768px) {
-    height: 1080px;
+    height: 1100px;
   }
 `;
 
@@ -42,10 +40,8 @@ export const InfoRow = styled.div`
 `;
 
 export const TextWrapper = styled.div`
-         width: 100%;
-         padding-top: 0;
-         padding-bottom: 60px;
-       `;
+  width: 100%;
+`;
 
 export const TopLine = styled.p`
   color: #fabf2f;
@@ -55,7 +51,7 @@ export const TopLine = styled.p`
   letter-spacing: 1.4px;
   text-transform: uppercase;
   margin-bottom: 16px;
-  margin-top:60px;
+  /* margin-top: 60px; */
   font-family: "Michroma", sans-serif;
 `;
 
@@ -352,7 +348,7 @@ export const BtnWrap = styled.div`
   display: flex;
   justify-content: flex-start;
   position: absolute;
-  top: 660px;
+  top: 650px;
   left: auto;
 
   @media screen and (max-width: 768px) {

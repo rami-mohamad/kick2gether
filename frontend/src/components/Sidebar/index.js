@@ -3,6 +3,7 @@ import { HiOutlineHome } from "react-icons/hi";
 import { IoIosPricetags } from "react-icons/io";
 import { TiInfoLargeOutline } from "react-icons/ti";
 // import { GiSoccerField } from "react-icons/gi";
+
 import {
   SidebarContainer,
   Icon,
@@ -23,19 +24,43 @@ const Sidebar = ({isOpen, toggle}) => {
 
         <SidebarWrapper>
           <SidebarMenu>
-            <SidebarLink to="home" onClick={toggle} >
+            <SidebarLink
+              to="home"
+              smooth={true}
+              duration={500}
+              spy={true}
+              exact="true"
+              offset={-80}
+              onClick={toggle}
+            >
               <HiOutlineHome
                 style={{ position: "relative", top: "-1px", right: "5px" }}
               />
               K2G
             </SidebarLink>
-            <SidebarLink to="price" onClick={toggle}>
+            <SidebarLink
+              to="price"
+              smooth={true}
+              duration={500}
+              spy={true}
+              exact="true"
+              offset={-80}
+              onClick={toggle}
+            >
               <IoIosPricetags
                 style={{ position: "relative", top: "-1px", right: "5px" }}
               />
               Price
             </SidebarLink>
-            <SidebarLink to="info" onClick={toggle}>
+            <SidebarLink
+              to="info"
+              smooth={true}
+              duration={500}
+              spy={true}
+              exact="true"
+              offset={-80}
+              onClick={toggle}
+            >
               <TiInfoLargeOutline
                 style={{ position: "relative", top: "-1px", right: "1px" }}
               />
@@ -51,7 +76,7 @@ const Sidebar = ({isOpen, toggle}) => {
           </SidebarMenu>
 
           <SideBtnWrap>
-            <SidebarRoute to="/signin">Sign In | Up</SidebarRoute>
+            <SidebarRoute to="/signInUp">Sign In | Up</SidebarRoute>
           </SideBtnWrap>
         </SidebarWrapper>
       </SidebarContainer>

@@ -4,6 +4,7 @@ import { HiOutlineHome } from "react-icons/hi";
 import { IoIosPricetags } from "react-icons/io";
 import { TiInfoLargeOutline } from "react-icons/ti";
 // import { GiSoccerField } from "react-icons/gi";
+import { animateScroll as scroll } from "react-scroll";
 import {
   Nav,
   NavbarContainer,
@@ -17,11 +18,15 @@ import {
 } from "./NavbarElements";
 
 function Navbar({toggle}) {
+
+  const toggleHome = () =>{
+    scroll.scrollToTop();
+  }
   return (
     <>
       <Nav>
         <NavbarContainer>
-          <NavLogo to="/"></NavLogo>
+          <NavLogo to="/" onClick={toggleHome}></NavLogo>
 
           <MobileIcon onClick={toggle}>
             <BsFillBarChartFill style={{}} />
@@ -31,6 +36,11 @@ function Navbar({toggle}) {
             <NavItem>
               <NavLinks
                 to="home"
+                smooth={true}
+                duration={500}
+                spy={true}
+                exact="true"
+                offset={-80}
                 style={{ position: "relative", right: "5px" }}
               >
                 <HiOutlineHome
@@ -42,6 +52,11 @@ function Navbar({toggle}) {
             <NavItem>
               <NavLinks
                 to="price"
+                smooth={true}
+                duration={500}
+                spy={true}
+                exact="true"
+                offset={-80}
                 style={{ position: "relative", right: "5px" }}
               >
                 <IoIosPricetags
@@ -53,6 +68,11 @@ function Navbar({toggle}) {
             <NavItem>
               <NavLinks
                 to="info"
+                smooth={true}
+                duration={500}
+                spy={true}
+                exact="true"
+                offset={-80}
                 style={{ position: "relative", right: "12px" }}
               >
                 <TiInfoLargeOutline
@@ -75,7 +95,7 @@ function Navbar({toggle}) {
             </NavItem> */}
 
             <NavBtnLinkINUP>
-              <NavBtnIN >Sign In | Up</NavBtnIN>
+              <NavBtnIN to="/signInUp">Sign In | Up</NavBtnIN>
             </NavBtnLinkINUP>
           </NavMenu>
         </NavbarContainer>

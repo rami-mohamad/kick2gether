@@ -1,6 +1,6 @@
 import React from 'react'
 
-function SignInPage() {
+function SignInUpPage() {
     return (
         <div>
             <h1>Sign in Page</h1>
@@ -8,4 +8,4 @@ function SignInPage() {
     )
 }
 
-export default SignInPage
+export default SignInUpPage

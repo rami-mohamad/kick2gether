@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Video from "../../videos/video.mp4";
+import Video from "../../videos/Soccer720.mp4";
 import { Button } from "../ButtonElements";
 import {
   HeroContainer,
@@ -66,6 +66,11 @@ function HeroSection() {
           <HeroBtnWrapper>
             <Button
               to="signup"
+              smoth={true}
+              duration={500}
+              spy={true}
+              exact="true"
+              offset={-80}
               onMouseEnter={onHover}
               onMouseLeave={onHover}
               primary="true"

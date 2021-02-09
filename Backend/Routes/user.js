@@ -85,6 +85,9 @@ router.post("/register", expressValidatorSettings, async (req, res) => {
     res.status(500).send({ success: false, message: [error] });
   }
 });
+// contact form 
+
+
 /////Registration confirm
 router.get("/confirmation/:email/:password", async (req, res) => {
   try {

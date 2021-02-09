@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import FB from "./FooterImages/icon-facebook.png";
 import IN from "./FooterImages/icon-linkedin.png";
 import S from "./FooterImages/icon-slack.png";
 import T from "./FooterImages/icon-twitter.png";
+import axios from "axios";
 
 import {
   FooterContainer,
@@ -29,6 +30,30 @@ import {
 } from "./FooterElements";
 
 function Footer() {
+const [contact, setcontact] = useState({})
+
+const inputChange = (e) => {
+
+setcontact({...contact, [e.target.name] : e.target.value})
+
+}
+const submitHandler =async ()=>{
+  const config = {
+    headers:{
+      "Content-Type":"application/json"
+    }
+  }
+  try {
+  const response = axios.post(
+    "http://localhost:4000/user/contact",contact, config
+  )
+    console.log(response.data);
+  } catch (error) {
+    
+  }
+}
+
+
   return (
     <>
       <FooterContainer id="footer">
@@ -120,15 +145,27 @@ function Footer() {
           <MessageWrapper>
             <HeroP>keep in touch</HeroP>
             <InputArea>
-              <InputName type="text" placeholder="Your Name"></InputName>
+              <InputName
+                onChange={inputChange}
+                name="name"
+                type="text"
+                placeholder="Your Name"
+              ></InputName>
 
-              <InputEmail type="text" placeholder="E-mail"></InputEmail>
+              <InputEmail
+                onChange={inputChange}
+                name="email"
+                type="text"
+                placeholder="E-mail"
+              ></InputEmail>
 
               <MessageArea
+                onChange={inputChange}
                 type="text"
+                name="message"
                 placeholder="Leave your message|"
               ></MessageArea>
-              <ButtonSend>Send</ButtonSend>
+              <ButtonSend onClick={submitHandler}>Send</ButtonSend>
             </InputArea>
           </MessageWrapper>
         </FlexContainer2>
