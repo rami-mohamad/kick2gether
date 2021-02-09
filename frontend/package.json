@@ -11,14 +11,12 @@
     "@testing-library/user-event": "^12.6.0",
     "axios": "^0.21.1",
     "bootstrap": "^4.5.3",
-     "concurrently": "^5.3.0",
+    "concurrently": "^5.3.0",
     "node-sass": "^4.14.1",
-
     "react": "^17.0.1",
     "react-app": "^1.1.2",
     "react-bootstrap": "^1.4.3",
     "react-dom": "^17.0.1",
-
     "react-icons": "^4.1.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.1",
@@ -26,13 +24,8 @@
     "reactstrap": "^8.8.1",
     "styled-components": "^5.2.1",
     "styled-icons": "^10.25.0",
-
-    "react-router-dom": "^5.2.0",
-    "react-scripts": "4.0.1",
     "react-transition-group": "^4.4.1",
-    "reactstrap": "^8.8.1",
     "uuid": "^8.3.2",
-
     "web-vitals": "^0.2.4"
   },
   "scripts": {
