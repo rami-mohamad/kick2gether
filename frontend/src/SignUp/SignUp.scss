@@ -1,0 +1,107 @@
+.signUpForm {
+  // margin: 40px;
+  background-image: url("../image/Subtract.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: absolute;
+  width: 25vw;
+  height: 636px;
+  right: 13vw;
+  top: 15vw;
+  text-align: center;
+  input {
+    // margin-top: 20px;
+    border-style: none;
+    &:focus {
+      outline: none;
+    }
+  }
+  h1 {
+    color: #5c5c5c;
+    font-family: Michroma;
+    font-style: normal;
+    font-weight: normal;
+    // line-height: 80px;
+    font-size: 2.5vw;
+  }
+  .inputUser {
+    position: absolute;
+    height: 2vw;
+    width: 11vw;
+    background: #ffffff;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+    border-radius: 50px;
+    right: 5vw;
+    top: 8vw;
+    font-size: 1vw;
+  }
+  .inputNickname {
+    position: absolute;
+    height: 2vw;
+    width: 11vw;
+    background: #ffffff;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+    border-radius: 50px;
+    right: 5vw;
+    top: 11.5vw;
+    font-size: 1vw;
+  }
+  .inputEmail {
+    position: absolute;
+    height: 2vw;
+    width: 11vw;
+    background: #ffffff;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+    border-radius: 50px;
+    right: 5vw;
+    top: 15vw;
+    font-size: 1vw;
+  }
+  .inputPassword {
+    position: absolute;
+    height: 2vw;
+    width: 11vw;
+    background: #ffffff;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+    border-radius: 50px;
+    right: 5vw;
+    top: 19vw;
+    font-size: 1vw;
+  }
+  .checkBox {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    height: 1vw;
+    width: 12vw;
+    right: 4.5vw;
+    top: 23vw;
+    font-size: 1vw;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 800;
+    // font-size: 10px;
+    // line-height: 104px;
+    color: #5c5c5c;
+  }
+  .signUp-H {
+    position: absolute;
+    width: 12vw;
+    height: 2vw;
+    right: 5vw;
+    top: 2vw;
+  }
+}
+.inputRegister {
+  position: absolute;
+  height: 2vw;
+  width: 11vw;
+  top: 26vw;
+  right: 5.5vw;
+
+  background: #5c5c5c;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+  border-radius: 50px;
+  color: #ffffff;
+  font-size: 1vw;
+}

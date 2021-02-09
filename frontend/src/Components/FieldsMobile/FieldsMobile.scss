@@ -1,0 +1,131 @@
+.booking {
+  width: 100vw;
+  //height: 1196px; //remove later
+  background: url("../../Media/Images/Booking/Booking_BG.png");
+  /* background-position: center cover/ no-repeat; */
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-bottom: 150px;
+}
+
+.users {
+  width: 100%;
+  height: 55px;
+  /* left: 204px;
+top: 340px; */
+
+  background: #ffffff;
+  border: 1px solid #5c5c5c;
+  box-sizing: border-box;
+  box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 19px;
+  /* identical to box height */
+
+  color: #5c5c5c;
+  & option {
+    background: #ffffff;
+    border: 1px solid #5c5c5c;
+    box-sizing: border-box;
+    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 19px;
+  }
+  &:focus {
+    background: #dadada;
+  }
+}
+.bookingButton {
+  height: 90px;
+  width: 205px;
+
+  background: linear-gradient(180deg, #eac66f 0%, rgba(255, 255, 255, 0) 100%),
+    linear-gradient(
+      180deg,
+      rgba(234, 198, 111, 0.9) 18.75%,
+      rgba(109, 88, 36, 0.9) 41.67%,
+      rgba(16, 16, 14, 0.9) 100%
+    );
+  border: 3px solid #858585;
+  box-sizing: border-box;
+  border-radius: 999px;
+  font-family: Michroma;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 25px;
+  line-height: 51px;
+
+  letter-spacing: -0.5px;
+
+  color: #000000;
+  text-align: center;
+  &_disabled {
+    opacity: 0.5;
+  }
+}
+.label {
+  background-color: white;
+}
+
+.calender {
+  width: 100%;
+  height: 55px;
+  left: 409px;
+  top: 340px;
+
+  background: #ffffff;
+  border: 1px solid #5c5c5c;
+  box-sizing: border-box;
+  box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+  &:focus {
+    background: #dadada;
+  }
+}
+
+.progressBar0 {
+  display: block;
+  width: 80vw;
+  max-width: 1000px;
+  height: 80px;
+  background: url("../../Media/Images/Booking/statusBar_\ step1.png");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin: 0 auto;
+  margin-top: 70px;
+}
+
+.userInfoMobile {
+  display: flex;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  /*  margin-left: 60px; */
+
+  color: #000000;
+
+  &_circle {
+    display: block;
+    height: 16px;
+    width: 16px;
+    margin-right: 25px;
+
+    background-color: white;
+    border-radius: 50%;
+    border: 2px solid #858585;
+    &_red {
+      background-color: #f81111;
+    }
+  }
+}

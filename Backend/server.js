@@ -2,18 +2,33 @@ const express = require("express");
 const app = express();
 
 const cors = require("cors");
+const cookieParser = require("cookie-parser");
 require("dotenv").config(); //Have to be before route import
 
 const mongoose = require("mongoose");
 
 const userRouter = require("./Routes/user");
+const bookingRouter = require("./Routes/bookingF");
+const passport = require("passport");
 
 ////Middleware
 
 ///Use Section
 app.use(express.json());
-app.use(cors());
+app.use(
+  cors({
+    credentials: true,
+    origin: ["http://localhost:3000"], // this what what make problems with cors blocking, when with credentia
+  })
+);
+app.use(cookieParser());
 app.use("/user", userRouter);
+app.use("/booking", bookingRouter);
+app.use(passport.initialize());
+app.all("/*", function (req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  next();
+});
 
 //Mongoose Connection
 
