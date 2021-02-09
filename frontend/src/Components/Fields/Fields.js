@@ -3,7 +3,8 @@ import { Container, Row, Col } from "reactstrap";
 import "./Fields.scss";
 import axios from "axios";
 import Field from "../Field";
-
+import { CSSTransition } from "react-transition-group";
+axios.defaults.withCredentials = false; //!!!  when this is true, then cors blocking!!!!
 function Fields(props) {
   const setBooking = props.setBooking;
   // console.log(props.booking);
@@ -72,8 +73,13 @@ function Fields(props) {
 
   const checkPossibility = () => {};
 
-  ////////////
-
+  ////////////for axios setup
+  const config = {
+    headers: {
+      "content-type": "application/json",
+    },
+    withCredentials: true,
+  };
   ///////////
   const getSlots = async () => {
     const dateWrapper = { date: date };
@@ -343,14 +349,23 @@ function Fields(props) {
 
           {/*  <div className="users">{date}</div> */}
         </form>
-        <Row>
-          <Col>
-            <Field blocked={fieldInfo[1]} field={1}></Field>
-          </Col>
-          <Col style={{ justifyContent: "flex-end", display: "flex" }}>
-            <Field blocked={fieldInfo[2]} field={2}></Field>
-          </Col>
-        </Row>
+        <CSSTransition
+          in={true}
+          timeout={300}
+          classNames="alert"
+          unmountOnExit
+          //onEnter={() => setShowMessage(true)}
+          /* onExited={() => setShowButton(true)} */
+        >
+          <Row>
+            <Col>
+              <Field blocked={fieldInfo[1]} field={1}></Field>
+            </Col>
+            <Col style={{ justifyContent: "flex-end", display: "flex" }}>
+              <Field blocked={fieldInfo[2]} field={2}></Field>
+            </Col>
+          </Row>
+        </CSSTransition>
         <Row>
           <Col>
             <Field blocked={fieldInfo[3]} field={3}></Field>

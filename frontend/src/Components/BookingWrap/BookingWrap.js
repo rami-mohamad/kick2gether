@@ -1,5 +1,5 @@
 import React, { useState, Children } from "react";
-import { useHistory } from "react-router-dom";
+
 import Fields from "../Fields";
 import Additional from "../Additional";
 import { Route } from "react-router-dom";
@@ -10,6 +10,7 @@ import FieldsMobile from "../FieldsMobile";
 function BookingWrap() {
   const [booking, setBooking] = useState(false);
   const [showPayment, setShowPayment] = useState(false);
+  const [email, setEmail] = useState(false);
 
   console.log(booking);
   const mql = window.matchMedia("(max-width: 800px)");
@@ -17,6 +18,9 @@ function BookingWrap() {
   console.log("mobile view is ", mobileView);
 
   const showLogic = () => {
+    if (email) {
+      return <BookingConfirmation email={email}></BookingConfirmation>;
+    }
     if (!booking && !showPayment) {
       if (mobileView) {
         return (
@@ -37,17 +41,11 @@ function BookingWrap() {
         ></Additional>
       );
     } else if (showPayment) {
-      return <Payment booking={booking}></Payment>;
+      return <Payment booking={booking} setEmail={setEmail}></Payment>;
     }
   };
 
-  return (
-    <div>
-      {showLogic()}
-
-      {/* <FieldsMobile></FieldsMobile> */}
-    </div>
-  );
+  return <div>{showLogic()}</div>;
 }
 
 export default BookingWrap;

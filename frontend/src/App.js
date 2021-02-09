@@ -1,11 +1,10 @@
-
 import React, { Fragment } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import registration from "./registration/registration";
 import AuthState from "../src/auth/AuthState";
 import AlertState from "./alert/AlertState";
 import Alerts from "./alerts component/Alerts";
-import Home from "./Home/Home";
+
 import Fields from "./Components/Fields";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Home from "./Components/Home";
@@ -29,21 +28,18 @@ const App = () => {
                   component={registration}
                 ></Route>
                 <Route path="/Home" component={Home} exact />
-    <Route path="/booking/" component={BookingWrap} exact />
-        <Route
-          path="/booking/confirm"
-          component={BookingConfirmation}
-          exact
-        ></Route>
-        {/* <BookingWrap></BookingWrap> */}
-        <Route path="/user" component={Login}></Route>
+                <Route path="/booking/" component={BookingWrap} exact />
+                <Route
+                  path="/booking/confirm"
+                  component={BookingConfirmation}
+                  exact
+                ></Route>
               </Switch>
             </div>
           </Fragment>
         </BrowserRouter>
       </AlertState>
     </AuthState>
-
   );
 };
 

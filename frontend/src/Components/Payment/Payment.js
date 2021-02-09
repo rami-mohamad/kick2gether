@@ -3,9 +3,11 @@ import { Container, Row, Col } from "reactstrap";
 import { useHistory } from "react-router-dom";
 import "./Payment.scss";
 import axios from "axios";
+axios.defaults.withCredentials = true;
 
 function Payment(props) {
   const [choosedMethod, setChoosedMethod] = useState("Paypal");
+
   console.log(props.booking);
   const history = useHistory();
 
@@ -16,12 +18,19 @@ function Payment(props) {
         "http://localhost:4000/booking/book",
         props.booking
       );
-      console.log(result.data);
+      console.log(result);
+
+      if (result.data.status) {
+        return history.push("/user/register");
+      }
+      console.log(result.data.status);
       setTimeout(function () {
-        history.push("/booking/confirm");
+        //history.push("/booking/confirm");
+        props.setEmail(result.data.email);
       }, 2000);
     } catch (error) {
       console.log(error); //later to notification
+      return history.push("/registration");
     }
   };
 
@@ -199,7 +208,7 @@ function Payment(props) {
             style={{ borderRight: "1px solid" }}
           ></Col>
           <Col className="payment_total_text" style={{ textAlign: "center" }}>
-            {+props.booking.hoursQuantity * 5} €
+            {+props.booking.hoursQuantity * props.booking.numberOfPersons * 5} €
           </Col>
           <Col></Col>
         </Row>
@@ -273,7 +282,9 @@ function Payment(props) {
               <div className="payment_confirm_price">
                 {(props.booking.shoes.length +
                   props.booking.tshirt.length +
-                  +props.booking.hoursQuantity +
+                  +(
+                    props.booking.hoursQuantity * props.booking.numberOfPersons
+                  ) +
                   props.booking.towels) *
                   5}{" "}
                 €
