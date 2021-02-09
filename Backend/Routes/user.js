@@ -215,8 +215,14 @@ router.get(
     session: false,
     failureRedirect: "/registration", // this is to redirect to login if no loggedin user
   }),
-  (req, res) => {
-    console.log("hallo", req.user);
+  async (req, res) => {
+    const user = await User.findById(req.user.id);
+    const { nickName, name, email } = user;
+    console.log(user.name);
+    res.send({
+      success: true,
+      user: { nickName, name, email },
+    });
     // res.send("hallo", req.user._id);
   }
 );

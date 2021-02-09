@@ -36,7 +36,7 @@ const App = () => {
                   component={BookingConfirmation}
                   exact
                 ></Route>
-                <Route path="/dashboard" component="Dashboard" exact></Route>
+                <Route path="/dashboard" component={Dashboard} exact></Route>
               </Switch>
             </div>
           </Fragment>

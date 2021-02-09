@@ -28,11 +28,40 @@ router.post("/search/", async function (req, res) {
 
   res.send(slots);
 });
+////Dashboard  booking/dashboard
+router.get(
+  "/dashboard",
+  passport.authenticate("jwt", {
+    session: false,
+  }),
+  async (req, res) => {
+    try {
+      const user = await User.findById(req.user.id);
+      const { nickname, name, email } = user;
+
+      console.log(user.name);
+
+      const allBookings = await Booking.find({ user: req.user.id });
+
+      res.send({
+        success: true,
+        user: { nickname, name, email },
+        bookings: allBookings,
+      });
+    } catch (error) {
+      res.status(404).send({
+        succes: false,
+        message: ["With this user id no Bookings found"],
+      });
+    }
+  }
+);
+
+////End dashboard
 router.post(
   "/book",
   passport.authenticate("jwt", {
     session: false,
-    failureRedirect: "/registration", // this is to redirect to login if no loggedin user
   }),
   async function (req, res) {
     try {
@@ -151,39 +180,6 @@ router.post(
     } catch (error) {
       res.status(400).send({ success: false, message: [error.message] });
     }
-
-    //
-    /////////////////////
-
-    //create fake date
-
-    ////
-    // const startTime = new Date(`2021-02-19T${20 + 1}:00`);
-    // const endTime = new Date(`2021-02-19T${21 + 1}:00`);
-
-    // console.log(startTime, endTime);
-
-    //const endDate = new Date();
-
-    //const slots = await findFreeSlots(Number(startTime));
-    //console.log(slots);
-    //res.send(slots);
-
-    // await Booking.create({
-    //   user: "5ffecbaeb09b1042094243b3",
-    //   field: "60001b41e894950bec3046b0",
-    //   startTime: startTime,
-    //   endTime: endTime,
-    //   numberOfPersons: 5,
-    // });
-
-    // await Booking.create({
-    //   user: "5ffc5ae67395372eb44b2b87",
-    //   field: "5ffd5cf35089c212f059da87",
-    //   startTime: new Date(2021, 2, 17, 9),
-    //   endTime: new Date(2021, 2, 17, 11),
-    //   numberOfPersons: 4,
-    // });
   }
 );
 router.post("/delete", async function (req, res) {
