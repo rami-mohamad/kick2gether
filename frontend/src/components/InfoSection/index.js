@@ -90,7 +90,7 @@ function InfoElements({
               <BtnWrap>
                 <Button
                   to="home"
-                  smoth={true}
+                  smooth={true}
                   duration={500}
                   spy={true}
                   exact="true"

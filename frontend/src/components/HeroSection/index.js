@@ -65,8 +65,8 @@ function HeroSection() {
           <HeroIconGoldenFB></HeroIconGoldenFB>
           <HeroBtnWrapper>
             <Button
-              to="signup"
-              smoth={true}
+              to="home"
+              smooth={true}
               duration={500}
               spy={true}
               exact="true"

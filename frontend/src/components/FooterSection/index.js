@@ -30,7 +30,7 @@ import {
 } from "./FooterElements";
 
 function Footer() {
-const [contact, setcontact] = useState({})
+const [contact, setcontact] = useState({name:"", email:"", message:""})
 
 const inputChange = (e) => {
 
@@ -43,6 +43,7 @@ const submitHandler =async ()=>{
       "Content-Type":"application/json"
     }
   }
+  console.log(contact);
   try {
   const response = axios.post(
     "http://localhost:4000/user/contact",contact, config
@@ -165,7 +166,12 @@ const submitHandler =async ()=>{
                 name="message"
                 placeholder="Leave your message|"
               ></MessageArea>
-              <ButtonSend onClick={submitHandler}>Send</ButtonSend>
+              {contact.message !== "" ? (
+                <ButtonSend onClick={submitHandler}>Send</ButtonSend>
+              ) : (
+                <ButtonSend disabled={true} onClick={submitHandler}>Send</ButtonSend>
+              )}
+              {/* <ButtonSend onClick={submitHandler}>Send</ButtonSend> */}
             </InputArea>
           </MessageWrapper>
         </FlexContainer2>
