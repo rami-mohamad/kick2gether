@@ -18,13 +18,19 @@ function Payment(props) {
         "http://localhost:4000/booking/book",
         props.booking
       );
-      console.log(result.data);
+      console.log(result);
+
+      if (result.data.status) {
+        return history.push("/user/register");
+      }
+      console.log(result.data.status);
       setTimeout(function () {
         //history.push("/booking/confirm");
         props.setEmail(result.data.email);
       }, 2000);
     } catch (error) {
       console.log(error); //later to notification
+      return history.push("/registration");
     }
   };
 

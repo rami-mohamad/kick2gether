@@ -45,13 +45,7 @@ function BookingWrap() {
     }
   };
 
-  return (
-    <div>
-      {showLogic()}
-
-      {/* <FieldsMobile></FieldsMobile> */}
-    </div>
-  );
+  return <div>{showLogic()}</div>;
 }
 
 export default BookingWrap;
