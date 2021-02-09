@@ -4,7 +4,9 @@ import registration from "./registration/registration";
 import AuthState from "../src/auth/AuthState";
 import AlertState from "./alert/AlertState";
 import Alerts from "./alerts component/Alerts";
+
 import './App.css';
+
 import Fields from "./Components/Fields";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Home from './pages';
@@ -13,6 +15,8 @@ import Additional from "./Components/Additional";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 import BookingWrap from "./Components/BookingWrap";
 import BookingConfirmation from "./Components/BookingConfirmation";
+import Dashboard from "./dashboard/dashboard";
+import "./App.scss";
 
 const App = () => {
   return (
@@ -21,7 +25,7 @@ const App = () => {
         <BrowserRouter>
          
             <div>
-              <Alerts className="alerts" />
+              {/* <Alerts className="alerts" /> */}
               <Switch>
                 <Route
                   path="/registration"
@@ -37,6 +41,7 @@ const App = () => {
                   component={BookingConfirmation}
                   exact
                 ></Route>
+                <Route path="/dashboard" component={Dashboard} exact></Route>
               </Switch>
             </div>
           

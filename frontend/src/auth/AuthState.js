@@ -40,13 +40,11 @@ const AuthState = (props) => {
   };
   const loadUser = async () => {
     try {
-      const res = await axios.get("http://localhost:4000/user/dashboard", {
+      const res = await axios.get("http://localhost:4000/booking/dashboard", {
         withCredentials: true,
       });
-      dispatch({
-        type: "USER_LOADED",
-        payload: res.data,
-      });
+      console.log(res);
+      return res;
     } catch (error) {
       dispatch({
         type: "USER_LOADED_ERROR",

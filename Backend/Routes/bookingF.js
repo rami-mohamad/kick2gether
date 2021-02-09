@@ -1,10 +1,10 @@
 const express = require("express");
 const mongoose = require("mongoose");
-////
+
 const passport = require("passport");
 const configurePassport = require("../Utils/passport-config.js");
 configurePassport(passport);
-/////
+
 const router = express.Router();
 const SendEmail = require("../Utils/SendEmailGrid");
 
@@ -163,7 +163,6 @@ router.post(
 
       ////Book field
       const bookingResult = await Booking.create(booking);
-
       if (bookingResult) {
         res.send({
           success: true,
