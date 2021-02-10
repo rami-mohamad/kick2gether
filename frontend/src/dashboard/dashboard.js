@@ -9,14 +9,6 @@ function Dashboard() {
   const loadData = async () => {
     const user = await loadUser();
     console.log(user.data.user.name);
-
-    // for (const [key, value] of user.data.bookings.entries(user.data.bookings)) {
-    //   booking.push(
-    //     <li>
-    //       ${key}: ${value}
-    //     </li>
-    //   );
-    // }
     setUser(user.data);
   };
   useEffect(() => {
@@ -24,30 +16,32 @@ function Dashboard() {
   }, []);
 
   return (
-    <div>
-      <h1>{`Hello ${user.user.name}`}</h1>
+    <div className="Dashboard">
+      <h1 className="UserName">{`Welcome ${user.user.name}`}</h1>
+      <div className="Cards">
+        <ul className="List">
+          {user.bookings.map((book, index) => (
+            <li key={index} className="Orders">
+              <div>
+                <p>{`Order number ${index + 1}`}</p>
 
-      <ul>
-        {user.bookings.map((book, index) => (
-          <li key={index}>
-            <div>
-              <p>{`Order ${index + 1}`}</p>
-              {book.tshirt.map((shirt) => (
-                <p>shirt</p>
-              ))}
-              {book.shoes.map((shoe) => (
-                <p>shoe</p>
-              ))}
-              <p>{book._id}</p>
-              <p>{book.startTime}</p>
-              <p>{book.endTime}</p>
-              <p>{book.numberOfPersons}</p>
-              <p>{book.pin}</p>
-              <p>{book.towels}</p>
-            </div>
-          </li>
-        ))}
-      </ul>
+                <p>{`Book Id : ${book._id}`}</p>
+                <p>{`Start Time : ${book.startTime}`}</p>
+                <p>{`End Time : ${book.endTime}`}</p>
+                <p>{`Number of players : ${book.numberOfPersons}`}</p>
+                <p>{`your locker pin is : ${book.pin}`}</p>
+                <p>{`Towels : ${book.towels}`}</p>
+                {book.shoes.map((shoe) => (
+                  <p>{`shoe size ${shoe}`}</p>
+                ))}
+                {book.tshirt.map((shirt) => (
+                  <p>{`Tshirt size : ${shirt}`}</p>
+                ))}
+              </div>
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 }
