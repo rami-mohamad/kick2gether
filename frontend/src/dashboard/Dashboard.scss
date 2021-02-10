@@ -1,0 +1,42 @@
+.Dashboard {
+  width: 100%;
+  max-height: 1290px;
+  min-height: 1290px;
+  position: relative;
+  color: azure;
+  background: linear-gradient(180deg, #000000 0%, rgba(255, 255, 255, 0) 100%),
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.5) 0%,
+      rgba(255, 255, 255, 0) 100%
+    ),
+    #535353;
+  .UserName {
+    text-align: center;
+    padding: 50px;
+    color: rgb(212, 145, 20);
+    font-style: italic;
+    font-size: 4vw;
+    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+    text-decoration: underline;
+  }
+  .Cards {
+    width: 70vw;
+    margin: auto;
+  }
+  .List {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    list-style: none;
+  }
+  .Orders {
+    width: 20vw;
+    margin-top: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+    padding: 16px;
+    text-align: center;
+    background-color: #f1f1f1;
+    color: black;
+  }
+}
