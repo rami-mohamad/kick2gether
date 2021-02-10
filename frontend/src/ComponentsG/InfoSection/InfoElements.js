@@ -265,7 +265,7 @@ IconFour.defaultProps = {
 export const TextFieldOne = styled.h2`
   width: 100%;
   height: 25px;
-  font-size: 16px;
+  font-size: 20px;
   margin-bottom: 5%;
 
   @media screen and (max-width: 768px) {
@@ -278,7 +278,7 @@ export const TextFieldTwo = styled.h2`
   width: 100%;
   height: 25px;
   margin-bottom: 5%;
-  font-size: 16px;
+  font-size: 20px;
 
   @media screen and (max-width: 768px) {
     height: 25px;
@@ -289,7 +289,7 @@ export const TextFieldTwo = styled.h2`
 export const TextFieldThree = styled.h2`
   width: 100%;
   height: 25px;
-  font-size: 16px;
+  font-size: 20px;
   margin-bottom: 5%;
 
   @media screen and (max-width: 768px) {
@@ -301,7 +301,7 @@ export const TextFieldThree = styled.h2`
 export const TextFieldFour = styled.h2`
   width: 100%;
   height: 25px;
-  font-size: 16px;
+  font-size: 20px;
   margin-bottom: 5%;
 
   @media screen and (max-width: 768px) {
@@ -313,7 +313,7 @@ export const TextFieldFour = styled.h2`
 
 export const InfoP1 = styled.p`
   width: 100%;
-  font-size: 12px;
+  font-size: 10px;
 
   @media screen and (max-width: 768px) {
     font-size: 8px;
@@ -321,7 +321,7 @@ export const InfoP1 = styled.p`
 `;
 export const InfoP2 = styled.p`
   width: 100%;
-  font-size: 12px;
+  font-size: 10px;
 
   @media screen and (max-width: 768px) {
     font-size: 8px;
@@ -329,7 +329,7 @@ export const InfoP2 = styled.p`
 `;
 export const InfoP3 = styled.p`
   width: 100%;
-  font-size: 12px;
+  font-size: 10px;
 
   @media screen and (max-width: 768px) {
     font-size: 8px;
@@ -337,7 +337,7 @@ export const InfoP3 = styled.p`
 `;
 export const InfoP4 = styled.p`
   width: 100%;
-  font-size: 12px;
+  font-size: 10px;
 
   @media screen and (max-width: 768px) {
     font-size: 8px;
