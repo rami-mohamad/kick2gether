@@ -257,7 +257,7 @@ function Additional(props) {
                   </div>
                 </Col>
                 <Col className="oneBlock removeRight removeLeft removeTop">
-                  5 €
+                  5 &euro;
                 </Col>
               </Row>
               <Row style={{ marginLeft: "0px", marginRight: "0px" }}>

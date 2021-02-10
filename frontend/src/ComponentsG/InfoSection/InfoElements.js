@@ -12,7 +12,6 @@ export const InfoContainer = styled.div`
   margin-right: auto;
   margin-left: auto;
   padding: 40px 20px;
-  max-width: 1400px;
 
   /* border: 1px solid red; */
 

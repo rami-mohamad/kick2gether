@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import Sidebar from "../components/Sidebar";
-import Navbar from "../components/Navbar/Navbar";
-import TopNavbar from "../components/Navbar/TopNavbar";
-import HeroSection from "../components/HeroSection";
-import InfoSection from "../components/InfoSection";
-import { homeObjOne } from "../components/InfoSection/Data";
-import PriceSection from "../components/PriceSection";
-import FooterSection from "../components/FooterSection";
+import Sidebar from "../ComponentsG/Sidebar";
+import Navbar from "../ComponentsG/Navbar/Navbar";
+import TopNavbar from "../ComponentsG/Navbar/TopNavbar";
+import HeroSection from "../ComponentsG/HeroSection";
+import InfoSection from "../ComponentsG/InfoSection";
+import { homeObjOne } from "../ComponentsG/InfoSection/Data";
+import PriceSection from "../ComponentsG/PriceSection";
+import FooterSection from "../ComponentsG/FooterSection/";
 function Home() {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -22,7 +22,7 @@ function Home() {
       <HeroSection />
       <PriceSection />
       <InfoSection {...homeObjOne} />
-      <FooterSection  />
+      <FooterSection />
     </>
   );
 }

@@ -17,11 +17,10 @@ import {
   NavLogo,
 } from "./NavbarElements";
 
-function Navbar({toggle}) {
-
-  const toggleHome = () =>{
+function Navbar({ toggle }) {
+  const toggleHome = () => {
     scroll.scrollToTop();
-  }
+  };
   return (
     <>
       <Nav>
@@ -95,7 +94,7 @@ function Navbar({toggle}) {
             </NavItem> */}
 
             <NavBtnLinkINUP>
-              <NavBtnIN to="/signInUp">Sign In | Up</NavBtnIN>
+              <NavBtnIN to="/registration">Sign In | Up</NavBtnIN>
             </NavBtnLinkINUP>
           </NavMenu>
         </NavbarContainer>
