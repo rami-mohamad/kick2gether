@@ -133,23 +133,19 @@ export const HeroH1 = styled.h1`
 export const HeroH1Element = styled.img`
   opacity: 0.4;
   position: absolute;
-  top: -280%;
+  top: -250%;
   left: 8%;
   width: 130%;
   z-index: 2;
 
   @media screen and (max-width: 768px) {
     position: absolute;
-    top: -285%;
+    top: -250%;
     left: 8%;
     width: 600px;
   }
-  @media screen and (max-width: 480px) {
-    position: absolute;
-    top: -285%;
-    left: 10%;
-    max-width: 10%;
-    width: 50px;
+  @media screen and (max-width: 501px) {
+    display: none;
   }
 `;
 
