@@ -1,0 +1,98 @@
+.dashboard {
+  width: 100%;
+  min-height: 400px;
+  background: url("../../Media/Images/Additional/AdditionalBg.png") no-repeat
+    center center / cover;
+  margin: 0;
+  &_title {
+    text-align: center;
+    font-size: 24px;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 56px;
+    margin-bottom: 30px;
+  }
+
+  .oneBooking {
+    margin: 0 auto;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    &_title {
+      width: 100px;
+      height: 50px;
+      text-align: center;
+      font-size: 8px;
+      font-family: Inter;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 24px;
+      line-height: 56px;
+      border-bottom: 0.5px solid black;
+      border-right: 0.5px solid black;
+
+      color: #000000;
+      background: #dcdbdb;
+    }
+    &_value {
+      width: 100px;
+      height: 50px;
+      text-align: center;
+      font-size: 8px;
+      font-family: Inter;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 24px;
+      line-height: 56px;
+      border-bottom: 0.5px solid black;
+      border-right: 0.5px solid black;
+      background: #dcdbdb;
+
+      color: #000000;
+    }
+  }
+}
+.w100 {
+  width: 100px;
+}
+
+.oneBooking {
+  margin: 0 auto;
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  &_title {
+    //width: 100px;
+    height: 50px;
+    text-align: center;
+    font-size: 16px;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 56px;
+    border-bottom: 0.5px solid black;
+    border-right: 0.5px solid black;
+
+    color: #000000;
+    background: #dcdbdb;
+  }
+  &_value {
+    // width: 200px;
+    height: 50px;
+    text-align: center;
+    font-size: 16px;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 56px;
+    border-bottom: 0.5px solid black;
+    border-right: 0.5px solid black;
+    background: #dcdbdb;
+
+    color: #000000;
+  }
+}

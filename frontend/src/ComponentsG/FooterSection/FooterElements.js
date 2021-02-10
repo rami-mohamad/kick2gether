@@ -6,7 +6,7 @@ import Edit from "./FooterImages/icon-edit.png";
 
 export const FooterContainer = styled.div`
   height: 450px;
-  max-width: 1400px;
+
   background-image: url(${Background});
   background-position: center center;
   background-repeat: no-repeat;
@@ -180,22 +180,22 @@ export const MessageWrapper = styled.div`
 `;
 
 export const EmailP = styled.div`
-         font-style: normal;
-         font-weight: normal;
-         font-size: 22px;
-         line-height: 48px;
-         display: flex;
-         align-items: flex-start;
-         letter-spacing: -0.5px;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 22px;
+  line-height: 48px;
+  display: flex;
+  align-items: flex-start;
+  letter-spacing: -0.5px;
 
-         @media screen and (max-width: 960px) {
-           margin-bottom: 30px;
-         }
+  @media screen and (max-width: 960px) {
+    margin-bottom: 30px;
+  }
 
-         @media screen and (max-width: 768px) {
-           margin-bottom: 30px;
-         }
-       `;
+  @media screen and (max-width: 768px) {
+    margin-bottom: 30px;
+  }
+`;
 
 export const InputArea = styled.div`
   width: 400px;
@@ -208,45 +208,45 @@ export const InputArea = styled.div`
 `;
 
 export const InputName = styled.input`
-         font-size: 11px;
-         padding: 10px;
-         margin: 10px 0;
-         background: rgba(194, 194, 194, 0.25);
-         border: none;
-         border-radius: 10px;
-         background-image: url(${User});
-         background-repeat: no-repeat;
-         background-size: 35px;
-         background-position: right;
-         align-items: flex-start;
+  font-size: 11px;
+  padding: 10px;
+  margin: 10px 0;
+  background: rgba(194, 194, 194, 0.25);
+  border: none;
+  border-radius: 10px;
+  background-image: url(${User});
+  background-repeat: no-repeat;
+  background-size: 35px;
+  background-position: right;
+  align-items: flex-start;
 
-         ::placeholder {
-           color: #fabf2f;
-         }
+  ::placeholder {
+    color: #fabf2f;
+  }
 
-         @media screen and (max-width: 768px) {
-           background: rgba(194, 194, 194, 0.75);
-           background-image: url(${User});
-           background-repeat: no-repeat;
-           background-size: 35px;
-           background-position: right;
+  @media screen and (max-width: 768px) {
+    background: rgba(194, 194, 194, 0.75);
+    background-image: url(${User});
+    background-repeat: no-repeat;
+    background-size: 35px;
+    background-position: right;
 
-           ::placeholder {
-             color: #000;
-           }
-         }
-         @media screen and (max-width: 480px) {
-           background: rgba(194, 194, 194, 0.75);
-           background-image: url(${User});
-           background-repeat: no-repeat;
-           background-size: 35px;
-           background-position: right;
+    ::placeholder {
+      color: #000;
+    }
+  }
+  @media screen and (max-width: 480px) {
+    background: rgba(194, 194, 194, 0.75);
+    background-image: url(${User});
+    background-repeat: no-repeat;
+    background-size: 35px;
+    background-position: right;
 
-           ::placeholder {
-             color: #000;
-           }
-         }
-       `;
+    ::placeholder {
+      color: #000;
+    }
+  }
+`;
 
 export const InputEmail = styled.input`
   font-size: 11px;
