@@ -1,0 +1,38 @@
+{
+  "files": {
+    "main.css": "/static/css/main.fd75e882.chunk.css",
+    "main.js": "/static/js/main.1689af1d.chunk.js",
+    "main.js.map": "/static/js/main.1689af1d.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.c60b7f5c.js",
+    "runtime-main.js.map": "/static/js/runtime-main.c60b7f5c.js.map",
+    "static/css/2.ae9f1eb3.chunk.css": "/static/css/2.ae9f1eb3.chunk.css",
+    "static/js/2.235644e1.chunk.js": "/static/js/2.235644e1.chunk.js",
+    "static/js/2.235644e1.chunk.js.map": "/static/js/2.235644e1.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/2.ae9f1eb3.chunk.css.map": "/static/css/2.ae9f1eb3.chunk.css.map",
+    "static/css/main.fd75e882.chunk.css.map": "/static/css/main.fd75e882.chunk.css.map",
+    "static/js/2.235644e1.chunk.js.LICENSE.txt": "/static/js/2.235644e1.chunk.js.LICENSE.txt",
+    "static/js/main.1689af1d.chunk.js.LICENSE.txt": "/static/js/main.1689af1d.chunk.js.LICENSE.txt",
+    "static/media/Additional.scss": "/static/media/items.ee60e553.png",
+    "static/media/BackgroundField.a5109bca.png": "/static/media/BackgroundField.a5109bca.png",
+    "static/media/FieldsMobile.scss": "/static/media/Booking_BG.d9ad72bf.png",
+    "static/media/BottomPlayer.3cdbe25b.png": "/static/media/BottomPlayer.3cdbe25b.png",
+    "static/media/registration.scss": "/static/media/rightside.7c4d0008.png",
+    "static/media/GoldenFB.e6d82082.png": "/static/media/GoldenFB.e6d82082.png",
+    "static/media/Gradient.0348d51d.png": "/static/media/Gradient.0348d51d.png",
+    "static/media/NavbarLogo.2bd4fc03.svg": "/static/media/NavbarLogo.2bd4fc03.svg",
+    "static/media/Payment.scss": "/static/media/PaymentBg.fc035a76.png",
+    "static/media/Rectangle.522db30d.png": "/static/media/Rectangle.522db30d.png",
+    "static/media/Soccer720.6c8e1ca8.mp4": "/static/media/Soccer720.6c8e1ca8.mp4",
+    "static/media/TopPlayer.86f44739.png": "/static/media/TopPlayer.86f44739.png",
+    "static/media/BookingConfirmation.scss": "/static/media/checkmark-circle 1.3c0f862a.png",
+    "static/media/player1.png": "/static/media/player1.9246a81f.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.c60b7f5c.js",
+    "static/css/2.ae9f1eb3.chunk.css",
+    "static/js/2.235644e1.chunk.js",
+    "static/css/main.fd75e882.chunk.css",
+    "static/js/main.1689af1d.chunk.js"
+  ]
+}
