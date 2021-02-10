@@ -13,7 +13,7 @@ import { CSSTransition, TransitionGroup } from "react-transition-group";
 import BookingWrap from "./Components/BookingWrap";
 import BookingConfirmation from "./Components/BookingConfirmation";
 //import Dashboard from "./Components/Dashboard";
-import Dashboard from "./Components/Dashboard";
+import Dashboard from "./dashboard/dashboard";
 
 const App = () => {
   return (

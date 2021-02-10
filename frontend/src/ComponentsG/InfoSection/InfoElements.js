@@ -265,7 +265,7 @@ IconFour.defaultProps = {
 export const TextFieldOne = styled.h2`
   width: 100%;
   height: 25px;
-  font-size: 20px;
+  font-size: 16px;
   margin-bottom: 5%;
 
   @media screen and (max-width: 768px) {
@@ -278,7 +278,7 @@ export const TextFieldTwo = styled.h2`
   width: 100%;
   height: 25px;
   margin-bottom: 5%;
-  font-size: 20px;
+  font-size: 16px;
 
   @media screen and (max-width: 768px) {
     height: 25px;
@@ -289,7 +289,7 @@ export const TextFieldTwo = styled.h2`
 export const TextFieldThree = styled.h2`
   width: 100%;
   height: 25px;
-  font-size: 20px;
+  font-size: 16px;
   margin-bottom: 5%;
 
   @media screen and (max-width: 768px) {
@@ -301,7 +301,7 @@ export const TextFieldThree = styled.h2`
 export const TextFieldFour = styled.h2`
   width: 100%;
   height: 25px;
-  font-size: 20px;
+  font-size: 16px;
   margin-bottom: 5%;
 
   @media screen and (max-width: 768px) {
