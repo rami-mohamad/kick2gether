@@ -71,7 +71,8 @@ export const InfoContent = styled.div`
     ". . . .";
   align-items: center;
   padding: 0 5%;
-  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
   height: 700px;
   background: rgba(196, 196, 196, 0.4);
   border-radius: 200px;
