@@ -15,7 +15,6 @@ import BookingConfirmation from "./Components/BookingConfirmation";
 //import Dashboard from "./Components/Dashboard";
 import Dashboard from "./dashboard/dashboard";
 
-
 const App = () => {
   return (
     <AuthState>
@@ -30,7 +29,7 @@ const App = () => {
                   exact
                   component={registration}
                 ></Route>
-                <Route path="/Home" component={Home} exact />
+                <Route path="/" component={Home} exact />
                 <Route path="/booking/" component={BookingWrap} exact />
                 <Route
                   path="/booking/confirm"

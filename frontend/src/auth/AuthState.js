@@ -1,6 +1,7 @@
 import React, { useReducer } from "react";
 import AuthContext from "./authContext";
 import authReducer from "./authReducer";
+import { useHistory } from "react-router-dom";
 import axios from "axios";
 axios.defaults.withCredentials = true;
 const AuthState = (props) => {
@@ -11,6 +12,7 @@ const AuthState = (props) => {
     error: null,
     token: null,
   };
+  const history = useHistory();
 
   const [state, dispatch] = useReducer(authReducer, initialState);
 
@@ -76,13 +78,17 @@ const AuthState = (props) => {
         type: "LOGIN_SUCCESS",
         payload: res.data,
       });
-      loadUser();
+      //loadUser();
+      console.log(res.data.success);
+      history.push("/dashboard/");
     } catch (error) {
+      /*  console.log(error);
+
       console.log(error.response.data.message);
       dispatch({
         type: "LOGIN_FAIL",
         payload: error.response.data.message,
-      });
+      }); */
     }
   };
   const clearError = () => {

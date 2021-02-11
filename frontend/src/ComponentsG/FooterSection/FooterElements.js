@@ -211,6 +211,7 @@ export const InputName = styled.input`
   font-size: 11px;
   padding: 10px;
   margin: 10px 0;
+  color: #fff;
   background: rgba(194, 194, 194, 0.25);
   border: none;
   border-radius: 10px;
@@ -258,6 +259,7 @@ export const InputEmail = styled.input`
   background-image: url(${Email});
   background-repeat: no-repeat;
   background-size: 35px;
+  color: #fff;
   background-position: right;
 
   ::placeholder {
@@ -297,6 +299,7 @@ export const MessageArea = styled.textarea`
   border: none;
   border-radius: 10px;
   margin-right: 10px;
+  color: #fff;
   padding: 10px;
   background: rgba(194, 194, 194, 0.25);
   background-image: url(${Edit});

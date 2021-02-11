@@ -5,6 +5,8 @@ import AuthContext from "../auth/authContext";
 import AlertContext from "../alert/alertContext";
 import Alerts from "../alerts component/Alerts";
 import "./Dashboard.scss";
+import { v4 as uuidv4 } from "uuid";
+import Navbar from "../Components/NavbarHistory";
 
 function Dashboard() {
   const authContext = useContext(AuthContext);
@@ -32,41 +34,64 @@ function Dashboard() {
     loadData();
   }
   return (
-    <div className="Dashboard">
-      <h1 className="UserName">{`Welcome ${user.user.name}`}</h1>
-      <Alerts className="DashboardAlert" />
-      <div className="Cards">
-        <ul className="List">
-          {user.bookings.map((book, index) => (
-            <ListGroup key={index} className="Orders">
-              <p className="OrderNumber">{`Order number ${index + 1}`}</p>
+    <>
+      <Navbar></Navbar>
 
-              <ListGroupItem>{`Book Id : ${book._id}`}</ListGroupItem>
-              <ListGroupItem>{`Start Time : ${book.startTime}`}</ListGroupItem>
-              <ListGroupItem>{`End Time : ${book.endTime}`}</ListGroupItem>
-              <ListGroupItem>{`Number of players : ${book.numberOfPersons}`}</ListGroupItem>
-              <ListGroupItem>{`your locker pin is : ${book.pin}`}</ListGroupItem>
+      <div className="Dashboard">
+        <h1 className="UserName">{`Welcome ${user.user.name}`}</h1>
+        <Alerts className="DashboardAlert" />
+        <div className="Cards">
+          <ul className="List">
+            {user.bookings.map((book, index) => (
+              <ListGroup key={index} className="Orders">
+                <p key={uuidv4()} className="OrderNumber">{`Order number ${
+                  index + 1
+                }`}</p>
 
-              {book.shoes.map((shoe) => (
-                <ListGroupItem>{`shoe size :${shoe}`}</ListGroupItem>
-              ))}
-              {book.tshirt.map((shirt) => (
-                <ListGroupItem>{`Tshirt size : ${shirt}`}</ListGroupItem>
-              ))}
-              <ListGroupItem className="Towels">{`Towels : ${book.towels}`}</ListGroupItem>
-              <Button
-                color="danger"
-                size="lg"
-                className="DeleteOrder"
-                onClick={() => deleteOrder(book._id)}
-              >
-                Delete Order
-              </Button>
-            </ListGroup>
-          ))}
-        </ul>
+                <ListGroupItem
+                  key={uuidv4()}
+                >{`Book Id : ${book._id}`}</ListGroupItem>
+                <ListGroupItem
+                  key={uuidv4()}
+                >{`Start Time : ${book.startTime}`}</ListGroupItem>
+                <ListGroupItem
+                  key={uuidv4()}
+                >{`End Time : ${book.endTime}`}</ListGroupItem>
+                <ListGroupItem
+                  key={uuidv4()}
+                >{`Number of players : ${book.numberOfPersons}`}</ListGroupItem>
+                <ListGroupItem
+                  key={uuidv4()}
+                >{`your locker pin is : ${book.pin}`}</ListGroupItem>
+
+                {book.shoes.map((shoe) => (
+                  <ListGroupItem
+                    key={uuidv4()}
+                  >{`shoe size :${shoe}`}</ListGroupItem>
+                ))}
+                {book.tshirt.map((shirt) => (
+                  <ListGroupItem
+                    key={uuidv4()}
+                  >{`Tshirt size : ${shirt}`}</ListGroupItem>
+                ))}
+                <ListGroupItem
+                  key={uuidv4()}
+                  className="Towels"
+                >{`Towels : ${book.towels}`}</ListGroupItem>
+                <Button
+                  color="danger"
+                  size="lg"
+                  className="DeleteOrder"
+                  onClick={() => deleteOrder(book._id)}
+                >
+                  Delete Order
+                </Button>
+              </ListGroup>
+            ))}
+          </ul>
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 export default Dashboard;

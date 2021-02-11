@@ -1,5 +1,6 @@
 import React from "react";
 import { Button } from "../ButtonElements";
+import { useHistory } from "react-router-dom";
 
 import {
   InfoContainer,
@@ -28,7 +29,7 @@ import {
   BtnWrap,
   Img,
   DotsLeft,
-  DotsRight
+  DotsRight,
 } from "./InfoElements";
 
 function InfoElements({
@@ -46,17 +47,17 @@ function InfoElements({
   dark,
   dark2,
 }) {
+  const history = useHistory();
+
   return (
     <>
       <InfoContainer lightBg={lightBg} id={id}>
         <InfoWrapper>
           <InfoRow imgStart={imgStart}>
-    
             <TextWrapper>
               <TopLine>{topLine}</TopLine>
               <TopText lightText={lightText}>{headline}</TopText>
               <InfoContent>
-
                 <Img src={img} alt={alt} />
 
                 <DotsLeft />
@@ -89,6 +90,10 @@ function InfoElements({
 
               <BtnWrap>
                 <Button
+                  style={{ textDecoration: "none" }}
+                  onClick={() => {
+                    history.push("/booking/");
+                  }}
                   to="home"
                   smooth={true}
                   duration={500}
