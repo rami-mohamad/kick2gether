@@ -31,8 +31,11 @@ function NavbarHistory() {
           <NavbarContainer style={{ height: "50px" }}>
             <NavLogo to="/" onClick={toggleHome}></NavLogo>
 
-            <NavBtnLinkINUP>
-              <NavBtnIN style={{ textDecoration: "none" }} to="/registration">
+            <NavBtnLinkINUP style={{ display: "block" }}>
+              <NavBtnIN
+                style={{ textDecoration: "none", display: "block" }}
+                to="/registration"
+              >
                 Sign In | Up
               </NavBtnIN>
             </NavBtnLinkINUP>
