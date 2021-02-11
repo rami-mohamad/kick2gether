@@ -133,7 +133,7 @@ DotsRight.defaultProps = {
 };
 
 export const Img = styled.img`
-  width: 50%;
+  width: 40%;
   margin: 0 0 10px 0;
   padding-right: 0;
   position: absolute;
