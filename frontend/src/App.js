@@ -13,7 +13,8 @@ import { CSSTransition, TransitionGroup } from "react-transition-group";
 import BookingWrap from "./Components/BookingWrap";
 import BookingConfirmation from "./Components/BookingConfirmation";
 //import Dashboard from "./Components/Dashboard";
-import Dashboard from "./Components/Dashboard";
+import Dashboard from "./dashboard/dashboard";
+// import "./alerts component/Alerts.scss";
 
 const App = () => {
   return (
@@ -22,7 +23,7 @@ const App = () => {
         <BrowserRouter>
           <Fragment>
             <div>
-              <Alerts className="alerts" />
+              {/* <Alerts className="alerts" /> */}
               <Switch>
                 <Route
                   path="/registration"

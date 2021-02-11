@@ -182,12 +182,12 @@ router.post(
     }
   }
 );
-router.post("/delete", async function (req, res) {
-  const { bookingId, password } = req.body;
+router.get("/delete/:bookingId", async function (req, res) {
+  const bookingId = req.params.bookingId;
 
   try {
     const deleteResult = await Booking.findByIdAndDelete(bookingId);
-    console.log(deleteResult);
+    console.log("hhhhhhh", deleteResult);
 
     if (deleteResult) {
       res.send({
@@ -205,14 +205,3 @@ router.post("/delete", async function (req, res) {
 });
 
 module.exports = router;
-// //create fields one time
-
-// Field.create([
-//   {
-//     name: "Field 1",
-//   },
-//   { name: "Field 2" },
-//   { name: "Field 3" },
-//   { name: "Field 4" },
-// ]);
-// //End create Field
