@@ -49,6 +49,7 @@ function Footer() {
         config
       );
       console.log(response.data);
+      setcontact({ name: "", email: "", message: "" });
     } catch (error) {}
   };
 
@@ -148,6 +149,7 @@ function Footer() {
                 name="name"
                 type="text"
                 placeholder="Your Name"
+                value={contact.name}
               ></InputName>
 
               <InputEmail
@@ -155,6 +157,7 @@ function Footer() {
                 name="email"
                 type="text"
                 placeholder="E-mail"
+                value={contact.email}
               ></InputEmail>
 
               <MessageArea
@@ -162,6 +165,7 @@ function Footer() {
                 type="text"
                 name="message"
                 placeholder="Leave your message|"
+                value={contact.message}
               ></MessageArea>
               {contact.message !== "" ? (
                 <ButtonSend onClick={submitHandler}>Send</ButtonSend>

@@ -13,7 +13,7 @@ function Dashboard() {
   const alertContext = useContext(AlertContext);
   const { addAlert } = alertContext;
   const { loadUser } = authContext;
-  const [user, setUser] = useState({ user: { name: "" }, bookings: [] });
+  const [user, setUser] = useState({ user: { name: "Test" }, bookings: [] });
   const loadData = async () => {
     const user = await loadUser();
     console.log(user);

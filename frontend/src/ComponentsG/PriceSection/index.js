@@ -1,5 +1,6 @@
 import React from "react";
 import Icon from "./PriceImages/Icon.png";
+import { useHistory } from "react-router-dom";
 
 import {
   PriceContainer,
@@ -20,13 +21,14 @@ import {
   PriceInfoH3,
   PriceCardInfoH2,
   BtnWrap,
-  Button, 
-  img
+  Button,
+  img,
 } from "./PriceElements";
 
 const Price = () => {
+  const history = useHistory();
   return (
-    <PriceContainer id="price" >
+    <PriceContainer id="price">
       <HeaderPart>
         <PriceH1> Price </PriceH1>
         <PriceH2>Our promise: 100% fair prices!</PriceH2>
@@ -104,7 +106,13 @@ const Price = () => {
           {/* </PriceUl> */}
 
           <BtnWrap>
-            <Button to="/">SIGN IN or UP </Button>
+            <Button
+              onClick={() => {
+                history.push("/registration");
+              }}
+            >
+              SIGN IN or UP{" "}
+            </Button>
           </BtnWrap>
         </PriceCard>
 
@@ -173,7 +181,13 @@ const Price = () => {
           </PriceCardLi4>
 
           <BtnWrap>
-            <Button to="home">SIGN IN or UP </Button>
+            <Button
+              onClick={() => {
+                history.push("/registration");
+              }}
+            >
+              SIGN IN or UP{" "}
+            </Button>
           </BtnWrap>
         </PriceCard>
 
