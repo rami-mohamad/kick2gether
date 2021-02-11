@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+
+import { useHistory } from "react-router-dom";
+
 import Video from "../../videos/Soccer720.mp4";
 import { Button } from "../ButtonElements";
 import {
@@ -25,6 +28,7 @@ import {
 
 function HeroSection() {
   const [hover, setHover] = useState(false);
+  const history = useHistory();
 
   const onHover = () => {
     setHover(!hover);
@@ -65,6 +69,7 @@ function HeroSection() {
           <HeroIconGoldenFB></HeroIconGoldenFB>
           <HeroBtnWrapper>
             <Button
+              style={{ textDecoration: "none" }}
               to="home"
               smooth={true}
               duration={500}
@@ -75,6 +80,9 @@ function HeroSection() {
               onMouseLeave={onHover}
               primary="true"
               dark="true"
+              onClick={() => {
+                history.push("/booking/");
+              }}
             >
               Get started {hover ? <ArrowForward /> : <ArrowRight />}
             </Button>

@@ -1,10 +1,11 @@
 const express = require("express");
+const path = require("path");
 const app = express();
-
+//const helmet = require("helmet");
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
 require("dotenv").config(); //Have to be before route import
-
+const compression = require("compression");
 const mongoose = require("mongoose");
 
 const userRouter = require("./Routes/user");
@@ -22,6 +23,17 @@ app.use(
   })
 );
 app.use(cookieParser());
+//compress all response
+app.use(compression());
+//make security
+
+//app.use(helmet());
+//for deploy
+/* app.use(express.static(path.join(__dirname, "build")));
+app.get("/*", (req, res) => {
+  res.sendFile(path.join(__dirname, "build", "index.html"));
+}); */
+///for deploy end
 app.use("/user", userRouter);
 app.use("/booking", bookingRouter);
 app.use(passport.initialize());
@@ -46,6 +58,6 @@ mongoose
     console.log("connection failed", err);
   });
 
-app.listen(process.env.DEV_SERVER_PORT, () => {
+app.listen(process.env.DEV_SERVER_PORT || 4000, () => {
   console.log(`Server started at port ${process.env.DEV_SERVER_PORT}`);
 });

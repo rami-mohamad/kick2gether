@@ -21,17 +21,18 @@ function SignIn() {
       clearError();
     }
     if (isAuthenticated) {
-      history.push("/Home");
+      //history.push("/Home");
     }
   }, [error, isAuthenticated]);
   const onChange = (e) => setUser({ ...user, [e.target.name]: e.target.value });
-  const onSubmit = (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault();
     // console.log("login user");
     if (email === "" || password === "") {
       addAlert("please fill the fields", "danger");
     } else {
-      login({ email, password });
+      await login({ email, password });
+      history.push("/dashboard/");
     }
   };
   return (

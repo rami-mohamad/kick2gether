@@ -30,30 +30,27 @@ import {
 } from "./FooterElements";
 
 function Footer() {
-const [contact, setcontact] = useState({name:"", email:"", message:""})
+  const [contact, setcontact] = useState({ name: "", email: "", message: "" });
 
-const inputChange = (e) => {
-
-setcontact({...contact, [e.target.name] : e.target.value})
-
-}
-const submitHandler =async ()=>{
-  const config = {
-    headers:{
-      "Content-Type":"application/json"
-    }
-  }
-  console.log(contact);
-  try {
-  const response = axios.post(
-    "http://localhost:4000/user/contact",contact, config
-  )
-    console.log(response.data);
-  } catch (error) {
-    
-  }
-}
-
+  const inputChange = (e) => {
+    setcontact({ ...contact, [e.target.name]: e.target.value });
+  };
+  const submitHandler = async () => {
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
+    console.log(contact);
+    try {
+      const response = axios.post(
+        `${process.env.BASE_URL}/user/contact`,
+        contact,
+        config
+      );
+      console.log(response.data);
+    } catch (error) {}
+  };
 
   return (
     <>
@@ -169,7 +166,9 @@ const submitHandler =async ()=>{
               {contact.message !== "" ? (
                 <ButtonSend onClick={submitHandler}>Send</ButtonSend>
               ) : (
-                <ButtonSend disabled={true} onClick={submitHandler}>Send</ButtonSend>
+                <ButtonSend disabled={true} onClick={submitHandler}>
+                  Send
+                </ButtonSend>
               )}
               {/* <ButtonSend onClick={submitHandler}>Send</ButtonSend> */}
             </InputArea>

@@ -22,14 +22,14 @@ const App = () => {
         <BrowserRouter>
           <Fragment>
             <div>
-              <Alerts className="alerts" />
+              {/* <Alerts className="alerts" /> */}
               <Switch>
                 <Route
                   path="/registration"
                   exact
                   component={registration}
                 ></Route>
-                <Route path="/Home" component={Home} exact />
+                <Route path="/" component={Home} exact />
                 <Route path="/booking/" component={BookingWrap} exact />
                 <Route
                   path="/booking/confirm"

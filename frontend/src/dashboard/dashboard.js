@@ -1,48 +1,97 @@
 import React, { useEffect, useState, useContext } from "react";
+import { ListGroup, ListGroupItem, Button } from "reactstrap";
+import axios from "axios";
 import AuthContext from "../auth/authContext";
+import AlertContext from "../alert/alertContext";
+import Alerts from "../alerts component/Alerts";
 import "./Dashboard.scss";
+import { v4 as uuidv4 } from "uuid";
+import Navbar from "../Components/NavbarHistory";
 
 function Dashboard() {
   const authContext = useContext(AuthContext);
-  const { isAuthenticated, loadUser } = authContext;
+  const alertContext = useContext(AlertContext);
+  const { addAlert } = alertContext;
+  const { loadUser } = authContext;
   const [user, setUser] = useState({ user: { name: "" }, bookings: [] });
   const loadData = async () => {
     const user = await loadUser();
-    console.log(user.data.user.name);
+    console.log(user);
+
+    //console.log("123", user.data.bookings.name);
     setUser(user.data);
   };
   useEffect(() => {
     loadData();
   }, []);
 
+  async function deleteOrder(id) {
+    console.log(id);
+    const res = await axios.get(`http://localhost:4000/booking/delete/${id}`, {
+      withCredintials: true,
+    });
+    addAlert("Order successfuly Deleted!!!!");
+    loadData();
+  }
   return (
-    <div className="Dashboard">
-      <h1 className="UserName">{`Welcome ${user.user.name}`}</h1>
-      <div className="Cards">
-        <ul className="List">
-          {user.bookings.map((book, index) => (
-            <li key={index} className="Orders">
-              <div>
-                <p>{`Order number ${index + 1}`}</p>
+    <>
+      <Navbar></Navbar>
 
-                <p>{`Book Id : ${book._id}`}</p>
-                <p>{`Start Time : ${book.startTime}`}</p>
-                <p>{`End Time : ${book.endTime}`}</p>
-                <p>{`Number of players : ${book.numberOfPersons}`}</p>
-                <p>{`your locker pin is : ${book.pin}`}</p>
-                <p>{`Towels : ${book.towels}`}</p>
+      <div className="Dashboard">
+        <h1 className="UserName">{`Welcome ${user.user.name}`}</h1>
+        <Alerts className="DashboardAlert" />
+        <div className="Cards">
+          <ul className="List">
+            {user.bookings.map((book, index) => (
+              <ListGroup key={index} className="Orders">
+                <p key={uuidv4()} className="OrderNumber">{`Order number ${
+                  index + 1
+                }`}</p>
+
+                <ListGroupItem
+                  key={uuidv4()}
+                >{`Book Id : ${book._id}`}</ListGroupItem>
+                <ListGroupItem
+                  key={uuidv4()}
+                >{`Start Time : ${book.startTime}`}</ListGroupItem>
+                <ListGroupItem
+                  key={uuidv4()}
+                >{`End Time : ${book.endTime}`}</ListGroupItem>
+                <ListGroupItem
+                  key={uuidv4()}
+                >{`Number of players : ${book.numberOfPersons}`}</ListGroupItem>
+                <ListGroupItem
+                  key={uuidv4()}
+                >{`your locker pin is : ${book.pin}`}</ListGroupItem>
+
                 {book.shoes.map((shoe) => (
-                  <p>{`shoe size ${shoe}`}</p>
+                  <ListGroupItem
+                    key={uuidv4()}
+                  >{`shoe size :${shoe}`}</ListGroupItem>
                 ))}
                 {book.tshirt.map((shirt) => (
-                  <p>{`Tshirt size : ${shirt}`}</p>
+                  <ListGroupItem
+                    key={uuidv4()}
+                  >{`Tshirt size : ${shirt}`}</ListGroupItem>
                 ))}
-              </div>
-            </li>
-          ))}
-        </ul>
+                <ListGroupItem
+                  key={uuidv4()}
+                  className="Towels"
+                >{`Towels : ${book.towels}`}</ListGroupItem>
+                <Button
+                  color="danger"
+                  size="lg"
+                  className="DeleteOrder"
+                  onClick={() => deleteOrder(book._id)}
+                >
+                  Delete Order
+                </Button>
+              </ListGroup>
+            ))}
+          </ul>
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 export default Dashboard;
