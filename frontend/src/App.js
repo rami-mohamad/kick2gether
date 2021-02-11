@@ -15,6 +15,7 @@ import BookingConfirmation from "./Components/BookingConfirmation";
 //import Dashboard from "./Components/Dashboard";
 import Dashboard from "./dashboard/dashboard";
 
+
 const App = () => {
   return (
     <AuthState>
@@ -22,7 +23,7 @@ const App = () => {
         <BrowserRouter>
           <Fragment>
             <div>
-              <Alerts className="alerts" />
+              {/* <Alerts className="alerts" /> */}
               <Switch>
                 <Route
                   path="/registration"
