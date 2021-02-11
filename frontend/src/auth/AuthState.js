@@ -80,15 +80,18 @@ const AuthState = (props) => {
       });
       //loadUser();
       console.log(res.data.success);
-      history.push("/dashboard/");
+      // history.push("/dashboard/");
+      if (res.data.success) {
+        return true;
+      }
     } catch (error) {
-      /*  console.log(error);
+      console.log(error);
 
       console.log(error.response.data.message);
       dispatch({
         type: "LOGIN_FAIL",
         payload: error.response.data.message,
-      }); */
+      });
     }
   };
   const clearError = () => {
