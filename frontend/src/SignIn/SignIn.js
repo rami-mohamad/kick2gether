@@ -31,8 +31,10 @@ function SignIn() {
     if (email === "" || password === "") {
       addAlert("please fill the fields", "danger");
     } else {
-      await login({ email, password });
-      history.push("/dashboard/");
+      const user = await login({ email, password });
+      if (user) {
+        history.push("/dashboard/");
+      }
     }
   };
   return (

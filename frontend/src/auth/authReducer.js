@@ -25,6 +25,7 @@ export default (state, action) => {
         isAuthenticated: true,
         token: action.payload.token,
         user: action.payload.user,
+        ...action.payload,
       };
     case "LOGOUT":
       localStorage.clear();
