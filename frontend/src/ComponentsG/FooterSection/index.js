@@ -44,7 +44,7 @@ function Footer() {
     console.log(contact);
     try {
       const response = axios.post(
-        `${process.env.BASE_URL}/user/contact`,
+        "http://localhost:4000/user/contact",
         contact,
         config
       );
