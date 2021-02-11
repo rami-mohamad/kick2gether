@@ -2,37 +2,37 @@ import styled from "styled-components";
 import Background from "./PriceImages/Gradient.png";
 
 export const PriceContainer = styled.div`
-         height: 720px;
-         display: flex;
-         flex-direction: column;
-         justify-content: flex-start;
-         align-items: center;
-         background: linear-gradient(
-             180deg,
-             rgba(255, 255, 255, 0) 0%,
-             rgba(194, 194, 194, 0.239583) 10.42%,
-             rgba(137, 137, 137, 0.463542) 46.35%,
-             rgba(137, 137, 137, 0.463542) 87.5%,
-             #000000 100%
-           ),
-           linear-gradient(180deg, #000000 0%, #ffffff 100%),
-           linear-gradient(180deg, #ffffff 0%, rgba(255, 255, 255, 0) 100%),
-           linear-gradient(180deg, #2d3436 0%, rgba(45, 52, 54, 0) 100%);
-         position: relative;
+  height: 720px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(194, 194, 194, 0.239583) 10.42%,
+      rgba(137, 137, 137, 0.463542) 46.35%,
+      rgba(137, 137, 137, 0.463542) 87.5%,
+      #000000 100%
+    ),
+    linear-gradient(180deg, #000000 0%, #ffffff 100%),
+    linear-gradient(180deg, #ffffff 0%, rgba(255, 255, 255, 0) 100%),
+    linear-gradient(180deg, #2d3436 0%, rgba(45, 52, 54, 0) 100%);
+  position: relative;
 
-         @media screen and (max-width: 1000px) {
-           height: 1200px;
-         }
+  @media screen and (max-width: 1000px) {
+    height: 1200px;
+  }
 
-         @media screen and (max-width: 768px) {
-           height: 1650px;
-           background-image: url(${Background});
-         }
+  @media screen and (max-width: 768px) {
+    height: 1650px;
+    background-image: url(${Background});
+  }
 
-         @media screen and (max-width: 480px) {
-           height: 1620px;
-         }
-       `;
+  @media screen and (max-width: 480px) {
+    height: 1620px;
+  }
+`;
 
 export const HeaderPart = styled.div`
   display: flex;
@@ -72,8 +72,12 @@ export const PriceH3 = styled.p`
   margin-bottom: 34px;
   font-family: "Michroma", sans-serif;
 
+  @media screen and (max-width: 768px) {
+    font-size: 16px;
+  }
+
   @media screen and (max-width: 480px) {
-    font-size: 2rem;
+    font-size: 16px;
   }
 `;
 

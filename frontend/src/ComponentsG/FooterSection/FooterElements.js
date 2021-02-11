@@ -27,12 +27,12 @@ export const FooterContainer = styled.div`
 
   @media screen and (max-width: 768px) {
     flex-direction: column;
-    height: 600px;
+    height: 680px;
   }
 
   @media screen and (max-width: 480px) {
     flex-direction: column;
-    height: 550px;
+    height: 700px;
   }
 `;
 export const FlexContainer1 = styled.div`
@@ -149,14 +149,14 @@ export const FlexContainer2 = styled.div`
     align-items: center;
     justify-content: center;
     width: 80%;
-    margin: 0;
+    margin: 70px 0;
   }
 
   @media screen and (max-width: 480px) {
     align-items: center;
     justify-content: center;
     width: 80%;
-    margin: 0;
+    margin: 50px 0;
   }
 `;
 

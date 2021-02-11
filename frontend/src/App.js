@@ -14,7 +14,7 @@ import BookingWrap from "./Components/BookingWrap";
 import BookingConfirmation from "./Components/BookingConfirmation";
 //import Dashboard from "./Components/Dashboard";
 import Dashboard from "./dashboard/dashboard";
-// import "./alerts component/Alerts.scss";
+
 
 const App = () => {
   return (
