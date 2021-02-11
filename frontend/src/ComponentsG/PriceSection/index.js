@@ -21,8 +21,8 @@ import {
   PriceInfoH3,
   PriceCardInfoH2,
   BtnWrap,
-  Button, 
-  img
+  Button,
+  img,
 } from "./PriceElements";
 
 const Price = () => {
