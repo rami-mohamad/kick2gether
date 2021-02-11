@@ -14,7 +14,9 @@ function Dashboard() {
   const [user, setUser] = useState({ user: { name: "" }, bookings: [] });
   const loadData = async () => {
     const user = await loadUser();
-    console.log("123", user.data.bookings.name);
+    console.log(user);
+
+    //console.log("123", user.data.bookings.name);
     setUser(user.data);
   };
   useEffect(() => {

@@ -29,10 +29,10 @@ app.use(compression());
 
 //app.use(helmet());
 //for deploy
-app.use(express.static(path.join(__dirname, "build")));
+/* app.use(express.static(path.join(__dirname, "build")));
 app.get("/*", (req, res) => {
   res.sendFile(path.join(__dirname, "build", "index.html"));
-});
+}); */
 ///for deploy end
 app.use("/user", userRouter);
 app.use("/booking", bookingRouter);
