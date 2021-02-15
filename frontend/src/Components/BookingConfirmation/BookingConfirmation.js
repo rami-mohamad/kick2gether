@@ -1,8 +1,13 @@
 import React from "react";
 import "./BookingConfirmation.scss";
 import { Container, Row, Col } from "reactstrap";
+import { useHistory } from "react-router-dom";
 
 function BookingConfirmation(props) {
+  const history = useHistory();
+  setTimeout(() => {
+    history.push("/dashboard");
+  }, 3000);
   return (
     <div style={{ backgroundColor: "rgb(224 223 223)" }}>
       <Container>

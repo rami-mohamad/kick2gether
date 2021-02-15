@@ -17,11 +17,10 @@ import {
   NavLogo,
 } from "./NavbarElements";
 
-function Navbar({toggle}) {
-
-  const toggleHome = () =>{
+function Navbar({ toggle }) {
+  const toggleHome = () => {
     scroll.scrollToTop();
-  }
+  };
   return (
     <>
       <Nav>
@@ -41,10 +40,19 @@ function Navbar({toggle}) {
                 spy={true}
                 exact="true"
                 offset={-80}
-                style={{ position: "relative", right: "5px" }}
+                style={{
+                  position: "relative",
+                  right: "5px",
+                  textDecoration: "none",
+                }}
               >
                 <HiOutlineHome
-                  style={{ position: "relative", top: "-1px", right: "5px" }}
+                  style={{
+                    position: "relative",
+                    top: "-1px",
+                    right: "5px",
+                    textDecoration: "none",
+                  }}
                 />{" "}
                 K2G
               </NavLinks>
@@ -57,10 +65,19 @@ function Navbar({toggle}) {
                 spy={true}
                 exact="true"
                 offset={-80}
-                style={{ position: "relative", right: "5px" }}
+                style={{
+                  position: "relative",
+                  right: "5px",
+                  textDecoration: "none",
+                }}
               >
                 <IoIosPricetags
-                  style={{ position: "relative", top: "-1px", right: "5px" }}
+                  style={{
+                    position: "relative",
+                    top: "-1px",
+                    right: "5px",
+                    textDecoration: "none",
+                  }}
                 />{" "}
                 Price
               </NavLinks>
@@ -73,10 +90,19 @@ function Navbar({toggle}) {
                 spy={true}
                 exact="true"
                 offset={-80}
-                style={{ position: "relative", right: "12px" }}
+                style={{
+                  position: "relative",
+                  right: "12px",
+                  textDecoration: "none",
+                }}
               >
                 <TiInfoLargeOutline
-                  style={{ position: "relative", top: "-1px", right: "1px" }}
+                  style={{
+                    position: "relative",
+                    top: "-1px",
+                    right: "1px",
+                    textDecoration: "none",
+                  }}
                 />{" "}
                 Info
               </NavLinks>
@@ -95,7 +121,9 @@ function Navbar({toggle}) {
             </NavItem> */}
 
             <NavBtnLinkINUP>
-              <NavBtnIN to="/signInUp">Sign In | Up</NavBtnIN>
+              <NavBtnIN style={{ textDecoration: "none" }} to="/registration">
+                Sign In | Up
+              </NavBtnIN>
             </NavBtnLinkINUP>
           </NavMenu>
         </NavbarContainer>

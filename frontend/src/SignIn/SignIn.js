@@ -21,17 +21,20 @@ function SignIn() {
       clearError();
     }
     if (isAuthenticated) {
-      history.push("/Home");
+      //history.push("/Home");
     }
   }, [error, isAuthenticated]);
   const onChange = (e) => setUser({ ...user, [e.target.name]: e.target.value });
-  const onSubmit = (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault();
     // console.log("login user");
     if (email === "" || password === "") {
       addAlert("please fill the fields", "danger");
     } else {
-      login({ email, password });
+      const user = await login({ email, password });
+      if (user) {
+        history.push("/dashboard/");
+      }
     }
   };
   return (
@@ -40,6 +43,7 @@ function SignIn() {
         <div className="signIn-H">
           <h1>SIGN IN</h1>
         </div>
+        {/* NotificationComponent */}
         <input
           type="email"
           placeholder="User Email"

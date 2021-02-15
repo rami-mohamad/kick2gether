@@ -30,30 +30,28 @@ import {
 } from "./FooterElements";
 
 function Footer() {
-const [contact, setcontact] = useState({name:"", email:"", message:""})
+  const [contact, setcontact] = useState({ name: "", email: "", message: "" });
 
-const inputChange = (e) => {
-
-setcontact({...contact, [e.target.name] : e.target.value})
-
-}
-const submitHandler =async ()=>{
-  const config = {
-    headers:{
-      "Content-Type":"application/json"
-    }
-  }
-  console.log(contact);
-  try {
-  const response = axios.post(
-    "http://localhost:4000/user/contact",contact, config
-  )
-    console.log(response.data);
-  } catch (error) {
-    
-  }
-}
-
+  const inputChange = (e) => {
+    setcontact({ ...contact, [e.target.name]: e.target.value });
+  };
+  const submitHandler = async () => {
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
+    console.log(contact);
+    try {
+      const response = axios.post(
+        "http://localhost:4000/user/contact",
+        contact,
+        config
+      );
+      console.log(response.data);
+      setcontact({ name: "", email: "", message: "" });
+    } catch (error) {}
+  };
 
   return (
     <>
@@ -151,6 +149,7 @@ const submitHandler =async ()=>{
                 name="name"
                 type="text"
                 placeholder="Your Name"
+                value={contact.name}
               ></InputName>
 
               <InputEmail
@@ -158,6 +157,7 @@ const submitHandler =async ()=>{
                 name="email"
                 type="text"
                 placeholder="E-mail"
+                value={contact.email}
               ></InputEmail>
 
               <MessageArea
@@ -165,11 +165,14 @@ const submitHandler =async ()=>{
                 type="text"
                 name="message"
                 placeholder="Leave your message|"
+                value={contact.message}
               ></MessageArea>
               {contact.message !== "" ? (
                 <ButtonSend onClick={submitHandler}>Send</ButtonSend>
               ) : (
-                <ButtonSend disabled={true} onClick={submitHandler}>Send</ButtonSend>
+                <ButtonSend disabled={true} onClick={submitHandler}>
+                  Send
+                </ButtonSend>
               )}
               {/* <ButtonSend onClick={submitHandler}>Send</ButtonSend> */}
             </InputArea>

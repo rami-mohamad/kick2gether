@@ -1,6 +1,7 @@
 import React, { useReducer } from "react";
 import AuthContext from "./authContext";
 import authReducer from "./authReducer";
+import { useHistory } from "react-router-dom";
 import axios from "axios";
 axios.defaults.withCredentials = true;
 const AuthState = (props) => {
@@ -11,6 +12,7 @@ const AuthState = (props) => {
     error: null,
     token: null,
   };
+  const history = useHistory();
 
   const [state, dispatch] = useReducer(authReducer, initialState);
 
@@ -40,13 +42,11 @@ const AuthState = (props) => {
   };
   const loadUser = async () => {
     try {
-      const res = await axios.get("http://localhost:4000/user/dashboard", {
+      const res = await axios.get("http://localhost:4000/booking/dashboard", {
         withCredentials: true,
       });
-      dispatch({
-        type: "USER_LOADED",
-        payload: res.data,
-      });
+      console.log(res);
+      return res;
     } catch (error) {
       dispatch({
         type: "USER_LOADED_ERROR",
@@ -78,8 +78,15 @@ const AuthState = (props) => {
         type: "LOGIN_SUCCESS",
         payload: res.data,
       });
-      loadUser();
+      //loadUser();
+      console.log(res.data.success);
+      // history.push("/dashboard/");
+      if (res.data.success) {
+        return true;
+      }
     } catch (error) {
+      console.log(error);
+
       console.log(error.response.data.message);
       dispatch({
         type: "LOGIN_FAIL",

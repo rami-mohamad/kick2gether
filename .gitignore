@@ -4,4 +4,5 @@
 /Backend/node_modules
 /Backend/.env
 /frontend/node_modules
+/frontend/.eslintcache
 

@@ -12,7 +12,6 @@ export const InfoContainer = styled.div`
   margin-right: auto;
   margin-left: auto;
   padding: 40px 20px;
-  max-width: 1400px;
 
   /* border: 1px solid red; */
 
@@ -72,7 +71,8 @@ export const InfoContent = styled.div`
     ". . . .";
   align-items: center;
   padding: 0 5%;
-  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
   height: 700px;
   background: rgba(196, 196, 196, 0.4);
   border-radius: 200px;
@@ -94,7 +94,17 @@ export const InfoContent = styled.div`
       ". . four .";
   }
 
-  @media screen and (max-width: 480px) {
+  @media screen and (max-width: 565px) {
+    height: 100%;
+    padding: 5% 0;
+    border-radius: 100px;
+    grid-template: repeat(4, 1fr) / repeat(3, 1fr);
+    grid-gap: 5px;
+    grid-template-areas:
+      ". one ."
+      ". two ."
+      ". three ."
+      ". four .";
   }
 `;
 
@@ -105,6 +115,13 @@ export const DotsLeft = styled.img`
   height: 70%;
 
   @media screen and (max-width: 768px) {
+    position: absolute;
+    left: 2%;
+    top: 15%;
+    height: 50%;
+  }
+
+  @media screen and (max-width: 565px) {
     position: absolute;
     left: 2%;
     top: 15%;
@@ -127,24 +144,38 @@ export const DotsRight = styled.img`
     top: 30%;
     height: 50%;
   }
+  @media screen and (max-width: 565px) {
+    position: absolute;
+    right: 2%;
+    top: 30%;
+    height: 50%;
+  }
 `;
 DotsRight.defaultProps = {
   src: Dots,
 };
 
 export const Img = styled.img`
-  width: 50%;
-  margin: 0 0 10px 0;
-  padding-right: 0;
-  position: absolute;
-  top: -9999px;
-  bottom: -9999px;
-  left: -9999px;
-  right: -9999px;
-  margin: auto;
-  z-index: 0;
-  opacity: 50%;
-`;
+         width: 40%;
+         margin: 0 0 10px 0;
+         padding-right: 0;
+         position: absolute;
+         top: -9999px;
+         bottom: -9999px;
+         left: -9999px;
+         right: -9999px;
+         margin: auto;
+         z-index: 0;
+         opacity: 50%;
+
+         @media screen and (max-width: 768px) {
+           width: 80%;
+         }
+
+         @media screen and (max-width: 565px) {
+           width: 90%;
+         }
+       `;
 
 export const InfoContentOne = styled.div`
   padding: 20px 30px;
@@ -313,7 +344,7 @@ export const TextFieldFour = styled.h2`
 
 export const InfoP1 = styled.p`
   width: 100%;
-  font-size: 12px;
+  font-size: 10px;
 
   @media screen and (max-width: 768px) {
     font-size: 8px;
@@ -321,7 +352,7 @@ export const InfoP1 = styled.p`
 `;
 export const InfoP2 = styled.p`
   width: 100%;
-  font-size: 12px;
+  font-size: 10px;
 
   @media screen and (max-width: 768px) {
     font-size: 8px;
@@ -329,7 +360,7 @@ export const InfoP2 = styled.p`
 `;
 export const InfoP3 = styled.p`
   width: 100%;
-  font-size: 12px;
+  font-size: 10px;
 
   @media screen and (max-width: 768px) {
     font-size: 8px;
@@ -337,7 +368,7 @@ export const InfoP3 = styled.p`
 `;
 export const InfoP4 = styled.p`
   width: 100%;
-  font-size: 12px;
+  font-size: 10px;
 
   @media screen and (max-width: 768px) {
     font-size: 8px;
@@ -345,17 +376,33 @@ export const InfoP4 = styled.p`
 `;
 
 export const BtnWrap = styled.div`
-  display: flex;
-  justify-content: flex-start;
-  position: absolute;
-  top: 650px;
-  left: auto;
+         display: flex;
+         justify-content: flex-start;
+         position: absolute;
+         top: 650px;
+         left: auto;
 
-  @media screen and (max-width: 768px) {
-    display: flex;
-    justify-content: flex-start;
-    position: absolute;
-    top: 1020px;
-    left: auto;
-  }
-`;
+         @media screen and (max-width: 768px) {
+           display: flex;
+           justify-content: flex-start;
+           position: absolute;
+           top: 1020px;
+           left: auto;
+         }
+
+         @media screen and (max-width: 565px) {
+           display: flex;
+           justify-content: flex-start;
+           position: absolute;
+           top: 1025px;
+           left: auto;
+         }
+
+         @media screen and (max-width: 480px) {
+           display: flex;
+           justify-content: flex-start;
+           position: absolute;
+           top: 960px;
+           left: auto;
+         }
+       `;

@@ -1,0 +1,81 @@
+.Dashboard {
+  width: auto;
+  //height: 60vw;
+  min-height: 100vh;
+  padding: 0;
+  position: relative;
+  color: azure;
+  background: linear-gradient(180deg, #000000 0%, rgba(255, 255, 255, 0) 100%),
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.5) 0%,
+      rgba(255, 255, 255, 0) 100%
+    ),
+    #535353;
+  .UserName {
+    text-align: center;
+    padding: 50px;
+    color: rgb(212, 145, 20);
+    font-style: italic;
+    font-size: 4vw;
+    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+    text-decoration: underline;
+  }
+  .Cards {
+    width: 70vw;
+    // height: 50vw;
+    margin: auto;
+    // border: 1px solid green;
+    font-size: 1.1vw;
+  }
+  .DashboardAlert {
+    height: 3vw;
+    text-align: center;
+    font-size: 1vw;
+    border-radius: 30%;
+    margin: 10px 10px;
+  }
+  .List {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    justify-content: flex-start;
+    justify-content: space-around;
+    // border: 1px solid red;
+    .list-group-item {
+      // margin: 10px;
+      width: 27vw;
+      height: 3.5vw;
+    }
+  }
+  .Orders {
+    width: 30vw;
+    height: 35vw;
+    margin: 20px 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+    padding: 16px;
+    // text-align: center;
+    background-color: #c7c7c7;
+    color: black;
+    position: relative;
+    // border: 1px solid red;
+  }
+  .OrderNumber {
+    text-align: center;
+    font-size: 2vw;
+  }
+  .DeleteOrder {
+    width: 60%;
+    height: 3vw;
+    // position: absolute;
+    border-radius: 50px;
+    bottom: 10px;
+    position: absolute;
+    left: 20%;
+    font-size: 1.5vw;
+    text-align: center;
+  }
+  .Towels {
+    margin-bottom: 50px;
+  }
+}

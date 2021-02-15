@@ -6,6 +6,7 @@ import { Route } from "react-router-dom";
 import Payment from "../Payment";
 import BookingConfirmation from "../BookingConfirmation";
 import FieldsMobile from "../FieldsMobile";
+import NavbarHistory from "../NavbarHistory";
 
 function BookingWrap() {
   const [booking, setBooking] = useState(false);
@@ -45,7 +46,13 @@ function BookingWrap() {
     }
   };
 
-  return <div>{showLogic()}</div>;
+  return (
+    <div>
+      <NavbarHistory></NavbarHistory>
+
+      {showLogic()}
+    </div>
+  );
 }
 
 export default BookingWrap;
