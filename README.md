@@ -8,7 +8,7 @@
 
 # Responsive UI made and designed with Figma.
 
-# Frontend: -React -React Hooks -Styled Components -Reactstrap -Bootstrap -CSS3 -SASS -Fontawesome -Googlefonts -Redux -Figma -HTML5 -Normalize.css
+# Frontend: -React -React Hooks -Styled Components -Reactstrap -Bootstrap -CSS3 -SASS -Fontawesome -Googlefonts -Figma -HTML5 -Normalize.css
 
 
 # Backend: -MongoDB -NodeJs -ExpressJs -mongoose -Passport -JWT -DateJs -bcrypt -Nodemailer -Postman -Insomnia
